@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@900&display=swap');
+
+body {
+    font-family: 'Bebas Neue', sans-serif;
+  }
+
+
 #backgroundVideo {
     position: fixed;
     top: 0;
@@ -16,6 +23,87 @@
     height: 100%;
     background: transparent;
     z-index: 0;
-    transition: background 0.3s ease;  /* Diese Zeile sorgt für die sanfte Überblendung */
+    transition: background 0.8s ease;  /* Diese Zeile sorgt für die sanfte Überblendung */
   }
   
+
+
+  /* headtitle */
+
+
+  .header-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+   
+ 
+
+  }
+  
+  .header-text {
+    margin: 0;
+    padding: 20px;
+    transition: all 0.6s;
+    color: antiquewhite;  
+  }
+
+
+
+  /*content-accordion*/
+
+  .akkordion-wrapper {
+    display: flex;
+    justify-content: center; /* Horizontale Zentrierung */
+    align-items: center;     /* Vertikale Zentrierung */
+    height: 100vh;           /* Nimm die gesamte Bildschirmhöhe ein */
+    
+}
+
+  .accordion {
+ /* Abstand nach oben */
+ 
+    padding-top: 30vh;
+    width: calc(100vw - 40vw); /* Responsive Breite */
+    min-width: 20vw; /* Mindestbreite */
+    max-width: 90vw; /* Maximale Breite */
+    color: antiquewhite; /* Schriftfarbe */
+    border: none;
+    font-size: 1.5em;
+   
+}
+
+.accordion-item {
+    border-top: 1px solid #eee;
+    position: relative;
+}
+
+.accordion-header {
+    cursor: pointer;
+    padding: 10px 0; /* Vertikales Padding, horizontales auf 0 setzen */
+    position: relative;
+    text-align: left; /* Linksbündig */
+    line-height: 1.5;
+    font-size:2rem;
+    transition: color 0.3s; /* Übergangseffekt */
+}
+
+
+.accordion-close {
+    position: absolute;
+    right: 10px; /* Position rechts */
+    top: 50%;
+    transform: translateY(-50%); /* Vertikal zentrieren */
+    background: none;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    padding: 0;
+    color: antiquewhite;
+}
+
+.accordion-body {
+    padding: 10px 0; /* Vertikales Padding, horizontales auf 0 setzen */
+    background: transparent; /* Kein Hintergrund */
+}
