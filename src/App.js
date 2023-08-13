@@ -1,23 +1,17 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import BackgroundVideo from './components/background';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BackgroundVideo />
+      <div style={{ height: "200vh", background: "rgba(255, 128, 227, 0.4)" }}> 
+      {/* Dieser Div gibt Ihnen Scroll-Raum. 
+           Das semi-transparente Weiß lässt Sie den Videohintergrund sehen. 
+           Fügen Sie hier Ihren Hauptinhalt ein. */}
+      </div>
     </div>
   );
 }
