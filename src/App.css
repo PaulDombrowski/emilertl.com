@@ -57,7 +57,8 @@ body {
     display: flex;
     justify-content: center; /* Horizontale Zentrierung */
     align-items: center;     /* Vertikale Zentrierung */
-    height: 100vh;           /* Nimm die gesamte Bildschirmhöhe ein */
+     /* Nimm die gesamte Bildschirmhöhe ein */
+  
     
 }
 
@@ -71,6 +72,7 @@ body {
     color: antiquewhite; /* Schriftfarbe */
     border: none;
     font-size: 1.5em;
+    margin-top: 30px;    
    
 }
 
@@ -106,4 +108,43 @@ body {
 .accordion-body {
     padding: 10px 0; /* Vertikales Padding, horizontales auf 0 setzen */
     background: transparent; /* Kein Hintergrund */
+}
+
+
+.image-content {
+  width: 100%;
+  height: auto;
+  display: block; /* Entfernt den unteren Abstand, den Inline-Elemente haben */
+  opacity: 0.5;
+  background: linear-gradient(rgba(255, 182, 193, 0.5), rgba(255, 182, 193, 0.5));
+  position: relative; /* Damit das ::before-Element relativ zu diesem Element positioniert wird */
+}
+
+
+
+
+/*accordion tabelle*/ 
+
+.accordion-table {
+  width: 100%;
+  border-spacing: 0px 15px; /* 15px horizontaler Abstand, 10px vertikaler Abstand */
+  color: antiquewhite;
+  
+}
+
+.accordion-table td {
+
+   /* Erhöhen Sie das horizontale padding für mehr Abstand zwischen den Spalten */
+  background-color: transparent;
+  vertical-align: top; /* Text wird oben ausgerichtet */
+
+}
+.accordion-table tr:hover td:nth-child(2) {
+  background-color: rgba(255, 255, 255, 0.2);
+  
+}
+
+.accordion-table td:first-child {
+  text-align: left; 
+  padding-right: 20px;
 }
