@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/emil_ertl/static/css/main.cd70a87f.css",
+    "main.js": "/emil_ertl/static/js/main.a85162d3.js",
+    "static/js/787.673ec1c6.chunk.js": "/emil_ertl/static/js/787.673ec1c6.chunk.js",
+    "index.html": "/emil_ertl/index.html",
+    "main.cd70a87f.css.map": "/emil_ertl/static/css/main.cd70a87f.css.map",
+    "main.a85162d3.js.map": "/emil_ertl/static/js/main.a85162d3.js.map",
+    "787.673ec1c6.chunk.js.map": "/emil_ertl/static/js/787.673ec1c6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cd70a87f.css",
+    "static/js/main.a85162d3.js"
+  ]
+}
