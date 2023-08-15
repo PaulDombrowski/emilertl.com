@@ -7,8 +7,6 @@ function AccordionWithContent() {
 
     const handleHeaderClick = (index, e) => {
         setActiveIndex(activeIndex === index ? null : index);
-        
-        // Scrollen zum Akkordeon-Wrapper
         accordionWrapperRef.current.scrollIntoView({ behavior: "smooth" });
     };
 
@@ -17,8 +15,14 @@ function AccordionWithContent() {
             title: 'About',
             body: (
                 <>
-                <img className='image-content' src="/photo_2023-08-14_14-19-25.jpg" alt="Bild für Titel 2" />
-                    
+                <img 
+                    className='image-content' 
+                    src="/photo_2023-08-14_14-19-25.jpg" 
+                    alt="Bild für Titel 2" 
+                    style={{filter: "url(#wavy)"}}
+                    onMouseOver={(e) => e.target.style.filter = ""}
+                    onMouseOut={(e) => e.target.style.filter = "url(#wavy)"}
+                />
                     <p>Emil Ertl works as a dancer, choreographer, performer and teacher in the field of performance art and dance. Their work deals with questions around … In their own work as well as when working with others, a main interest is social relations and their navigations. Within relationality and its navigation lies potential for movement and change, both physically as well as politically … (hier gehts noch weiter mit 1-2 Sätzen)
                     Emils work Eternal Betrayal was shown at Ballhaus Ost in the frame of Dirty Debüt, and at ada studios in the frame of NAH DRAN extended. They recently published Eigentlich benutze ich dieses Wort nicht, an audio piece about failure and fucking up, created in collaboration with their collective ORAL-G.
                     As a dancer they work with choreographers such as Olympia Bukkakis, Ellen Söderhult, Antonia Baehr, Ar Utke Acs, Tchivett, Florentina Holzinger, Sindri Runudde and Tümay Kilincel. 
@@ -110,29 +114,48 @@ function AccordionWithContent() {
     ];
 
     return (
-        <div className="akkordion-wrapper" ref={accordionWrapperRef}>
-            <div className="accordion">
-                {content.map((item, index) => (
-                    <div key={index} className="accordion-item">
-                        <div className="accordion-header">
-                            <span 
-                                style={{flexGrow: 1, cursor: 'pointer'}}
-                                onClick={(e) => handleHeaderClick(index, e)}
-                            >
-                                {item.title}
-                            </span>
-                            {activeIndex === index && 
+        <div>
+            {/* SVG Filter für den wellenförmigen Effekt */}
+            <svg width="0" height="0">
+    <defs>
+        <filter id="wavy">
+            <feTurbulence type="turbulence" baseFrequency="0.01" numOctaves="5" result="turbulence">
+                <animate attributeName="baseFrequency" dur="18s" values="0.01; 0.02; 0.01" repeatCount="indefinite" />
+            </feTurbulence>
+            <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="40" />
+        </filter>
+    </defs>
+</svg>
+
+
+
+
+
+
+            <div className="akkordion-wrapper" ref={accordionWrapperRef}>
+                <div className="accordion">
+                    {content.map((item, index) => (
+                        <div key={index} className="accordion-item">
+                            <div className="accordion-header">
                                 <span 
-                                    className="accordion-close" 
-                                    onClick={() => setActiveIndex(null)}
+                                    style={{flexGrow: 1, cursor: 'pointer'}}
+                                    onClick={(e) => handleHeaderClick(index, e)}
                                 >
-                                    &times;
+                                    {item.title}
                                 </span>
-                            }
+                                {activeIndex === index && 
+                                    <span 
+                                        className="accordion-close" 
+                                        onClick={() => setActiveIndex(null)}
+                                    >
+                                        &times;
+                                    </span>
+                                }
+                            </div>
+                            {activeIndex === index && <div className="accordion-body">{item.body}</div>}
                         </div>
-                        {activeIndex === index && <div className="accordion-body">{item.body}</div>}
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         </div>
     );

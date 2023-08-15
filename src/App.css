@@ -35,12 +35,15 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    text-align: center;
-   
+    height: 100vh;  /* Damit es die gesamte Höhe einnimmt */
+    width: max-content; /* Nur so breit wie der Inhalt */
+    transform-origin: top left; /* Punkt der Drehung */
+    transform: rotate(-90deg) translateX(-100%); /* 90 Grad Drehung und Verschiebung nach oben */
+    text-align: left;  /* Nicht zentriert, da es am Rand ist */
+  }
  
 
-  }
+  
   
   .header-text {
     margin: 0;
@@ -114,12 +117,15 @@ body {
 .image-content {
   width: 100%;
   height: auto;
-  display: block; /* Entfernt den unteren Abstand, den Inline-Elemente haben */
-  opacity: 0.5;
-  background: linear-gradient(rgba(255, 182, 193, 0.5), rgba(255, 182, 193, 0.5));
-  position: relative; /* Damit das ::before-Element relativ zu diesem Element positioniert wird */
-}
+  display: block;
+  position: relative;
+  border-radius: 10px;
+  z-index: 1;
+  opacity: 0.7;
+  margin-bottom: 14vh;
 
+  
+}
 
 
 

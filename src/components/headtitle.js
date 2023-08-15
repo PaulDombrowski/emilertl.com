@@ -12,10 +12,10 @@ const Header = () => {
 
   useEffect(() => {
     if (scrollY <= 50) {
-      setFontSize(`${13 - scrollY * 0.02}vw`);
+      setFontSize(`${11 - scrollY * 0.02}vw`);
       setTextOutline(false); // Text hat normale Füllung bis 50
     } else {
-      setFontSize('6vw');
+      setFontSize('5vw');
       setTextOutline(true); // Nur Konturen nach 50
     }
   }, [scrollY]);
