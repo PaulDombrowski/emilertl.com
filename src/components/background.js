@@ -30,7 +30,7 @@ function BackgroundVideo() {
     useEffect(() => {
         adjustOverlayHeight();
         window.addEventListener("resize", adjustOverlayHeight);
-        window.addEventListener("click", adjustOverlayHeight);  // Höhe anpassen, wenn auf das Akkordeon geklickt wird
+        window.addEventListener("click", adjustOverlayHeight);
 
         window.addEventListener("wheel", handleScroll);
         return () => {
@@ -42,11 +42,21 @@ function BackgroundVideo() {
     }, [timer]);
 
     useEffect(() => {
-      const videoElement = document.getElementById("backgroundVideo");
-      if (videoElement) {
-          videoElement.play();
-      }
-  }, []);
+        const videoElement = document.getElementById("backgroundVideo");
+        if (videoElement) {
+            videoElement.play();
+
+            const handleVideoEnd = () => {
+                videoElement.play();
+            };
+            
+            videoElement.addEventListener('ended', handleVideoEnd);
+
+            return () => {
+                videoElement.removeEventListener('ended', handleVideoEnd);
+            };
+        }
+    }, []);
 
     return (
         <>
@@ -57,7 +67,6 @@ function BackgroundVideo() {
                 muted 
                 loop
                 playsInline
-
             >
                 <source src={process.env.PUBLIC_URL + '/Rec_2023-06-29 14-35-19.mp4'} type="video/mp4" />
                 Your browser does not support the video tag.
