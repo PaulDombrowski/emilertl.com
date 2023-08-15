@@ -22,7 +22,7 @@ function BackgroundVideo() {
         const newTimer = setTimeout(() => {
             setOpacity(0);
             setTimer(null);
-        }, 150);
+        }, 250);
 
         setTimer(newTimer);
     };
@@ -41,6 +41,13 @@ function BackgroundVideo() {
         };
     }, [timer]);
 
+    useEffect(() => {
+      const videoElement = document.getElementById("backgroundVideo");
+      if (videoElement) {
+          videoElement.play();
+      }
+  }, []);
+
     return (
         <>
             <div className="video-overlay" style={{ background: `rgba(255, 0, 0, ${opacity})` }}></div>
@@ -49,6 +56,8 @@ function BackgroundVideo() {
                 autoPlay 
                 muted 
                 loop
+                playsInline
+
             >
                 <source src={process.env.PUBLIC_URL + '/Rec_2023-06-29 14-35-19.mp4'} type="video/mp4" />
                 Your browser does not support the video tag.

@@ -3,9 +3,15 @@ import '../App.css';
 
 function AccordionWithContent() {
     const [activeIndex, setActiveIndex] = useState(null);
+    const [subActiveIndex, setSubActiveIndex] = useState(null);
     const accordionWrapperRef = useRef(null);
 
     const handleHeaderClick = (index, e) => {
+        if (activeIndex === index) { // Wenn der aktuelle Index dem geklickten Index entspricht (d.h. das Akkordeon wird geschlossen)
+            if (index === 2) { // Wenn "selected pieces" geschlossen wird
+                setSubActiveIndex(null); // Setze subActiveIndex zurück, um alle Unterreiter zu schließen
+            }
+        }
         setActiveIndex(activeIndex === index ? null : index);
         accordionWrapperRef.current.scrollIntoView({ behavior: "smooth" });
     };
@@ -108,63 +114,80 @@ function AccordionWithContent() {
                     </tr>
                 </tbody>
             </table>
+            
         </>
     )
-}
-    ];
-
-    return (
-        <div>
-            {/* SVG Filter für den wellenförmigen Effekt */}
-            <svg width="0" height="0">
-    <defs>
-        <filter id="wavy">
-            <feTurbulence type="turbulence" baseFrequency="0.01" numOctaves="5" result="turbulence">
-                <animate attributeName="baseFrequency" dur="18s" values="0.01; 0.02; 0.01" repeatCount="indefinite" />
-            </feTurbulence>
-            <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="40" />
-        </filter>
-    </defs>
-</svg>
-
-
-
-
-
-
-            <div className="akkordion-wrapper" ref={accordionWrapperRef}>
-                <div className="accordion">
-                {content.map((item, index) => (
-                    <div key={index} className="accordion-item">
-    <div 
-        className="accordion-header" 
-        onClick={(e) => handleHeaderClick(index, e)}
-    >
-        <span style={{flexGrow: 1, cursor: 'pointer'}}>
-            {item.title}
-        </span>
-        {activeIndex === index && 
-            <span 
-                className="accordion-close" 
-                onClick={(e) => {
-                    e.stopPropagation(); // Verhindert, dass das Event den Parent-Handler erreicht
-                    setActiveIndex(null);
-                }}
-            >
-                      &times;
-                  </span>
-                      }
+}, 
+{
+    title: 'selected pieces',
+    body: (
+        <div className="accordion">
+            {[ 
+                { title: 'Piece 1', body: <div>Content for Piece 1</div> },
+                { title: 'Piece 2', body: <div>Content for Piece 2</div> },
+                { title: 'Piece 3', body: <div>Content for Piece 3</div> },
+                { title: 'Piece 4', body: <div>Content for Piece 4</div> }
+            ].map((subItem, subIndex) => (
+                <div key={subIndex} className="accordion-item">
+                    <div 
+                        className="accordion-header" 
+                        onClick={() => setSubActiveIndex(subActiveIndex === subIndex ? null : subIndex)}
+                    >
+                        {subItem.title}
+                    </div>
+                    {subActiveIndex === subIndex && <div className="accordion-body">{subItem.body}</div>}
                 </div>
-                 {activeIndex === index && <div className="accordion-body">{item.body}</div>}
-                </div>
-
-                       ))}
-
-                  
-                </div>
-            </div>
+            ))}
         </div>
-    );
+    )
+}
+];
+
+return (
+<div>
+    {/* SVG Filter */}
+    <svg width="0" height="0">
+        <defs>
+            <filter id="wavy">
+                <feTurbulence type="turbulence" baseFrequency="0.01" numOctaves="5" result="turbulence">
+                    <animate attributeName="baseFrequency" dur="18s" values="0.01; 0.02; 0.01" repeatCount="indefinite" />
+                </feTurbulence>
+                <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="40" />
+            </filter>
+        </defs>
+    </svg>
+    
+    <div className="akkordion-wrapper" ref={accordionWrapperRef}>
+        <div className="accordion">
+        {content.map((item, index) => (
+            <div key={index} className="accordion-item">
+                <div 
+                    className="accordion-header" 
+                    onClick={(e) => handleHeaderClick(index, e)}
+                >
+                    <span style={{flexGrow: 1, cursor: 'pointer'}}>
+                        {item.title}
+                    </span>
+                    {activeIndex === index && 
+                        <span 
+                            className="accordion-close" 
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                setActiveIndex(null);
+                            }}
+                        >
+                            &times;
+                        </span>
+                    }
+                </div>
+                {activeIndex === index && <div className="accordion-body">{item.body}</div>}
+            </div>
+        ))}
+        </div>
+    </div>
+</div>
+);
 }
 
 export default AccordionWithContent;
+

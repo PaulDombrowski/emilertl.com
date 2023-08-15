@@ -58,6 +58,7 @@ html, body {
   /*content-accordion*/
 
   .akkordion-wrapper {
+    padding-top: 30vh;
     display: flex;
     justify-content: center; /* Horizontale Zentrierung */
     align-items: center;     /* Vertikale Zentrierung */
@@ -69,7 +70,7 @@ html, body {
   .accordion {
  /* Abstand nach oben */
  
-    padding-top: 30vh;
+    
     width: calc(100vw - 40vw); /* Responsive Breite */
     min-width: 20vw; /* Mindestbreite */
     max-width: 90vw; /* Maximale Breite */
