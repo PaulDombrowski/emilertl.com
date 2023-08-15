@@ -1,5 +1,5 @@
 {
-  "homepage": "http://pauldombrowski.github.io/emil_ertl",
+  "homepage": "http://pauldombrowski.github.io/portfolio_emilertl",
   "name": "emil_ertl",
   "version": "0.1.0",
   "private": true,
@@ -24,7 +24,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  
+
   "eslintConfig": {
     "extends": [
       "react-app",
