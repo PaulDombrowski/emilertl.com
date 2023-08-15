@@ -7,20 +7,14 @@ import AccordionWithContent from './components/Content';
 
 function App() {
   return (
-    <div>
+    <div style={{ minHeight: "100vh", background: "rgba(255, 128, 227, 0.5)" }}>
       <BackgroundVideo />
-      <div style={{ height: "200vh", background: "rgba(255, 128, 227, 0.5)" }}> 
-     
       <Header />   
-
-      <AccordionWithContent/>  
-   
-      
-
-
-      </div>
+      <AccordionWithContent />
     </div>
   );
 }
+
+
 
 export default App;

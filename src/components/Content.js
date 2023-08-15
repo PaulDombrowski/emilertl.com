@@ -134,27 +134,33 @@ function AccordionWithContent() {
 
             <div className="akkordion-wrapper" ref={accordionWrapperRef}>
                 <div className="accordion">
-                    {content.map((item, index) => (
-                        <div key={index} className="accordion-item">
-                            <div className="accordion-header">
-                                <span 
-                                    style={{flexGrow: 1, cursor: 'pointer'}}
-                                    onClick={(e) => handleHeaderClick(index, e)}
-                                >
-                                    {item.title}
-                                </span>
-                                {activeIndex === index && 
-                                    <span 
-                                        className="accordion-close" 
-                                        onClick={() => setActiveIndex(null)}
-                                    >
-                                        &times;
-                                    </span>
-                                }
-                            </div>
-                            {activeIndex === index && <div className="accordion-body">{item.body}</div>}
-                        </div>
-                    ))}
+                {content.map((item, index) => (
+                    <div key={index} className="accordion-item">
+    <div 
+        className="accordion-header" 
+        onClick={(e) => handleHeaderClick(index, e)}
+    >
+        <span style={{flexGrow: 1, cursor: 'pointer'}}>
+            {item.title}
+        </span>
+        {activeIndex === index && 
+            <span 
+                className="accordion-close" 
+                onClick={(e) => {
+                    e.stopPropagation(); // Verhindert, dass das Event den Parent-Handler erreicht
+                    setActiveIndex(null);
+                }}
+            >
+                      &times;
+                  </span>
+                      }
+                </div>
+                 {activeIndex === index && <div className="accordion-body">{item.body}</div>}
+                </div>
+
+                       ))}
+
+                  
                 </div>
             </div>
         </div>
