@@ -157,3 +157,56 @@ html, body {
   text-align: left; 
   padding-right: 20px;
 }
+
+
+/*responsive*/
+
+
+/* Standardmäßige Styles */
+
+/* Styles für Bildschirme mit einer Breite von 768px oder weniger (typische Tablet-Größe) */
+@media screen and (max-width: 768px) {
+  .header-text {
+      font-size: 1.2rem;
+      padding: 10px;
+  }
+
+  .accordion {
+      font-size: 1.2em;
+      width: 90vw; 
+  }
+
+  .accordion-header {
+      font-size: 1.5rem;
+  }
+}
+
+/* Allgemeine Stildefinitionen (Desktop/Tablets) ... */
+
+/* Spezifische Styles für Mobiltelefone */
+@media screen and (max-width: 480px) {
+  /* Generelle Anpassungen */
+  .header-text {
+      font-size: 0.9rem;
+      padding: 5px;
+  }
+
+  /* Anpassungen für das Akkordion */
+  .accordion {
+      font-size: 1em;
+      width: 90vw; 
+      margin-top: 15px;    
+  }
+
+  .accordion-header {
+      font-size: 1.2rem;
+  }
+
+  .accordion-table td:first-child {
+      padding-right: 10px;
+  }
+
+  .image-content {
+      margin-bottom: 8vh; 
+  }
+}

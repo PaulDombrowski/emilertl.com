@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 function BackgroundVideo() {
     const [opacity, setOpacity] = useState(0);
     const [timer, setTimer] = useState(null);
+    const [startTouchY, setStartTouchY] = useState(null);
 
     const adjustOverlayHeight = () => {
         const overlay = document.querySelector('.video-overlay');
@@ -14,7 +15,23 @@ function BackgroundVideo() {
     const handleScroll = (e) => {
         const newOpacity = Math.min(Math.abs(e.deltaY) * 0.005, 1);
         setOpacity(newOpacity);
+        resetTimer();
+    };
 
+    const handleTouchStart = (e) => {
+        setStartTouchY(e.touches[0].clientY);
+    };
+
+    const handleTouchMove = (e) => {
+        if (startTouchY === null) return;
+
+        const deltaY = startTouchY - e.touches[0].clientY;
+        const newOpacity = Math.min(Math.abs(deltaY) * 0.005, 1);
+        setOpacity(newOpacity);
+        resetTimer();
+    };
+
+    const resetTimer = () => {
         if (timer) {
             clearTimeout(timer);
         }
@@ -31,29 +48,34 @@ function BackgroundVideo() {
         adjustOverlayHeight();
         window.addEventListener("resize", adjustOverlayHeight);
         window.addEventListener("click", adjustOverlayHeight);
-
         window.addEventListener("wheel", handleScroll);
+        window.addEventListener("touchstart", handleTouchStart);
+        window.addEventListener("touchmove", handleTouchMove);
         return () => {
             window.removeEventListener("wheel", handleScroll);
+            window.removeEventListener("touchstart", handleTouchStart);
+            window.removeEventListener("touchmove", handleTouchMove);
             window.removeEventListener("resize", adjustOverlayHeight);
             window.removeEventListener("click", adjustOverlayHeight);
             if (timer) clearTimeout(timer);
         };
-    }, [timer]);
+    }, [timer, startTouchY]);
 
     useEffect(() => {
         const videoElement = document.getElementById("backgroundVideo");
         if (videoElement) {
             videoElement.play();
 
-            const handleVideoEnd = () => {
-                videoElement.play();
+            const handleVideoTimeUpdate = () => {
+                if (videoElement.duration - videoElement.currentTime <= 0.5) {
+                    videoElement.currentTime = 0;
+                    videoElement.play();
+                }
             };
-            
-            videoElement.addEventListener('ended', handleVideoEnd);
 
+            videoElement.addEventListener('timeupdate', handleVideoTimeUpdate);
             return () => {
-                videoElement.removeEventListener('ended', handleVideoEnd);
+                videoElement.removeEventListener('timeupdate', handleVideoTimeUpdate);
             };
         }
     }, []);
