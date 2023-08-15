@@ -41,7 +41,7 @@ function BackgroundVideo() {
         muted 
         loop
       >
-        <source src="/Rec_2023-06-29 14-35-19.mp4" type="video/mp4" />
+        <source src={process.env.PUBLIC_URL + '/Rec_2023-06-29 14-35-19.mp4'} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
     </>

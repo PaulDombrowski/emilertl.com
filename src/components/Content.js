@@ -17,7 +17,7 @@ function AccordionWithContent() {
                 <>
                 <img 
                     className='image-content' 
-                    src="/photo_2023-08-14_14-19-25.jpg" 
+                    src={process.env.PUBLIC_URL + '/photo_2023-08-14_14-19-25.jpg'} 
                     alt="Bild für Titel 2" 
                     style={{filter: "url(#wavy)"}}
                     onMouseOver={(e) => e.target.style.filter = ""}
