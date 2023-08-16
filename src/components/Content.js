@@ -25,11 +25,8 @@ function AccordionWithContent() {
                 <>
                 <img 
                     className='image-content' 
-                    src={process.env.PUBLIC_URL + '/photo_2023-08-14_14-19-25.jpg'} 
-                    alt="bild kann nicht angeziegt werden" 
-                    style={{filter: "url(#wavy)"}}
-                    onMouseOver={(e) => e.target.style.filter = ""}
-                    onMouseOut={(e) => e.target.style.filter = "url(#wavy)"}
+                    src={process.env.PUBLIC_URL + '/photo_2023-08-16_21-30-12.jpg'} 
+                    alt="bild kann nicht angezeigt werden" 
                 />
                     <p>Emil Ertl works as a dancer, choreographer, performer and teacher in the field of performance art and dance. Their work deals with questions around … In their own work as well as when working with others, a main interest is social relations and their navigations. Within relationality and its navigation lies potential for movement and change, both physically as well as politically … (hier gehts noch weiter mit 1-2 Sätzen)
                     Emils work Eternal Betrayal was shown at Ballhaus Ost in the frame of Dirty Debüt, and at ada studios in the frame of NAH DRAN extended. They recently published Eigentlich benutze ich dieses Wort nicht, an audio piece about failure and fucking up, created in collaboration with their collective ORAL-G.
@@ -58,7 +55,7 @@ function AccordionWithContent() {
                             </tr>
                             <tr>
                                 <td></td>
-                                <td> <span className="cv-überschrift">Eigentümliche Verhältnisse,</span> <br />performative research with Onur Agbaba and Lotta Beckers, TakeHeart Fonds Daku, HAU Berlin</td>
+                                <td> <span className="cv-überschrift">Eigentümliche Verhältnisse</span> <br />performative research with Onur Agbaba and Lotta Beckers, TakeHeart Fonds Daku, HAU Berlin</td>
                             </tr>
                             <tr>
                                 <td></td>
@@ -198,10 +195,21 @@ function AccordionWithContent() {
     body: (
         <div className="accordion">
             {[ 
-                { title: 'Piece 1', body: <div>Content for Piece 1</div> },
-                { title: 'Piece 2', body: <div>Content for Piece 2</div> },
-                { title: 'Piece 3', body: <div>Content for Piece 3</div> },
-                { title: 'Piece 4', body: <div>Content for Piece 4</div> }
+
+        { title: 'eternal betrayal',
+        body: 
+            <div>
+            <img   className='image-content'  src={process.env.PUBLIC_URL + '/photo_2023-08-16_21-30-12.jpg'} alt="Beschreibung für Bild 1.1"/>
+           <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
+            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet </p> 
+            <div class="video-wrapper">
+            <iframe src="https://player.vimeo.com/video/520291775" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        </div>
+            </div> },
+
+
+             
+               
             ].map((subItem, subIndex) => (
                 <div key={subIndex} className="accordion-item">
                     <div 
@@ -220,7 +228,6 @@ function AccordionWithContent() {
 
 return (
     <div>
-        {/* SVG Filter and other content */}
         
         <div className="akkordion-wrapper" ref={accordionWrapperRef}>
             <div className="accordion">
