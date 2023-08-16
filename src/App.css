@@ -5,6 +5,16 @@ html, body {
   font-family: 'Bebas Neue', sans-serif;
 }
 
+#loadingBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: #edacf0;
+  z-index: 1000;
+  transition: width 0.3s ease;
+}
 
 
 

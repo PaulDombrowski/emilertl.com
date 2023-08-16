@@ -1,10 +1,12 @@
 import React, { useState, useRef } from 'react';
 import '../App.css';
+import { motion, AnimatePresence } from 'framer-motion';
 
 function AccordionWithContent() {
     const [activeIndex, setActiveIndex] = useState(null);
     const [subActiveIndex, setSubActiveIndex] = useState(null);
     const accordionWrapperRef = useRef(null);
+    
 
     const handleHeaderClick = (index, e) => {
         if (activeIndex === index) { // Wenn der aktuelle Index dem geklickten Index entspricht (d.h. das Akkordeon wird geschlossen)
@@ -217,49 +219,37 @@ function AccordionWithContent() {
 ];
 
 return (
-<div>
-    {/* SVG Filter */}
-    <svg width="0" height="0">
-        <defs>
-            <filter id="wavy">
-                <feTurbulence type="turbulence" baseFrequency="0.01" numOctaves="5" result="turbulence">
-                    <animate attributeName="baseFrequency" dur="18s" values="0.01; 0.02; 0.01" repeatCount="indefinite" />
-                </feTurbulence>
-                <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="40" />
-            </filter>
-        </defs>
-    </svg>
-    
-    <div className="akkordion-wrapper" ref={accordionWrapperRef}>
-        <div className="accordion">
-        {content.map((item, index) => (
-            <div key={index} className="accordion-item">
-                <div 
-                    className="accordion-header" 
-                    onClick={(e) => handleHeaderClick(index, e)}
-                >
-                    <span style={{flexGrow: 1, cursor: 'pointer'}}>
+    <div>
+        {/* SVG Filter and other content */}
+        
+        <div className="akkordion-wrapper" ref={accordionWrapperRef}>
+            <div className="accordion">
+            {content.map((item, index) => (
+                <div key={index} className="accordion-item">
+                    <div 
+                        className="accordion-header" 
+                        onClick={(e) => handleHeaderClick(index, e)}
+                    >
                         {item.title}
-                    </span>
-                    {activeIndex === index && 
-                        <span 
-                            className="accordion-close" 
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                setActiveIndex(null);
-                            }}
-                        >
-                            &times;
-                        </span>
-                    }
+                    </div>
+                    <AnimatePresence initial={false}>
+                        {activeIndex === index && (
+                            <motion.div 
+                            initial={{ opacity: 0, height: 0 }}
+                             animate={{ opacity: 1, height: 'auto', transition: { duration: 1.0 } }}
+                                exit={{ opacity: 0, height: 0, transition: { duration: 1.0 } }}
+                            className="accordion-body"
+                            >
+                                {item.body}
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
                 </div>
-                {activeIndex === index && <div className="accordion-body">{item.body}</div>}
+            ))}
             </div>
-        ))}
         </div>
     </div>
-</div>
-);
+    );
 }
 
 export default AccordionWithContent;
