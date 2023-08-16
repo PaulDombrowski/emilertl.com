@@ -135,7 +135,7 @@ html, body {
 
 .accordion-table {
   width: 100%;
-  border-spacing: 0px 15px; /* 15px horizontaler Abstand, 10px vertikaler Abstand */
+  border-spacing: 0px 8px; /* 15px horizontaler Abstand, 10px vertikaler Abstand */
   color: antiquewhite;
   
 }
@@ -159,13 +159,17 @@ html, body {
 
 .accordion-table td:first-child {
   text-align: left; 
-  padding-right: 20px;
+  padding-right: 30px;
 }
 
 .cv-überschrift {
   color: rgb(252, 228, 180);
 }
 
+.cv-title {
+  font-size: 1.3em;
+  padding-top: 30px;
+}
 
 /*responsive*/
 

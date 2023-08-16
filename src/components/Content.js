@@ -43,7 +43,7 @@ function AccordionWithContent() {
             title: 'CV',
             body: (
                 <>
-                    <p>Work as Choreographer/Maker</p>
+                    <p className='cv-title'>Work as Choreographer/Maker</p>
                     <table className="accordion-table">
                         <tbody>
                             <tr>
@@ -64,7 +64,7 @@ function AccordionWithContent() {
                             </tr>
                             <tr>
                                 <td>2021</td>
-                                <td> <span className="cv-überschrift">Eternal Betrayal,</span> <br />Eternal Betrayal, Dirty Debüt Ballhaus Ost Berlin + NAH DRAN extended ada studio Berlin</td>
+                                <td> <span className="cv-überschrift">Eternal Betrayal</span> <br />Eternal Betrayal, Dirty Debüt Ballhaus Ost Berlin + NAH DRAN extended ada studio Berlin</td>
                             </tr>
                             <tr>
                                 <td></td>
@@ -81,110 +81,110 @@ function AccordionWithContent() {
                         </tbody>
                     </table>
         
-                    <p>Work as Performer</p>
+                    <p className='cv-title'>Work as Performer</p> 
                     <table className="accordion-table">
                         <tbody>
                             <tr>
                                 <td>2023</td>
-                                <td>replay by Olympia Bukkakis, premiere February 2023 at Sophiensaele Berlin</td>
+                                <td> <span className="cv-überschrift">replay</span> <br /> by Olympia Bukkakis, premiere February 2023 at Sophiensaele Berlin</td>
                             </tr>
                             <tr>
                                 <td>2022</td>
-                                <td>Närheten by Tove Sahlin, Riksteatern Sweden</td>
+                                <td><span className="cv-überschrift">Närheten</span>  <br /> by Tove Sahlin, Riksteatern Sweden</td>
                             </tr>
                             <tr>
                                 <td>2021</td>
-                                <td>SLXL video series, Ackerstadt Palast Berlin</td>
+                                <td><span className="cv-überschrift">SLXL video series</span> <br /> Ackerstadt Palast Berlin</td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>DUNKA DUNKA by Ellen Söderhult, Heizhaus Berlin</td>
+                                <td><span className="cv-überschrift">DUNKA DUNKA</span> <br />by Ellen Söderhult, Heizhaus Berlin</td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>How to do things with romance – a prologue by Ellen Söderhult, Palladium Malmö</td>
+                                <td><span className="cv-überschrift">How to do things with romance</span> <br /> a prologue by Ellen Söderhult, Palladium Malmö</td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>The Fishing Dance and Other Cosmic Confessions by Sindri Runudde, Nordwind Festival, Kampnagel Hamburg</td>
+                                <td><span className="cv-überschrift">The Fishing Dance and Other Cosmic Confessions</span> <br /> by Sindri Runudde, Nordwind Festival, Kampnagel Hamburg</td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>Landscapes of desire by Tchivett, Künstlerhaus Lukas Aahrenshoop</td>
+                                <td><span className="cv-überschrift">Landscapes of desire</span> <br />by Tchivett, Künstlerhaus Lukas Aahrenshoop</td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>echoes by Klara Utke Acs, MDT Stockholm and Danshallerne Copenhagen</td>
+                                <td><span className="cv-überschrift">echoes </span> <br />by Klara Utke Acs, MDT Stockholm and Danshallerne Copenhagen</td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>Mini Muscle Drag Show with Natal Igor Dobkin and Rahel Barra, Fleetstreet Theater Hamburg</td>
+                                <td><span className="cv-überschrift">Mini Muscle Drag Show</span> <br /> with Natal Igor Dobkin and Rahel Barra, Fleetstreet Theater Hamburg</td>
                             </tr>
                             <tr>
                                 <td>2019</td>
-                                <td>touching landscapes by Tchivett, Uferstudios Berlin</td>
+                                <td><span className="cv-überschrift">touching landscapes</span> <br />by Tchivett, Uferstudios Berlin</td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>Ägget, katten och dikten by Pontus Pettersson, Konsthall C Stockholm</td>
+                                <td><span className="cv-überschrift">Ägget, katten och dikten</span>  <br />by Pontus Pettersson, Konsthall C Stockholm</td>
                             </tr>
                         </tbody>
                     </table>
         
-                    <p>Work as Assistance</p>
+                <p className='cv-title'>Work as Assistance</p> 
                     <table className="accordion-table">
                         <tbody>
                             <tr>
                                 <td>2022</td>
-                                <td>IN THE DEPTHS by Sheena McGrandles and Claire Sobottke, Lübbenau</td>
+                                <td><span className="cv-überschrift">IN THE DEPTHS</span>  <br /> by Sheena McGrandles and Claire Sobottke, Lübbenau</td>
                             </tr>
                             <tr>
                                 <td>2020</td>
-                                <td>Die Hörposaune by Antonia Baehr and Jule Flierl, HAU Berlin</td>
+                                <td><span className="cv-überschrift">Die Hörposaune</span>  <br /> by Antonia Baehr and Jule Flierl, HAU Berlin</td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>A Touch of the Other by Olympia Bukkakis, Sophiensaele Berlin</td>
+                                <td><span className="cv-überschrift">A Touch of the Other</span>  <br /> by Olympia Bukkakis, Sophiensaele Berlin</td>
                             </tr>
                             <tr>
                                 <td>2019</td>
-                                <td>Walking Backwards by Renate Lorenz and Pauline Boudry, Venice Biennale</td>
+                                <td><span className="cv-überschrift">Walking Backwards</span>  <br /> by Renate Lorenz and Pauline Boudry, Venice Biennale</td>
                             </tr>
                         </tbody>
                     </table>
         
-                    <p>Work as Pedagogue</p>
+                    <p className='cv-title'>Work as Pedagogue</p> 
                     <table className="accordion-table">
                         <tbody>
                             <tr>
                                 <td>2022</td>
-                                <td>Drag and Jazz Dance Workshop, University Madithea, Leipzig</td>
+                                <td><span className="cv-überschrift">Drag and Jazz Dance Workshop</span>  <br /> University Madithea, Leipzig</td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>Creative Dance for Teens and Kids, Zirkus CABUWAZI Berlin</td>
+                                <td><span className="cv-überschrift">Creative Dance for Teens and Kids,</span>  <br /> Zirkus CABUWAZI Berlin</td>
                             </tr>
                             <tr>
                                 <td>2021</td>
-                                <td>Improvisation and Dance Workshop for Queer and Trans People at Failing Femmes Berlin</td>
+                                <td><span className="cv-überschrift">Improvisation and Dance Workshop for Queer and Trans People</span>  <br /> Failing Femmes Berlin</td>
                             </tr>
                         </tbody>
                     </table>
         
-                    <p>Education</p>
+                    <p className='cv-title'>Education</p> 
                     <table className="accordion-table">
                         <tbody>
                             <tr>
-                                <td>2016-19</td>
-                                <td>BA in Dance Performance, Stockholm University of the Arts</td>
+                                <td>2016- <br /> 2019</td>
+                                <td><span className="cv-überschrift">BA in Dance Performance</span>  <br /> Stockholm University of the Arts</td>
                             </tr>
                             <tr>
-                                <td>2015-16</td>
-                                <td>Hochschule für Musik und Tanz, Köln</td>
+                                <td>2015-<br />2016</td>
+                                <td><span className="cv-überschrift">Hochschule für Musik und Tanz</span>  <br />Köln</td>
                             </tr>
                             <tr>
-                                <td>2013-14</td>
-                                <td>Guest Student in Dance, Theater Academy of the University of the Arts Helsinki</td>
+                                <td>2013-<br />2014</td>
+                                <td><span className="cv-überschrift">Guest Student in Dance</span>  <br /> Theater Academy of the University of the Arts Helsinki</td>
                             </tr>
                         </tbody>
                     </table>
