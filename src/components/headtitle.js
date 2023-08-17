@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
+import { motion, useAnimation } from 'framer-motion';
 
 const Header = () => {
+  const controls = useAnimation();
   const [scrollY, setScrollY] = useState(0);
-  const [fontSize, setFontSize] = useState('20vw');
-  const [textOutline, setTextOutline] = useState(false); // Neuer Zustand für Text-Kontur
 
   const handleScroll = () => {
     setScrollY(window.scrollY);
@@ -12,13 +12,11 @@ const Header = () => {
 
   useEffect(() => {
     if (scrollY <= 50) {
-      setFontSize(`${11 - scrollY * 0.02}vw`);
-      setTextOutline(false); // Text hat normale Füllung bis 50
+      controls.start({ fontSize: `${11 - scrollY * 0.02}vw`, opacity: 1 });
     } else {
-      setFontSize('5vw');
-      setTextOutline(true); // Nur Konturen nach 50
+      controls.start({ fontSize: '5vw', opacity: 0.5 });
     }
-  }, [scrollY]);
+  }, [scrollY, controls]);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -27,11 +25,17 @@ const Header = () => {
 
   return (
     <div className="header-container">
-      <h1 style={{ fontSize }} className={`header-text ${textOutline ? 'header-text-outline' : ''}`}>
+      <motion.h1 
+        className="header-text"
+        animate={controls}
+        whileHover={{ opacity: 1 }}
+      >
         EMIL ERTL
-      </h1>
+      </motion.h1>
     </div>
   );
 };
 
-export default Header;
+export default Header
+
+
