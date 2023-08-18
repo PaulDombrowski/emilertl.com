@@ -31,6 +31,20 @@ function BackgroundVideo() {
         resetTimer();
     };
 
+    const handleKeyDown = (e) => {
+        if (e.keyCode === 40) { // KeyCode für Pfeil nach unten
+            const newOpacity = Math.min(opacity + 0.05, 1);
+            setOpacity(newOpacity);
+            resetTimer();
+        }
+    };
+
+    const handleScrollEvent = () => {
+        const newOpacity = Math.min(opacity + 0.05, 1);
+        setOpacity(newOpacity);
+        resetTimer();
+    };
+
     const resetTimer = () => {
         if (timer) {
             clearTimeout(timer);
@@ -49,17 +63,21 @@ function BackgroundVideo() {
         window.addEventListener("resize", adjustOverlayHeight);
         window.addEventListener("click", adjustOverlayHeight);
         window.addEventListener("wheel", handleScroll);
+        window.addEventListener("keydown", handleKeyDown);
+        window.addEventListener("scroll", handleScrollEvent);
         window.addEventListener("touchstart", handleTouchStart);
         window.addEventListener("touchmove", handleTouchMove);
         return () => {
             window.removeEventListener("wheel", handleScroll);
+            window.removeEventListener("keydown", handleKeyDown);
+            window.removeEventListener("scroll", handleScrollEvent);
             window.removeEventListener("touchstart", handleTouchStart);
             window.removeEventListener("touchmove", handleTouchMove);
             window.removeEventListener("resize", adjustOverlayHeight);
             window.removeEventListener("click", adjustOverlayHeight);
             if (timer) clearTimeout(timer);
         };
-    }, [timer, startTouchY]);
+    }, [timer, startTouchY, opacity]);
 
     useEffect(() => {
         const videoElement = document.getElementById("backgroundVideo");
