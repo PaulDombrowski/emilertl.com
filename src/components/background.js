@@ -81,18 +81,35 @@ function BackgroundVideo() {
 
     useEffect(() => {
         const videoElement = document.getElementById("backgroundVideo");
+        
+        const playVideo = () => {
+            videoElement.play()
+                .then(() => {
+                    // Erfolgreiches Abspielen
+                })
+                .catch((error) => {
+                    console.error("Video play failed:", error);
+                });
+        };
+    
         if (videoElement) {
-            videoElement.play();
-
+            if (videoElement.readyState >= 3) {  // Prüfen, ob das Video genug geladen hat
+                playVideo();
+            } else {
+                videoElement.addEventListener('canplaythrough', playVideo);
+            }
+    
             const handleVideoTimeUpdate = () => {
                 if (videoElement.duration - videoElement.currentTime <= 0.5) {
                     videoElement.currentTime = 0;
                     videoElement.play();
                 }
             };
-
+    
             videoElement.addEventListener('timeupdate', handleVideoTimeUpdate);
+    
             return () => {
+                videoElement.removeEventListener('canplaythrough', playVideo);
                 videoElement.removeEventListener('timeupdate', handleVideoTimeUpdate);
             };
         }
@@ -108,7 +125,9 @@ function BackgroundVideo() {
                 loop
                 playsInline
             >
-                <source src={process.env.PUBLIC_URL + '/Rec_2023-06-29 14-35-19.mp4'} type="video/mp4" />
+                <source src={process.env.PUBLIC_URL + '/Rec_2023-06-29-14-35-19_2.webm'} type="video/webm" />
+               
+                
                 Your browser does not support the video tag.
             </video>
         </>
