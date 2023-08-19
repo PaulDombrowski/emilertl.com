@@ -132,6 +132,7 @@ function BackgroundVideo() {
                 loop
                 playsInline
             >
+                <source src={process.env.PUBLIC_URL + '/public/Rec_2023-06-29 14-35-19-light.mp4'} type="video/mp4" />
                 <source src={process.env.PUBLIC_URL + '/Rec_2023-06-29-14-35-19_2.webm'} type="video/webm" />
                 Your browser does not support the video tag.
             </motion.video>
