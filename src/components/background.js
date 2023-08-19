@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 function BackgroundVideo() {
     const [opacity, setOpacity] = useState(0);
+    const [videoOpacity, setVideoOpacity] = useState(0); // Zustand für die Opazität des Videos
     const [timer, setTimer] = useState(null);
     const [startTouchY, setStartTouchY] = useState(null);
 
@@ -85,7 +87,7 @@ function BackgroundVideo() {
         const playVideo = () => {
             videoElement.play()
                 .then(() => {
-                    // Erfolgreiches Abspielen
+                    setVideoOpacity(1); // Video ist bereit zum Abspielen, setzen Sie die Opazität auf 1
                 })
                 .catch((error) => {
                     console.error("Video play failed:", error);
@@ -117,19 +119,22 @@ function BackgroundVideo() {
 
     return (
         <>
-            <div className="video-overlay" style={{ background: `rgba(255, 0, 0, ${opacity})` }}></div>
-            <video 
-                id="backgroundVideo" 
+            <div
+                className="video-overlay"
+                style={{ background: `rgba(255, 0, 0, ${opacity})` }}
+            />
+            <motion.video 
+                id="backgroundVideo"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: videoOpacity, transition: { duration: 1.5 } }} 
                 autoPlay 
                 muted 
                 loop
                 playsInline
             >
                 <source src={process.env.PUBLIC_URL + '/Rec_2023-06-29-14-35-19_2.webm'} type="video/webm" />
-               
-                
                 Your browser does not support the video tag.
-            </video>
+            </motion.video>
         </>
     );
 }
