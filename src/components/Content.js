@@ -25,15 +25,21 @@ function AccordionWithContent() {
                 <>
                 <img 
                     className='image-content' 
-                    src={process.env.PUBLIC_URL + '/photo_2023-08-16_21-30-12.jpg'} 
+                    src={process.env.PUBLIC_URL + '/DSC03621-2.jpg'} 
                     alt="bild kann nicht angezeigt werden" 
                 />
-                    <p className='accordion-text'>Emil Ertl works as a dancer, choreographer, performer and teacher in the field of performance art and dance. Their work deals with questions around … In their own work as well as when working with others, a main interest is social relations and their navigations. Within relationality and its navigation lies potential for movement and change, both physically as well as politically … (hier gehts noch weiter mit 1-2 Sätzen)
-                    Emils work Eternal Betrayal was shown at Ballhaus Ost in the frame of Dirty Debüt, and at ada studios in the frame of NAH DRAN extended. They recently published Eigentlich benutze ich dieses Wort nicht, an audio piece about failure and fucking up, created in collaboration with their collective ORAL-G.
-                    As a dancer they work with choreographers such as Olympia Bukkakis, Ellen Söderhult, Antonia Baehr, Ar Utke Acs, Tchivett, Florentina Holzinger, Sindri Runudde and Tümay Kilincel. 
-                    Emil is teaching dance workshops for adults, youth and kids both in DIY community centers as well as in art institutions. 
+                    <p className='accordion-text'>Emil Ertl (they/them) is a dancer, performer and choreographer. Both in their own work as well as when collaborating, their main curiosity lies in social relationality and its navigations. When making dance, Emil is interested in porosity, choreography as a container for feelings, holding several perspectives at once, staying with friction, moving within paradoxes, and magic-making. <p></p>
 
-                    They studied at Tanzfabrik Berlin, Hochschule für Musik und Tanz Köln and graduated from University of the Arts Stockholm in 2019 with a BA in Dance Performance. Emil is based in Berlin and active in Germany, Sweden and internationally. 
+Emil’s work <i>Eternal Betrayal</i> &nbsp;was shown at Ballhaus Ost in the frame of Dirty Debüt, and at ada studios in the frame of <i>NAH DRAN</i>&nbsp; extended. In 2022 they published <i>Eigentlich benutze ich dieses Wort nicht</i>, an audio piece about failure and fucking up, in collaboration with Onur Agbaba, Rahel Barra and Lotta Beckers. <br/>
+As a dancer they have worked with choreographers such as Tümay Kilincel and Cornelius Schaper, Olympia Bukkakis, Ellen Söderhult, Gry Tingskog, Ar Utke Acs, Tchivett, Florentina Holzinger and Sindri Runudde.
+Emil is facilitating dance workshops both in community-centers as well as in institutions. <p></p>
+
+They studied at Tanzfabrik Berlin, Hochschule für Musik und Tanz Köln and graduated from University of the Arts Stockholm in 2019 with a BA in Dance Performance. In 2023, Emil received the danceWEB scholarship at Impulstanz Vienna. <p></p>
+
+Most recently, Emil is working on <i>Serpentine Serpentine</i>, a research investigating the dichotomy between crumpling and straightening with Onur Agbaba in residency at Flutgraben Berlin. Next to that, they are in rehearsal process with Gry Tingskog for <i>parasight</i>, which will be premiering in spring 2024. <p></p> 
+
+Emil is based in Berlin and active in Germany, Sweden and internationally. 
+
                     </p>
                 </>
             )
@@ -42,6 +48,29 @@ function AccordionWithContent() {
             title: 'CV',
             body: (
                 <>
+
+                <p className='cv-title'>Education</p> 
+                    <table className="accordion-table">
+                        <tbody>
+                        <tr>
+                                <td>2023</td>
+                                <td><span className="cv-überschrift">DanceWeb Scholarship</span>  <br /> Impulstanz Vienna</td>
+                            </tr>
+                            <tr>
+                                <td>2016- <br /> 2019</td>
+                                <td><span className="cv-überschrift">BA in Dance Performance</span>  <br /> Stockholm University of the Arts</td>
+                            </tr>
+                            <tr>
+                                <td>2015-<br />2016</td>
+                                <td><span className="cv-überschrift">Hochschule für Musik und Tanz</span>  <br />Köln</td>
+                            </tr>
+                            <tr>
+                                <td>2013-<br />2014</td>
+                                <td><span className="cv-überschrift">Guest Student in Dance</span>  <br /> Theater Academy of the University of the Arts Helsinki</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
                     <p className='cv-title'>Work as Choreographer/Maker</p>
                     <table className="accordion-table">
                         <tbody>
@@ -170,23 +199,7 @@ function AccordionWithContent() {
                         </tbody>
                     </table>
         
-                    <p className='cv-title'>Education</p> 
-                    <table className="accordion-table">
-                        <tbody>
-                            <tr>
-                                <td>2016- <br /> 2019</td>
-                                <td><span className="cv-überschrift">BA in Dance Performance</span>  <br /> Stockholm University of the Arts</td>
-                            </tr>
-                            <tr>
-                                <td>2015-<br />2016</td>
-                                <td><span className="cv-überschrift">Hochschule für Musik und Tanz</span>  <br />Köln</td>
-                            </tr>
-                            <tr>
-                                <td>2013-<br />2014</td>
-                                <td><span className="cv-überschrift">Guest Student in Dance</span>  <br /> Theater Academy of the University of the Arts Helsinki</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                   
                 </>
             )
         },

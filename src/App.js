@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Background from './components/backgroundgif';
 import Header from './components/headtitle';
 import AccordionWithContent from './components/Content';
+import FixedTitle from './components/header';
 
 function App() {
   // Zustand für den Ladebalken
@@ -41,7 +42,7 @@ function App() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.8, duration: 1.2 }}
       >
-        <Header />
+        <FixedTitle/>
       </motion.div>
       <motion.div
         initial={{ y: 100, opacity: 0 }}

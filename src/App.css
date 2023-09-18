@@ -67,6 +67,26 @@ html, body {
 }
 
 
+.fixed-title {
+  position: fixed;
+  top: 10px; /* Je nachdem, wo du den Titel haben möchtest. */
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(90vw); /* Das entspricht der max-width deines Akkordeons. */
+  text-align: center;
+  font-size: 120px; /* Oder die gewünschte Größe. */
+  z-index: 0; /* Damit der Titel über anderen Elementen liegt. */
+  transition: color 0.5s, opacity 0.3s;
+  color: white;
+}
+
+.fixed-title.scrolled {
+  color: red;
+  opacity: 0.4; /* Halbtransparent. */
+  
+}
+
+
 .akkordion-wrapper {
  
     display: flex;
