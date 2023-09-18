@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { motion, AnimatePresence } from 'framer-motion';
-import BackgroundVideo from './components/background';
+import Background from './components/backgroundgif';
 import Header from './components/headtitle';
 import AccordionWithContent from './components/Content';
 
@@ -34,7 +34,7 @@ function App() {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 1.5 }}
       >
-        <BackgroundVideo />
+        <Background />
       </motion.div>
       <motion.div
         initial={{ y: -100, opacity: 0 }}

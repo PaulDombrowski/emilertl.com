@@ -3,7 +3,7 @@ import '../App.css';
 
 function BackgroundComponent() {
     const [scrolling, setScrolling] = useState(false);
-    const backgroundImage = "/public/Screenshot 2023-08-29 103936.png";
+    const backgroundImage = "/Screenshot 2023-08-29 103936.png";
 
     useEffect(() => {
         const handleScroll = () => triggerScrollingEffect();
@@ -28,7 +28,8 @@ function BackgroundComponent() {
     };
 
     return (
-        <div className="background-container" style={{ backgroundImage: `url(${backgroundImage})` }}>
+        <div className="background-container">
+            <div className="background-image" style={{ backgroundImage: `url(${backgroundImage})` }} />
             <div className={`overlay ${scrolling ? 'scrolling' : ''}`} />
             <svg style={{ visibility: "hidden", position: "absolute", width: 0, height: 0 }}>
                 <filter id="wavyFilter">
