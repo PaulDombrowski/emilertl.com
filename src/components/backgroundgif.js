@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
 
-const gifPath = `${process.env.PUBLIC_URL}/MOSHED-2023-9-14-12-10-25.gif`;
+
+const gifPath = `${process.env.PUBLIC_URL}/ezgif.com-gif-maker(6).gif`;
 
 function Background() {
     const [scrolling, setScrolling] = useState(false);

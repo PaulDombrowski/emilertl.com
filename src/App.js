@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import { motion, AnimatePresence } from 'framer-motion';
 import Background from './components/backgroundgif';
-import Header from './components/headtitle';
 import AccordionWithContent from './components/Content';
 import FixedTitle from './components/header';
 
