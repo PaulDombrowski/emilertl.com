@@ -32,10 +32,11 @@ function BackgroundComponent() {
             <div className={`overlay ${scrolling ? 'scrolling' : ''}`} />
             <svg style={{ visibility: "hidden", position: "absolute", width: 0, height: 0 }}>
                 <filter id="wavyFilter">
-                    <feTurbulence type="fractalNoise" baseFrequency="0 0.02" numOctaves="1" result="warp" seed="1">
-                        <animate attributeName="baseFrequency" values="0 0.02; 0.02 0.03; 0 0.02" keyTimes="0; 0.5; 1" dur="3s" repeatCount="indefinite" />
-                    </feTurbulence>
-                    <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="20" in="SourceGraphic" in2="warp" />
+                <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" result="turbulence">
+    <animate attributeName="seed" values="2;20;2" dur="4s" repeatCount="indefinite"/>
+</feTurbulence>
+<feDisplacementMap in2="turbulence" in="SourceGraphic" scale="20" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+
                 </filter>
             </svg>
         </div>

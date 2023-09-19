@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../App.css';
 
 
-const gifPath = `${process.env.PUBLIC_URL}/ezgif.com-gif-maker(6).gif`;
+const gifPath = `${process.env.PUBLIC_URL}/MOSHED-2023-9-14-12-10-25.gif`;
 
 function Background() {
     const [scrolling, setScrolling] = useState(false);
@@ -21,7 +21,6 @@ function Background() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [scrolling]);
 
-    // Für Pfeiltasten
     useEffect(() => {
         const handleArrowKeys = (e) => {
             if (e.keyCode === 38 || e.keyCode === 40) {
@@ -34,7 +33,20 @@ function Background() {
     }, []);
 
     return (
-        <div className={`background ${scrolling ? 'scrolling' : ''}`} style={{ backgroundImage: `url(${gifPath})` }}></div>
+        <>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="0" height="0">
+                <defs>
+                    <filter id="turbulent">
+                        <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="2" result="turbulence">
+                            <animate attributeName="seed" values="2;35;1" dur="4s" repeatCount="indefinite"/>
+                        </feTurbulence>
+                        <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="30" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+                    </filter>
+                </defs>
+            </svg>
+            <div className={`background-image ${scrolling ? 'scrolling' : ''}`} style={{ backgroundImage: `url(${gifPath})` }}></div>
+            <div className={`background-overlay ${scrolling ? 'scrolling' : ''}`}></div>
+        </>
     );
 }
 

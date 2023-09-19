@@ -19,32 +19,35 @@ html, body {
 
 /* Background.css */
 
-.background {
+.background-image, .background-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: no-repeat center center;
-  background-size: cover;
   z-index: -1;
 }
 
-.background:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(228, 105, 255, 0.4); /* rosa, halbtransparent */
-  transition: background 0.5s; /* Animationseffekt beim Scrollen */
+.background-image {
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover; /* Das Bild wird so skaliert, dass es den Container ausfüllt, wobei der obere Teil des Bildes sichtbar bleibt. */
+  filter: url('#turbulent');
+  width: 110%; /* Diese Übergröße hilft dabei, das Flimmern oder Flackern am Rand zu reduzieren. */
+  height: 110%;
+  top: -5%;
+  left: -5%;
 }
 
-.background.scrolling:before {
-  background: rgb(255, 0, 0); /* rot, weniger transparent beim Scrollen */
+.background-overlay {
+  background: rgba(255, 79, 226, 0.28); /* rosa, halbtransparent */
+  transition: background 0.7s; /* Animationseffekt beim Scrollen */
 }
 
+.background-overlay.scrolling {
+  background: #ff0e0e; /* rot, weniger transparent beim Scrollen */
+  z-index: 0;
+}
 
 
 
@@ -128,7 +131,7 @@ html, body {
   position: relative;
   border-radius: 10px;
   z-index: 0;
-  opacity: 0.7;
+  opacity: 0.9;
   margin-bottom: 2vh;
 }
 
