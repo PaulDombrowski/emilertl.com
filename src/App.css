@@ -46,7 +46,7 @@ html, body {
 
 .background-overlay.scrolling {
   background: #ff0e0e; /* rot, weniger transparent beim Scrollen */
-  z-index: 0;
+
 }
 
 
@@ -65,8 +65,10 @@ html, body {
 }
 
 .fixed-title.scrolled {
-  color: red;
-  opacity: 0.4; /* Halbtransparent. */
+  color: rgb(253, 6, 6);
+  opacity: 0.8; /* Halbtransparent. */
+  z-index: 1;
+  font-style: italic;
   
 }
 
