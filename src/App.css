@@ -2,6 +2,7 @@
 
 html, body {
   font-family: 'Bebas Neue', sans-serif;
+  scroll-behavior: smooth;
 }
 
 #loadingBar {

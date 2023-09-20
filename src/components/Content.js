@@ -1,22 +1,35 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import '../App.css';
 import { motion, AnimatePresence } from 'framer-motion';
 
 function AccordionWithContent() {
     const [activeIndex, setActiveIndex] = useState(null);
     const [subActiveIndex, setSubActiveIndex] = useState(null);
-    const accordionWrapperRef = useRef(null);
-    
+    const accordionHeaderRefs = useRef([]); // Liste von refs für Akkordeon-Header
+    const [prevActiveIndex, setPrevActiveIndex] = useState(null);
 
     const handleHeaderClick = (index, e) => {
-        if (activeIndex === index) { // Wenn der aktuelle Index dem geklickten Index entspricht (d.h. das Akkordeon wird geschlossen)
-            if (index === 2) { // Wenn "selected pieces" geschlossen wird
-                setSubActiveIndex(null); // Setze subActiveIndex zurück, um alle Unterreiter zu schließen
-            }
+        if (activeIndex === index) {
+            setActiveIndex(null);
+        } else {
+            setPrevActiveIndex(activeIndex);
+            setActiveIndex(index);
+            setTimeout(() => {
+                const headerPosition = accordionHeaderRefs.current[index].getBoundingClientRect().top + window.scrollY;
+                const offset = 50;  // Hier können Sie den gewünschten Abstand einstellen.
+                const scrollToPosition = headerPosition - offset;
+                window.scrollTo({
+                    top: scrollToPosition,
+                    behavior: "smooth"
+                });
+            }, 200);  // Verzögern Sie das Scrollen um 300ms
         }
-        setActiveIndex(activeIndex === index ? null : index);
-        accordionWrapperRef.current.scrollIntoView({ behavior: "smooth" });
     };
+    
+    
+    
+    
+    
 
     const content = [
         {
@@ -239,38 +252,44 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
 }
 ];
 
-return (
-    <div>
-        
-        <div className="akkordion-wrapper" ref={accordionWrapperRef}>
-            <div className="accordion">
-            {content.map((item, index) => (
-                <div key={index} className="accordion-item">
-                    <div 
-                        className="accordion-header" 
-                        onClick={(e) => handleHeaderClick(index, e)}
-                    >
-                        {item.title}
-                    </div>
-                    <AnimatePresence initial={false}>
-                        {activeIndex === index && (
-                            <motion.div 
-                            initial={{ opacity: 0, height: 0 }}
-                             animate={{ opacity: 1, height: 'auto', transition: { duration: 1.0 } }}
-                                exit={{ opacity: 0, height: 0, transition: { duration: 1.0 } }}
-                            className="accordion-body"
-                            >
-                                {item.body}
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
+   return (
+        <div>
+            <div className="akkordion-wrapper">
+                <div className="accordion">
+                {content.map((item, index) => (
+    <div key={index} className="accordion-item">
+        <div 
+            className="accordion-header" 
+            ref={el => accordionHeaderRefs.current[index] = el}
+            onClick={(e) => handleHeaderClick(index, e)}
+        >
+            {item.title}
+        </div>
+        <AnimatePresence initial={false}>
+            {activeIndex === index && (
+                <motion.div 
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={
+                        prevActiveIndex !== null 
+                        ? { opacity: 0, height: 0, transition: { duration: 0 } }
+                        : { opacity: 0, height: 0 }
+                    }
+                    className="accordion-body"
+                >
+                    {item.body}
+                </motion.div>
+            )}
+        </AnimatePresence>
+    </div>
+))}
+
                 </div>
-            ))}
             </div>
         </div>
-    </div>
     );
 }
+
 
 export default AccordionWithContent;
 
