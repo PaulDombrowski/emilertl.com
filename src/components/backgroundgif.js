@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
 
-
 const gifPath = `${process.env.PUBLIC_URL}/MOSHED-2023-9-14-12-10-25.gif`;
 
 function Background() {
@@ -34,20 +33,6 @@ function Background() {
 
     return (
         <>
-            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="0" height="0">
-                <defs>
-                    <filter id="turbulent">
-                    <feTurbulence type="fractalNoise" baseFrequency="0.025" numOctaves="2" result="turbulence">
-    <animate attributeName="seed" values="2;60;2" dur="15s" repeatCount="indefinite"/>
-</feTurbulence>
-<feDisplacementMap in2="turbulence" in="SourceGraphic" scale="50" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
-
-
-
-
-                    </filter>
-                </defs>
-            </svg>
             <div className={`background-image ${scrolling ? 'scrolling' : ''}`} style={{ backgroundImage: `url(${gifPath})` }}></div>
             <div className={`background-overlay ${scrolling ? 'scrolling' : ''}`}></div>
         </>

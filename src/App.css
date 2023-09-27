@@ -5,6 +5,23 @@ html, body {
   scroll-behavior: smooth;
 }
 
+
+
+.underline-link {
+  text-decoration: underline;
+  color: inherit;
+  cursor: pointer;
+}
+
+.underline-link:hover, 
+.underline-link:focus {
+  color: inherit;
+  text-decoration: underline;
+}
+
+
+
+
 #loadingBar {
   position: fixed;
   top: 0;
@@ -18,7 +35,6 @@ html, body {
 
 /* Background.css */
 
-/* Background.css */
 
 .background-image, .background-overlay {
   position: fixed;
@@ -41,32 +57,35 @@ html, body {
 }
 
 .background-overlay {
-  background: rgba(255, 79, 226, 0.28); /* rosa, halbtransparent */
+  background: rgba(230, 14, 108, 0.401); /* rosa, halbtransparent */
   transition: background 0.7s; /* Animationseffekt beim Scrollen */
+  
 }
 
 .background-overlay.scrolling {
-  background: #ff0e0e; /* rot, weniger transparent beim Scrollen */
+  background: #ff0000; /* rot, weniger transparent beim Scrollen */
 
 }
+
+
 
 
 
 .fixed-title {
+  pointer-events: none;
   position: fixed;
-  top: 10px; /* Je nachdem, wo du den Titel haben möchtest. */
   left: 50%;
   transform: translateX(-50%);
   width: calc(90vw); /* Das entspricht der max-width deines Akkordeons. */
   text-align: center;
-  font-size: 120px; /* Oder die gewünschte Größe. */
+
   z-index: 0; /* Damit der Titel über anderen Elementen liegt. */
   transition: color 0.5s, opacity 0.3s;
   color: white;
 }
 
 .fixed-title.scrolled {
-  color: rgb(253, 6, 6);
+  color: rgb(255, 0, 0);
   opacity: 0.8; /* Halbtransparent. */
   z-index: 1;
   font-style: italic;
@@ -79,6 +98,8 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
+    
+    
 }
 
 .accordion {
@@ -90,6 +111,8 @@ html, body {
     margin-top: 30px;
     margin-bottom: 20vh;
     text-align: justify;
+    margin-bottom: 1500px;
+    
 }
 
 .accordion-item {
@@ -98,6 +121,7 @@ html, body {
 }
 
 .accordion-header {
+   
     cursor: pointer;
     position: relative;
     text-align: left;
@@ -142,20 +166,23 @@ html, body {
   width: 100%;
   border-spacing: 0px 8px;
   color: antiquewhite;
+  padding-bottom: 4vh;
+  
 }
 
 .accordion-table td {
   background-color: transparent;
   vertical-align: top;
-  padding-top: 20px;
+  padding-top: 15px;
   padding-bottom: 20px;
 }
 
-
 .accordion-table td:first-child {
   text-align: left; 
-  padding-right: 30px;
+  width: 70px; /* Hier können Sie die gewünschte Breite definieren */
 }
+
+
 
 .cv-überschrift {
   color: rgb(252, 228, 180);
@@ -176,6 +203,11 @@ html, body {
   height: 100%;
 }
 
+.selected-work-header {
+  margin-top: 80px;
+  
+}
+
 /*responsive*/
 
 @media only screen and (max-width: 480px) {
@@ -183,14 +215,18 @@ html, body {
     width: calc(100vw - 15vw);
   }
   .akkordion-wrapper {
-    padding-top: 30vh;
+    padding-top: 250px;
   }
   .accordion-text {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
   .accordion-header {
-    font-size:1.5rem;
+    font-size:1.3rem;
     padding: 5px 0;
+  }
+  .selected-work-header {
+    font-size: 1.3rem;
+    
   }
   .cv-title {
     font-size: 1.3rem;
@@ -198,43 +234,58 @@ html, body {
   .accordion-table td { 
     font-size: 1rem; 
   }
+  .fixed-title {
+    font-size: 100px;
+  }
 }
+
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {
   .accordion {
-    width: calc(100vw - 20vw);
+    width: calc(100vw - 35vw);
   }
   .akkordion-wrapper {
-    padding-top: 30vh;
+    padding-top: 240px;
   }
   .accordion-text {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
   .accordion-header {
-    font-size:1.6rem;
+    font-size:1.7rem;
     padding: 8px 0;
   }
+
+  .selected-work-header {
+    font-size:  1.7rem;   
+  }
+
   .cv-title {
     font-size: 1.4rem;
   }
   .accordion-table td { 
     font-size: 1.1rem; 
   }
+  .fixed-title {
+    font-size: 100px;
+  }
 }
 
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
   .accordion {
-    width: calc(100vw - 40vw);
+    width: calc(100vw - 30vw);
   }
   .akkordion-wrapper {
-    padding-top: 30vh;
+    padding-top: 240px;
   }
   .accordion-text {
     font-size: 1.3rem;
   }
   .accordion-header {
-    font-size:1.7rem;
+    font-size:1.6rem;
     padding: 9px 0;
+  }
+  .selected-work-header {
+    font-size: 1.6rem;
   }
   .cv-title {
     font-size: 1.5rem;
@@ -242,70 +293,91 @@ html, body {
   .accordion-table td { 
     font-size: 1.2rem; 
   }
+  .fixed-title {
+    font-size: 100px;
+  }
 }
 
 @media only screen and (min-width: 1025px) and (max-width: 1200px) {
   .accordion {
-    width: calc(100vw - 40vw);
+    width: calc(100vw - 50vw);
   }
   .akkordion-wrapper {
-    padding-top: 30vh;
+    padding-top: 300px;
   }
   .accordion-text {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
   .accordion-header {
-    font-size:2rem;
+    font-size: 1.7rem;
     padding: 9px 0;
+  }
+  .selected-work-header {
+    font-size: 1.7rem;
   }
   .cv-title {
     font-size: 1.6rem;
   }
   .accordion-table td { 
     font-size: 1.3rem; 
+  }
+  .fixed-title {
+    font-size: 120px;
   }
 }
 
 @media only screen and (min-width: 1201px) {
   .accordion {
-    width: calc(100vw - 55vw);
+    width: calc(100vw - 65vw);
   }
   .akkordion-wrapper {
-    padding-top: 30vh;
+    padding-top: 300px;
   }
   .accordion-text {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
   .accordion-header {
-    font-size:2rem;
+    font-size: 1.7rem;
     padding: 9px 0;
   }
+  .selected-work-header {
+    font-size: 1.7rem;
+  }
   .cv-title {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
   .accordion-table td { 
     font-size: 1.3rem; 
+  }
+  .fixed-title {
+    font-size: 120px;
   }
 }
 
 @media only screen and (min-width: 2560px) and (max-width: 3440px) {
   .accordion {
-    width: calc(100vw - 60vw);
+    width: calc(100vw - 75vw);
   }
   .akkordion-wrapper {
-    padding-top: 30vh;
+    padding-top: 400px;
   }
   .accordion-text {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
   .accordion-header {
-    font-size:2rem;
+    font-size:1.9rem;
     padding: 9px 0;
+  }
+  .selected-work-header {
+    font-size: 1.9rem;
   }
   .cv-title {
     font-size: 1.6rem;
   }
   .accordion-table td { 
     font-size: 1.3rem; 
+  }
+  .fixed-title {
+    font-size: 160px;
   }
 }
