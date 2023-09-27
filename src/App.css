@@ -57,7 +57,7 @@ html, body {
 }
 
 .background-overlay {
-  background: rgba(230, 14, 108, 0.401); /* rosa, halbtransparent */
+  background: rgba(0, 0, 0, 0); /* rosa, halbtransparent */
   transition: background 0.7s; /* Animationseffekt beim Scrollen */
   
 }
@@ -209,6 +209,11 @@ html, body {
 }
 
 /*responsive*/
+/* Für sehr kleine Geräte */
+
+
+
+
 
 @media only screen and (max-width: 480px) {
   .accordion {
@@ -235,7 +240,7 @@ html, body {
     font-size: 1rem; 
   }
   .fixed-title {
-    font-size: 100px;
+    font-size: 80px;
   }
 }
 
