@@ -19,7 +19,7 @@ function AccordionWithContent() {
                     top: scrollToPosition,
                     behavior: "smooth"
                 });
-            }, 300);
+            }, 400);
         }
     };
 
@@ -531,8 +531,17 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
                     <p className='accordion-text'><p></p>
 
                     
-                    <a href="https://instagram.com/emxi_maux?igshid=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" class="underline-link">@emxi_maux</a> <br />
+
                     
+                    <a href="mailto:amertl.mails@gmail.com" class="underline-link" target="_blank" rel="noopener noreferrer">MAIL</a>
+            <br />
+
+            {/* Vimeo Link */}
+            <a href="https://vimeo.com/emilertl" class="underline-link" target="_blank" rel="noopener noreferrer">VIMEO</a>
+            <br />
+
+            {/* Instagram Link */}
+            <a href="https://instagram.com/emxi_maux?igshid=MzRlODBiNWFlZA=="  class="underline-link"target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
                     
                 </p>
             

@@ -13,8 +13,12 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 5000); // 5 Sekunden
+    }, 3000); // 5 Sekunden
   }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+}, []);
 
   return (
     <div style={{ minHeight: "100vh", background: "rgba(255, 128, 227, 0.5)" }}>

@@ -57,7 +57,7 @@ html, body {
 }
 
 .background-overlay {
-  background: rgba(0, 0, 0, 0); /* rosa, halbtransparent */
+  background: rgba(255, 29, 101, 0.321); /* rosa, halbtransparent */
   transition: background 0.7s; /* Animationseffekt beim Scrollen */
   
 }
@@ -66,6 +66,7 @@ html, body {
   background: #ff0000; /* rot, weniger transparent beim Scrollen */
 
 }
+
 
 
 
@@ -81,7 +82,7 @@ html, body {
 
   z-index: 0; /* Damit der Titel über anderen Elementen liegt. */
   transition: color 0.5s, opacity 0.3s;
-  color: white;
+  color: rgb(254, 247, 239);
 }
 
 .fixed-title.scrolled {
@@ -89,6 +90,7 @@ html, body {
   opacity: 0.8; /* Halbtransparent. */
   z-index: 1;
   font-style: italic;
+
   
 }
 
@@ -240,14 +242,14 @@ html, body {
     font-size: 1rem; 
   }
   .fixed-title {
-    font-size: 80px;
+    font-size: 75px;
   }
 }
 
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {
   .accordion {
-    width: calc(100vw - 35vw);
+    width: calc(100vw - 25vw);
   }
   .akkordion-wrapper {
     padding-top: 240px;
@@ -256,12 +258,12 @@ html, body {
     font-size: 1.1rem;
   }
   .accordion-header {
-    font-size:1.7rem;
+    font-size:1.4rem;
     padding: 8px 0;
   }
 
   .selected-work-header {
-    font-size:  1.7rem;   
+    font-size:  1.4rem;   
   }
 
   .cv-title {
@@ -271,7 +273,7 @@ html, body {
     font-size: 1.1rem; 
   }
   .fixed-title {
-    font-size: 100px;
+    font-size: 95px;
   }
 }
 
@@ -301,7 +303,9 @@ html, body {
   .fixed-title {
     font-size: 100px;
   }
+
 }
+
 
 @media only screen and (min-width: 1025px) and (max-width: 1200px) {
   .accordion {
@@ -329,6 +333,7 @@ html, body {
   .fixed-title {
     font-size: 120px;
   }
+  
 }
 
 @media only screen and (min-width: 1201px) {
@@ -357,6 +362,7 @@ html, body {
   .fixed-title {
     font-size: 120px;
   }
+
 }
 
 @media only screen and (min-width: 2560px) and (max-width: 3440px) {
