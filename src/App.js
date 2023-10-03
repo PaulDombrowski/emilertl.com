@@ -13,22 +13,23 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 3000); // 5 Sekunden
+    }, 3000); // 3 Sekunden
   }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-}, []);
+  }, []);
 
   return (
     <div style={{ minHeight: "100vh", background: "rgba(255, 128, 227, 0.5)" }}>
+      <Background /> {/* Hier wird der Background sofort geladen */}
       <AnimatePresence>
         {isLoading && (
           <motion.div
             initial={{ width: 0 }}
             animate={{ width: "100%" }}
             exit={{ width: 0 }}
-            transition={{ duration: 5 }}
+            transition={{ duration: 3 }} 
             id="loadingBar"
           ></motion.div>
         )}
@@ -38,14 +39,14 @@ function App() {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 1.5 }}
       >
-        <Background />
+        {/* Hier könnte zusätzlicher Inhalt eingefügt werden, der mit einer Verzögerung erscheinen soll */}
       </motion.div>
       <motion.div
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.8, duration: 1.2 }}
       >
-        <FixedTitle/>
+        <FixedTitle />
       </motion.div>
       <motion.div
         initial={{ y: 100, opacity: 0 }}
@@ -59,3 +60,5 @@ function App() {
 }
 
 export default App;
+
+

@@ -57,7 +57,7 @@ html, body {
 }
 
 .background-overlay {
-  background: rgba(255, 29, 101, 0.321); /* rosa, halbtransparent */
+  background: rgba(255, 51, 68, 0.533); /* rosa, halbtransparent */
   transition: background 0.7s; /* Animationseffekt beim Scrollen */
   
 }
@@ -333,6 +333,7 @@ html, body {
   .fixed-title {
     font-size: 120px;
   }
+
   
 }
 
@@ -362,6 +363,7 @@ html, body {
   .fixed-title {
     font-size: 120px;
   }
+  
 
 }
 
@@ -390,5 +392,13 @@ html, body {
   }
   .fixed-title {
     font-size: 160px;
+  }
+  .background-image {
+    background-size: contain;
+    background-position: center;
+    width: 100%;
+    height: 140%;
+    top: 0;
+    left: 0; 
   }
 }

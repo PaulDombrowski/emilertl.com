@@ -343,7 +343,7 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
                 </p>
                 <img 
                     className='image-content' 
-                    src={process.env.PUBLIC_URL + '/eigentümliche verhältnisse 2.png'} 
+                    src={process.env.PUBLIC_URL + '/eigentümliche verhältnisse 2.jpg'} 
                     alt="bild kann nicht angezeigt werden"   />
                     <p className='accordion-text'> Essay-Film <p></p>
 
@@ -525,7 +525,7 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
        
 
         {
-            title: 'Get in touch',
+            title: '@Get in touch',
             body: (
                 <>
                     <p className='accordion-text'><p></p>
