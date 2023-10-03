@@ -279,7 +279,7 @@ html, body {
 
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
   .accordion {
-    width: calc(100vw - 30vw);
+    width: calc(100vw - 25vw);
   }
   .akkordion-wrapper {
     padding-top: 240px;
@@ -309,7 +309,7 @@ html, body {
 
 @media only screen and (min-width: 1025px) and (max-width: 1200px) {
   .accordion {
-    width: calc(100vw - 50vw);
+    width: calc(100vw - 30vw);
   }
   .akkordion-wrapper {
     padding-top: 300px;
@@ -318,11 +318,11 @@ html, body {
     font-size: 1.3rem;
   }
   .accordion-header {
-    font-size: 1.7rem;
+    font-size: 1.6rem;
     padding: 9px 0;
   }
   .selected-work-header {
-    font-size: 1.7rem;
+    font-size: 1.6rem;
   }
   .cv-title {
     font-size: 1.6rem;
@@ -339,7 +339,7 @@ html, body {
 
 @media only screen and (min-width: 1201px) {
   .accordion {
-    width: calc(100vw - 65vw);
+    width: calc(100vw - 50vw);
   }
   .akkordion-wrapper {
     padding-top: 300px;
