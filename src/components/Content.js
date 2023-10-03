@@ -325,7 +325,7 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
                 </p>
                 <img 
                     className='image-content' 
-                    src={process.env.PUBLIC_URL + '/serpentine serpentine.JPG'} 
+                    src={process.env.PUBLIC_URL + '/serpentine serpentine.jpg'} 
                     alt="bild kann nicht angezeigt werden"   />
                     <p className='accordion-text'>Work in Progress <p></p>
 
