@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+# Emil Maria Ertl - Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Emil Maria Ertl (they/them), *94 in Nürnberg, works as a dancer, choreographer and facilitator in the field of performance art. Both in their own work as well as when collaborating, their main curiosity lies in social relationality and its navigation. When making dance, Emil is interested in porosity, choreography as a container for feelings, holding several perspectives at once, staying with friction, moving within paradoxes, and magic-making. 
 
-## Available Scripts
 
-In the project directory, you can run:
+This is a frontend homepage dedicated to the portfolio of Emil Maria Ertl created with react. 
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## About Emil Maria Ertl
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Emil's work revolves around exploring social relationality and its intricate nuances. Whether it's in their individual artistic pursuits or through collaborations, Emil's primary curiosity lies in understanding how human connections shape and are shaped by movement and performance.
 
-### `npm test`
+### Artistic Interests
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Emil's approach to dance and choreography is marked by several key interests:
 
-### `npm run build`
+- **Porosity**: Exploring the fluid boundaries between bodies and ideas.
+- **Choreography as a Container for Feelings**: Using choreography as a vessel to express and evoke emotions.
+- **Holding Several Perspectives at Once**: Embracing multiple viewpoints and perspectives within their work.
+- **Staying with Friction**: Engaging with the discomfort and challenges within the creative process.
+- **Moving Within Paradoxes**: Exploring the contradictions and complexities of human experience.
+- **Magic-Making**: Creating moments of wonder and awe through their performances.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Feel free to use all code, which is provided.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To explore Emil Maria Ertl's portfolio -> www.emilertl.com or simply clone this repository and open the `index.html` file in your preferred web browser.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+git clone https://github.com/PaulDombrowski/portfolio_emilertl.git
+cd emil-maria-ertl-portfolio

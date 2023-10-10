@@ -322,9 +322,10 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
             )
         },
         {
-            title: 'Choreographing (Selection)',
+            title: 'Choreographing',
             body: (
                 <>
+                 <p className='accordion-text'> <i>Selected Works</i></p>
                  <p className= 'selected-work-header'>
                     Serpentine Serpentine
                 </p>
@@ -423,10 +424,12 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
 
 
         {
-            title: 'Performing (Selection)',
+            title: 'Performing',
             body: (
                 <>
+                <p className='accordion-text'> <i>Selected Works</i></p>
                  <p className= 'selected-work-header'>
+                 
                  <i>replay</i> &nbsp; by Olympia Bukkakis 
                 </p>
                 <img 
@@ -583,9 +586,10 @@ c/o Studio13 e.V. <br />
 Ziegrastraße 13  <br />
 12057 Berlin  <br /> <p></p>
 
-amertl.mails@gmail.com <br />
+amertl.mails[at]gmail.com <br />
 
 Webdesign and Programming: Paul Dombrowski <br /> <p></p>
+
 
 
 Images: <br />
