@@ -73,13 +73,13 @@ function AccordionWithContent() {
                     src={process.env.PUBLIC_URL + '/DSC03621-2.jpg'} 
                     alt="bild kann nicht angezeigt werden" 
                 />
-                    <p className='accordion-text'>Emil Ertl (they/them), *94 in Nürnberg, is a dancer, performer and choreographer. Both in their own work as well as when collaborating, their main curiosity lies in social relationality and its navigations. When making dance, Emil is interested in porosity, choreography as a container for feelings, holding several perspectives at once, staying with friction, moving within paradoxes, and magic-making. <p></p>
+                    <p className='accordion-text'>Emil Maria Ertl (they/them), *94 in Nürnberg, works as a dancer, choreographer and facilitator in the field of performance art. Both in their own work as well as when collaborating, their main curiosity lies in social relationality and its navigation. When making dance, Emil is interested in porosity, choreography as a container for feelings, holding several perspectives at once, staying with friction, moving within paradoxes, and magic-making. <p></p>
 
-Emil’s work <i>Eternal Betrayal</i> &nbsp;was shown at Ballhaus Ost in the frame of Dirty Debüt, and at ada studios in the frame of <i>NAH DRAN</i>&nbsp; extended. In 2022 they published <i>Eigentlich benutze ich dieses Wort nicht</i>, an audio piece about failure and fucking up, in collaboration with Onur Agbaba, Rahel Barra and Lotta Beckers. <br/>
+Emil’s work <i>Eternal Betrayal</i> &nbsp;was shown at Ballhaus Ost in the frame of Dirty Debüt, and at ada studios in the frame of <i>NAH DRAN</i>&nbsp; extended. In 2022 they published <i>Eigentlich benutze ich dieses Wort nicht</i>, an audio piece around failure and fuck ups, in collaboration with Onur Agbaba, Rahel Barra and Lotta Beckers. <br/>
 As a dancer they have worked with choreographers such as Tümay Kilincel and Cornelius Schaper, Olympia Bukkakis, Ellen Söderhult, Gry Tingskog, Ar Utke Acs, Tchivett, Florentina Holzinger and Sindri Runudde.
 Emil is facilitating dance workshops both in community-centers as well as in institutions. <p></p>
 
-They studied at Tanzfabrik Berlin, Hochschule für Musik und Tanz Köln and graduated from University of the Arts Stockholm in 2019 with a BA in Dance Performance. In 2023, Emil received the danceWEB scholarship at Impulstanz Vienna. <p></p>
+They studied at Tanzfabrik Berlin, Hochschule für Musik und Tanz Köln and graduated from University of the Arts Stockholm in 2019 with a Bachelor in Dance Performance. In 2023, Emil received the danceWEB scholarship at Impulstanz Vienna. <p></p>
 
 Most recently, Emil is working on <i>Serpentine Serpentine</i>, a research investigating the dichotomy between crumpling and straightening with Onur Agbaba in residency at Flutgraben Berlin. Next to that, they are in rehearsal process with Gry Tingskog for <i>parasight</i>, which will be premiering in spring 2024. <p></p> 
 
@@ -111,7 +111,7 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
                             </tr>
                             <tr>
                                 <td>2013-<br />2014</td>
-                                <td><span className="cv-überschrift">Guest Student in Dance</span>  <br /> Theater Academy of the University of the Arts Helsinki</td>
+                                <td><span className="cv-überschrift">Dance Intensive</span>  <br />Tanzfabrik Berlin</td>
                             </tr>
                         </tbody>
                     </table>
@@ -293,8 +293,13 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
                     <p className='cv-title'>Work as Facilitator</p> 
                     <table className="accordion-table">
                         <tbody>
+
                         <tr>
                                 <td>2023</td>
+                                <td><span className="cv-überschrift">Dance Workshop</span>  <br /> Queerfilmfestival Leipzig </td>
+                            </tr>
+                        <tr>
+                                <td></td>
                                 <td><span className="cv-überschrift">Commercial Jazz 4 Queers</span>  <br /> KUTE Studio Berlin </td>
                             </tr>
                             <tr>
@@ -317,7 +322,7 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
             )
         },
         {
-            title: 'Choreographing',
+            title: 'Choreographing (Selection)',
             body: (
                 <>
                  <p className= 'selected-work-header'>
@@ -335,7 +340,7 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
                 <p></p>
                 Concept: Onur Agbaba and Emil Ertl <br />
                 Flutgraben Berlin, 2023 <br />
-                Photo: Onur Agbaba
+                
                 </p> 
 
                 <p className= 'selected-work-header'>
@@ -355,7 +360,7 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
                 Song: I’m a Victim of this Song – Pipilotti Rist <br />
                 Fonds DAKU Recherche Förderung HAU Berlin, 2022 <br />
                 Video available on request <br />
-                Photos: stills 
+                
 
                 </p> 
 
@@ -376,7 +381,7 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
                 Song: Anna von Hausswolff <br />
                 Camera: Alicja Hoppel <br />
                 Dirty Debüt, Ballhaus Ost Berlin + NAH DRAN extended, ada studios Berlin 2021    <br />   
-                Photos: Anna Agliardi
+                Videodocumentation: Alicja Hoppel
                 
                 </p> 
                 <div class="video-wrapper">
@@ -399,6 +404,11 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
                 Lights: Isi Oyarzún <br />
                  Song: Describe – Perfume Genius <br />
                 Broken Knee Festival at Ackerstadtpalast Berlin  <br />
+                Videodocumentation: AsphaltKollektivBerlin e.V. / Lukas Hamm <br /> <p></p>
+        
+                <a href="https://vimeo.com/679718479" target="_blank" rel="noopener noreferrer" class="underline-link">Photos</a> <br />
+
+
                 
                 </p> 
                 <div class="video-wrapper">
@@ -413,7 +423,7 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
 
 
         {
-            title: 'Performing',
+            title: 'Performing (Selection)',
             body: (
                 <>
                  <p className= 'selected-work-header'>
@@ -432,8 +442,6 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
 
                     <a href="https://www.tanzforumberlin.de/en/production/replay/" target="_blank" rel="noopener noreferrer" class="underline-link">Trailer and Credits</a> <br />
 
-                    Photo: Maya Wallraff <br />
-                    On Photo: The Darvish, Olympia Bukkakis, Emil Ertl
 
 
                     
@@ -452,7 +460,11 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
                     MDT Stockholm, Danshallerne Copenhagen <br />2021 <br />
                     <a href="https://vimeo.com/629473430" target="_blank" rel="noopener noreferrer" class="underline-link">Trailer and Credits</a> <br />
 
-                    Photo: Märta Thisner <br />
+                    Photo: Märta Thisner <br />  <p>
+                    </p>
+
+                    <iframe src="https://player.vimeo.com/video/629473430" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
 
                 </p> 
 
@@ -469,10 +481,13 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
 
                 Heizhaus Berlin <br />
                 2021 <br />
-                <a href="https://vimeo.com/708406231" target="_blank" rel="noopener noreferrer" class="underline-link">Trailer and Credits</a> <br />
-                Photo: Camille Lacadee <br />
-                On Photo: Ellen Söderhult, Emil Ertl <br />
+                <a href="https://vimeo.com/708406231" target="_blank" rel="noopener noreferrer" class="underline-link">Trailer and Credits</a> <br /> <p></p>
+                <iframe src="https://player.vimeo.com/video/708406231" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
+                
                 </p> 
+
+
                 
 
 
@@ -487,8 +502,11 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
 
                      MDT Stockholm, Danshallerne Copenhagen, Black Box Theatre Oslo, Palladium Malmö <br /> 2016-2021 <br />
                      <a href="https://vimeo.com/297615719" target="_blank" rel="noopener noreferrer" class="underline-link">Trailer and Credits</a> <br />
+                     <p> </p>
+                     <iframe src="https://player.vimeo.com/video/297615719" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
-                    Photo: Olle Ehn Hillberg
+
+                     
 
                 
                 </p> 
@@ -511,7 +529,7 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
 
                     Emil is facilitating dance workshops both in institutions as well as community-oriented organizations. The content of their classes varies from each occasion and are puzzled together with improvisation techniques, movement research, commercial jazz dance, instant composition practices and a good sprinkle of 90s pop music. <p></p>
 
-                    Photos: Don Hoang
+                   
                     
                 </p>
             
@@ -545,6 +563,49 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
                     
                 </p>
             
+                
+                </>
+  
+            )
+        },
+
+
+        {
+            title: 'IMPRINT',
+            body: (
+                <>
+                    <p className='accordion-text'> © Emil Maria Ertl 2023 <br /> <p></p>
+
+c/o Studio13 e.V. <br />
+Ziegrastraße 13  <br />
+12057 Berlin  <br /> <p></p>
+
+amertl.mails@gmail.com <br />
+
+Webdesign and Programming: Paul Dombrowski <br /> <p></p>
+
+
+Images: <br />
+ABOUT + FACILITATING: Đôn Hoang <br />
+SERPENTINE SERPENTINE: Onur Agbaba <br />
+ETERNAL BETRAYAL: Anna Agliardi <br />
+OUTRO: Jim Mafrim  <br />
+REPLAY: Maya Wallraff  <br />
+                on photo: Olympia Bukkakis, The Darvish, Emil Ertl <br />
+ECHOES: Märta Thisner <br />
+DUNKA DUNKA: Camille Lacadee <br />
+                            On photo: Ellen Söderhult, Emil Ertl <br />
+HOW TO DO THINGS WITH ROMANCE: Olle Ehn Hillberg <br />
+                                                        On photo: Elise Sjöberg, Michelle Persson, Oda Brekke, Stina Ehn, Sarah Kebedech Ziebe, Emil Ertl <br /> <p></p>
+
+
+
+
+Haftungsausschluss: Die Inhalte dieser Seiten sind mit größter Sorgfalt erstellt. Der Autor übernimmt keine Gewähr für Aktualität, Richtigkeit und Vollständigkeit der auf dieser Website bereitgestellten Angaben. Die Seite enthält Links zu externen Webseiten Dritter, auf deren Inhalte keinerlei Einfluss besteht. Deshalb wird für diese Inhalte keine Gewähr übernommen. Für die Inhalte der verlinkten Seiten ist ausschließlich der jeweilige Anbieter bzw. Betreiber der Seiten verantwortlich; alle verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zu diesem Zeitpunkt nicht erkennbar. Eine andauernde inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden derartige Links umgehend entfernt.Die Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb dieser Seite bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur zu privaten Zwecken gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere sind Inhalte Dritter als solche gekennzeichnet. Sollten Sie dennoch auf eine Urheberrechtsverletzung aufmerksam werden, wird um Hinweis gebeten. Bei Bekanntwerden von Rechtsverletzungen werden derartige Inhalte umgehend entfernt.Die Nutzung der Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Der Nutzung der hier veröffentlichten Kontaktinformationen durch Dritte zur Übersendung von nicht bestellter Werbung und Informationsmaterialien wird hiermit widersprochen.
+</p>
+
+
+      
                 
                 </>
   
