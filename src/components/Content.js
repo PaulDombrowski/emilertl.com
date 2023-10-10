@@ -462,9 +462,9 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
 
                     Photo: Märta Thisner <br />  <p>
                     </p>
-
+                    <div class="video-wrapper">
                     <iframe src="https://player.vimeo.com/video/629473430" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-
+                    </div>
 
                 </p> 
 
@@ -482,8 +482,9 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
                 Heizhaus Berlin <br />
                 2021 <br />
                 <a href="https://vimeo.com/708406231" target="_blank" rel="noopener noreferrer" class="underline-link">Trailer and Credits</a> <br /> <p></p>
+                <div class="video-wrapper">
                 <iframe src="https://player.vimeo.com/video/708406231" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-
+                </div>
                 
                 </p> 
 
@@ -503,8 +504,10 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
                      MDT Stockholm, Danshallerne Copenhagen, Black Box Theatre Oslo, Palladium Malmö <br /> 2016-2021 <br />
                      <a href="https://vimeo.com/297615719" target="_blank" rel="noopener noreferrer" class="underline-link">Trailer and Credits</a> <br />
                      <p> </p>
-                     <iframe src="https://player.vimeo.com/video/297615719" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
+                     <div class="video-wrapper">
+                     <iframe src="https://player.vimeo.com/video/297615719" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                     </div>
 
                      
 
