@@ -339,7 +339,7 @@ html, body {
 
 @media only screen and (min-width: 1201px) {
   .accordion {
-    width: calc(100vw - 50vw);
+    width: calc(100vw - 55vw);
   }
   .akkordion-wrapper {
     padding-top: 300px;
