@@ -549,7 +549,7 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
        
 
         {
-            title: '@Get in touch',
+            title: 'Get in touch',
             body: (
                 <>
                     <p className='accordion-text'><p></p>
