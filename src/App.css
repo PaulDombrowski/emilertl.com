@@ -18,6 +18,7 @@ html, body {
   text-decoration: underline;
   color: inherit;
   cursor: pointer;
+
 }
 
 .underline-link:hover, 
@@ -65,7 +66,7 @@ html, body {
 
 .background-overlay {
   z-index: 0;
-  background: rgba(255, 30, 173, 0.092); /* rosa, halbtransparent */
+  background: rgba(255, 49, 149, 0.171); /* rosa, halbtransparent */
   transition: background 0.9s; /* Animationseffekt beim Scrollen */
   
 }
@@ -178,6 +179,7 @@ html, body {
   border-spacing: 0px 8px;
   color: antiquewhite;
   padding-bottom: 4vh;
+  text-align: left;
   
 }
 
@@ -251,7 +253,7 @@ html, body {
     font-size: 1rem; 
   }
   .fixed-title {
-    font-size: 60px;
+    font-size: 55px;
   }
 }
 

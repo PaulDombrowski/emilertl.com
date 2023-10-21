@@ -89,7 +89,7 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
                 </>
             )
         },
-        {
+        {    
             title: 'CV',
             body: (
                 <>
@@ -316,10 +316,12 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
                             </tr>
                         </tbody>
                     </table>
+                   
         
                    
                 </>
-            )
+            
+            ) 
         },
         {
             title: 'Choreographing',
@@ -373,6 +375,9 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
                     className='image-content' 
                     src={process.env.PUBLIC_URL + '/eternal betrayal.jpg'} 
                     alt="bild kann nicht angezeigt werden"   />
+                      <div class="video-wrapper">
+                 <iframe src="https://player.vimeo.com/video/520291775" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                </div>
                     <p className='accordion-text'> <p></p>
 
                     <i>Eternal Betrayal</i> is a collection of various movie scenes that all portray the same thing: a revelation of a betrayal. In film plots, these scenes classically are followed by relief and reharmonization – a narration through which societal morals are revealed. Those morals often point towards heteronormative, cis-patriarchal ideas of order and loyalty. Driven by the desire to stay with brokenness instead of seeking moralist glue to fix it with, <i>Eternal Betrayal</i> invites to soak in your tears and linger within the clarity of (heart)break.
@@ -385,9 +390,7 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
                 Videodocumentation: Alicja Hoppel
                 
                 </p> 
-                <div class="video-wrapper">
-                 <iframe src="https://player.vimeo.com/video/520291775" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                </div>
+              
 
 
 
@@ -397,6 +400,11 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
                     className='image-content' 
                     src={process.env.PUBLIC_URL + '/outro1.jpeg'} 
                     alt="bild kann nicht angezeigt werden"   />
+
+                     <div class="video-wrapper">
+                 <iframe src="https://player.vimeo.com/video/679718479" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                </div>
+
                     <p className='accordion-text'> <p></p>
 
                     <i>Outro – riding solo with u</i> is a performance made for two and danced by one. Besides dealing with relationality and long distance intimacies, this dance moves within the space between what is lost and what remains when grieving. <i>Outro – riding solo with u</i> can be thought of as a continuation of <i>Eternal Betrayal</i>.
@@ -412,9 +420,7 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
 
                 
                 </p> 
-                <div class="video-wrapper">
-                 <iframe src="https://player.vimeo.com/video/679718479" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                </div>
+               
                 </>
   
             )
@@ -458,6 +464,11 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
                     className='image-content' 
                     src={process.env.PUBLIC_URL + '/echoes 2.jpg'} 
                     alt="bild kann nicht angezeigt werden"   />
+
+                    <div class="video-wrapper">
+                    <iframe src="https://player.vimeo.com/video/629473430" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                    </div>
+
                     <p className='accordion-text'>  <p></p>
                     
                     MDT Stockholm, Danshallerne Copenhagen <br />2021 <br />
@@ -465,9 +476,7 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
 
                     Photo: Märta Thisner <br />  <p>
                     </p>
-                    <div class="video-wrapper">
-                    <iframe src="https://player.vimeo.com/video/629473430" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                    </div>
+                    
 
                 </p> 
 
@@ -479,15 +488,17 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
                     className='image-content' 
                     src={process.env.PUBLIC_URL + '/dunkadunka.00_44_36_19.Still036(1).jpeg'} 
                     alt="bild kann nicht angezeigt werden"   />
+
+                <div class="video-wrapper">
+                <iframe src="https://player.vimeo.com/video/708406231" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                </div>
                     <p className='accordion-text'> <p></p>
 
 
                 Heizhaus Berlin <br />
                 2021 <br />
                 <a href="https://vimeo.com/708406231" target="_blank" rel="noopener noreferrer" class="underline-link">Trailer and Credits</a> <br /> <p></p>
-                <div class="video-wrapper">
-                <iframe src="https://player.vimeo.com/video/708406231" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                </div>
+                
                 
                 </p> 
 
@@ -502,15 +513,18 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
                     className='image-content' 
                     src={process.env.PUBLIC_URL + '/how to do things with romance 2.jpg'} 
                     alt="bild kann nicht angezeigt werden"   />
+
+                    <div class="video-wrapper">
+                     <iframe src="https://player.vimeo.com/video/297615719" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                     </div>
+
                     <p className='accordion-text'> <p></p>
 
                      MDT Stockholm, Danshallerne Copenhagen, Black Box Theatre Oslo, Palladium Malmö <br /> 2016-2021 <br />
                      <a href="https://vimeo.com/297615719" target="_blank" rel="noopener noreferrer" class="underline-link">Trailer and Credits</a> <br />
                      <p> </p>
 
-                     <div class="video-wrapper">
-                     <iframe src="https://player.vimeo.com/video/297615719" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                     </div>
+                    
 
                      
 
