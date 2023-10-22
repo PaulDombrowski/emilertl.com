@@ -324,7 +324,7 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
             ) 
         },
         {
-            title: 'Choreographing',
+            title: 'CHOREOGRAPHING',
             body: (
                 <>
                  <p className='accordion-text'> <i>Selected Works</i></p>
@@ -430,7 +430,7 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
 
 
         {
-            title: 'Performing',
+            title: 'PERFOMING',
             body: (
                 <>
                 <p className='accordion-text'> <i>Selected Works</i></p>
@@ -563,7 +563,7 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
        
 
         {
-            title: 'Get in touch',
+            title: 'GET',
             body: (
                 <>
                     <p className='accordion-text'><p></p>

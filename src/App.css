@@ -12,6 +12,14 @@ html, body {
   scroll-behavior: smooth;
 }
 
+body {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  /* Für Webkit-Browser wie Safari */
+  -webkit-overflow-scrolling: touch;
+}
+
+
 
 
 .underline-link {
@@ -143,8 +151,14 @@ html, body {
 }
 .accordion-header:hover {
    color: rgb(252, 228, 180);
+   font-family: 'Ecto Blaster';
+
 }
 
+.accordion-header.touched {
+  color: rgb(252, 228, 180);
+  font-family: 'Ecto Blaster';
+}
 
 .accordion-close {
     position: absolute;
@@ -408,13 +422,13 @@ html, body {
     font-size: 1.3rem; 
   }
   .fixed-title {
-    font-size: 140px;
+    font-size: 100px;
   }
   .background-image {
     background-size: contain;
     background-position: center;
     width: 100%;
-    height: 140%;
+  
     top: 0;
     left: 0; 
   }
