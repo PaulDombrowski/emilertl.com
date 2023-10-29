@@ -2,9 +2,10 @@
 
 
 @font-face {
-  font-family: 'Distress';
-  src: url('/public/Distress.otf') format('opentype');
+  font-family: 'Dortmund-Extrabold';
+  src: url('/public/toxigenesis\ bd.otf') format('opentype');
 }
+
 
 
 html, body {
@@ -91,7 +92,7 @@ body {
 
 .fixed-title {
   pointer-events: none;
-  font-family: 'Ecto Blaster';
+  font-family: 'Dortmund-Extrabold';
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
@@ -151,7 +152,8 @@ body {
 }
 .accordion-header:hover {
    color: rgb(252, 228, 180);
-   font-family: 'Ecto Blaster';
+   font-style: italic;
+   
 
 }
 
@@ -267,7 +269,7 @@ body {
     font-size: 1rem; 
   }
   .fixed-title {
-    font-size: 45px;
+    font-size: 40px;
   }
 }
 
@@ -298,7 +300,7 @@ body {
     font-size: 1.1rem; 
   }
   .fixed-title {
-    font-size: 58px;
+    font-size: 53px;
   }
 }
 
@@ -326,7 +328,7 @@ body {
     font-size: 1.2rem; 
   }
   .fixed-title {
-    font-size: 90px;
+    font-size: 80px;
   }
 
 }
@@ -356,7 +358,7 @@ body {
     font-size: 1.3rem; 
   }
   .fixed-title {
-    font-size: 95px;
+    font-size: 87px;
   }
 
   
@@ -386,7 +388,7 @@ body {
     font-size: 1.3rem; 
   }
   .fixed-title {
-    font-size: 95px;
+    font-size: 90px;
   }
   
 
@@ -422,7 +424,7 @@ body {
     font-size: 1.3rem; 
   }
   .fixed-title {
-    font-size: 100px;
+    font-size: 95px;
   }
   .background-image {
     background-size: contain;
