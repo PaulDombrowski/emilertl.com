@@ -563,7 +563,7 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
        
 
         {
-            title: 'GET',
+            title: 'GET IN TOUCH',
             body: (
                 <>
                     <p className='accordion-text'><p></p>
