@@ -75,7 +75,7 @@ body {
 
 .background-overlay {
   z-index: 0;
-  background: rgba(255, 47, 168, 0.407); /* rosa, halbtransparent */
+  background: rgba(255, 47, 168, 0.193); /* rosa, halbtransparent */
   transition: background 0.9s; /* Animationseffekt beim Scrollen */
   
 }
