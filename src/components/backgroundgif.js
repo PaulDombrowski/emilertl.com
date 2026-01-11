@@ -123,7 +123,7 @@ function Background() {
                     speed: 0.00045 + seed * 0.00055,
                     phase: seed * Math.PI * 2,
                     width: 2.2 + seed * 2.6,
-                    hue: 315 + seed * 50
+                    hue: 350 + seed * 15
                 });
             }
             ribbonsRef.current = ribbons;
@@ -136,9 +136,9 @@ function Background() {
                 startTimeRef.current = time;
             }
             const elapsed = time - startTimeRef.current;
-            const introDuration = 900;
-            const dimLevel = 0.2;
-            let intensity = 1;
+            const introDuration = 700;
+            const dimLevel = 0.35;
+            let intensity = 0.85;
             if (elapsed > introDuration) {
                 const fadeWindow = 800;
                 const t = Math.min(1, (elapsed - introDuration) / fadeWindow);
@@ -160,14 +160,21 @@ function Background() {
                 const steps = 9;
                 const step = width / (steps - 1);
                 const swing = Math.sin(time * ribbon.speed * motionScale + ribbon.phase) * ribbon.amp * 0.35;
-                const hueShift = (time * 0.0012 + i * 10) % 360;
+                const hueShift = Math.sin(time * 0.00035 + i) * 4;
+                let hue = (ribbon.hue + hueShift) % 360;
+                if (hue < 0) {
+                    hue += 360;
+                }
+                if (hue > 20 && hue < 340) {
+                    hue = hue < 180 ? 20 : 340;
+                }
 
-                const baseAlpha = 0.55 * intensity * pulseStrength;
+                const baseAlpha = 0.75 * intensity * pulseStrength;
                 ctx.lineCap = 'round';
                 ctx.lineJoin = 'round';
 
-                ctx.strokeStyle = `hsla(${(ribbon.hue + hueShift + 20) % 360}, 58%, 45%, ${0.12 * intensity * pulseStrength})`;
-                ctx.lineWidth = ribbon.width * (0.75 + intensity * 0.75) * pulseStrength;
+                ctx.strokeStyle = `hsla(${(hue + 12) % 360}, 62%, 45%, ${0.1 * intensity * pulseStrength})`;
+                ctx.lineWidth = ribbon.width * (0.62 + intensity * 0.62) * pulseStrength;
                 ctx.beginPath();
                 for (let s = 0; s < steps; s += 1) {
                     const x = step * s;
@@ -183,8 +190,8 @@ function Background() {
                 }
                 ctx.stroke();
 
-                ctx.strokeStyle = `hsla(${(ribbon.hue + hueShift) % 360}, 76%, 58%, ${baseAlpha})`;
-                ctx.lineWidth = ribbon.width * (0.36 + intensity * 0.55) * pulseStrength;
+                ctx.strokeStyle = `hsla(${hue}, 82%, 58%, ${baseAlpha})`;
+                ctx.lineWidth = ribbon.width * (0.34 + intensity * 0.56) * pulseStrength;
 
                 ctx.beginPath();
                 for (let s = 0; s < steps; s += 1) {
