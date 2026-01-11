@@ -29,6 +29,17 @@ function Background() {
     }, []);
 
     useEffect(() => {
+        const body = document.body;
+        if (!body) {
+            return;
+        }
+        body.classList.toggle('scrolling', scrolling);
+        return () => {
+            body.classList.remove('scrolling');
+        };
+    }, [scrolling]);
+
+    useEffect(() => {
         const handleScroll = () => {
             activateScrolling();
         };
@@ -145,6 +156,7 @@ function Background() {
                 intensity = 1 - (1 - dimLevel) * t;
             }
             const menuOpen = document.body && document.body.classList.contains('menu-open');
+            const scrolling = document.body && document.body.classList.contains('scrolling');
             const motionScale = menuOpen ? 0.2 : 1;
             const cycle = gifCycleRef.current || 5200;
             const phase = (elapsed % cycle) / cycle;
@@ -173,7 +185,10 @@ function Background() {
                 ctx.lineCap = 'round';
                 ctx.lineJoin = 'round';
 
-                ctx.strokeStyle = `hsla(${(hue + 12) % 360}, 62%, 45%, ${0.1 * intensity * pulseStrength})`;
+                const accentHue = scrolling ? 52 : (hue + 12) % 360;
+                const accentSat = scrolling ? 80 : 62;
+                const accentLight = scrolling ? 62 : 45;
+                ctx.strokeStyle = `hsla(${accentHue}, ${accentSat}%, ${accentLight}%, ${0.12 * intensity * pulseStrength})`;
                 ctx.lineWidth = ribbon.width * (0.62 + intensity * 0.62) * pulseStrength;
                 ctx.beginPath();
                 for (let s = 0; s < steps; s += 1) {
@@ -190,7 +205,10 @@ function Background() {
                 }
                 ctx.stroke();
 
-                ctx.strokeStyle = `hsla(${hue}, 82%, 58%, ${baseAlpha})`;
+                const mainHue = scrolling ? 50 : hue;
+                const mainSat = scrolling ? 86 : 82;
+                const mainLight = scrolling ? 70 : 58;
+                ctx.strokeStyle = `hsla(${mainHue}, ${mainSat}%, ${mainLight}%, ${baseAlpha})`;
                 ctx.lineWidth = ribbon.width * (0.34 + intensity * 0.56) * pulseStrength;
 
                 ctx.beginPath();
