@@ -13,6 +13,10 @@ html, body {
   scroll-behavior: smooth;
 }
 
+:root {
+  --gif-loop-duration: 4800ms;
+}
+
 body {
   overflow-x: hidden;
   overflow-y: scroll;
@@ -20,8 +24,33 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 2000;
+  background: rgb(254, 247, 239);
+  color: #ff1493;
+  padding: 0.75rem 1.25rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
 
-
+.skip-link:focus,
+.skip-link:focus-visible {
+  left: 50%;
+  top: 1.5rem;
+  transform: translateX(-50%);
+  width: auto;
+  height: auto;
+  overflow: visible;
+}
 
 .underline-link {
   text-decoration: underline;
@@ -30,7 +59,6 @@ body {
 
 }
 
-.underline-link:hover, 
 .underline-link:focus {
   color: inherit;
   text-decoration: underline;
@@ -60,6 +88,18 @@ body {
   width: 100%;
   height: 100%;
   z-index: -1;
+}
+
+.background-pixels {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  filter: saturate(1.3);
 }
 
 .background-image {
@@ -100,22 +140,67 @@ body {
   text-align: center;
   top: -10px; /* Setze hier den gewünschten Abstand nach oben ein. */
 
-  z-index: 0;
-  transition: color 0.5s, opacity 0.3s;
+  z-index: 10000;
+  transition: opacity 0.3s ease;
   color: rgb(254, 247, 239);
+  white-space: nowrap;
 }
 
 .fixed-title.scrolled {
-  color: rgb(255, 0, 0);
-  opacity: 0.8;
-  z-index: 1;
-  font-style: italic;
+  opacity: 0.9;
+  z-index: 3;
+}
+
+.fixed-title__inner {
+  position: relative;
+  display: inline-block;
+  padding: 0.12em 0.18em;
+  --heading-stretch: 1;
+  --heading-tilt: 0deg;
+  --heading-glow: 0.22;
+  --heading-blur: 6px;
+}
+
+.fixed-title__text {
+  display: inline-block;
+  font: inherit;
+  letter-spacing: clamp(0.08em, 1.2vw, 0.18em);
+  position: relative;
+  transform-origin: 50% 0%;
+  transition: color 0.35s ease, letter-spacing 0.35s ease;
+  color: rgb(254, 247, 239);
+}
+
+.fixed-title__shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font: inherit;
+  letter-spacing: clamp(0.08em, 1.2vw, 0.18em);
+  color: rgba(0, 0, 0, 0);
+  transform-origin: 50% 0%;
+  transform: skewY(0deg) scaleY(1);
+  filter: blur(var(--heading-blur)) saturate(1.8);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.28s ease, letter-spacing 0.35s ease;
+}
+
+.fixed-title.scrolled .fixed-title__text {
+  color: rgb(255, 32, 32);
+  letter-spacing: clamp(0.12em, 1.7vw, 0.26em);
+}
+
+
+.fixed-title.scrolled .fixed-title__shadow {
+  opacity: 0;
+  letter-spacing: clamp(0.11em, 1.6vw, 0.22em);
 }
 
 
 
 .akkordion-wrapper {
- 
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -124,7 +209,7 @@ body {
 }
 
 .accordion {
-   
+ 
     min-width: 20vw;
     max-width: 90vw;
     color: antiquewhite;
@@ -133,45 +218,91 @@ body {
     margin-bottom: 20vh;
     text-align: justify;
     margin-bottom: 1500px;
+    position: relative;
+    z-index: 10;
     
 }
 
 .accordion-item {
-    border-top: 1px solid #eee;
+    border-top: none;
     position: relative;
+    z-index: 1;
 }
 
 .accordion-header {
-   
-    cursor: pointer;
     position: relative;
-    text-align: left;
-    line-height: 1.5;
-    transition: color 0.3s;
-    -webkit-tap-highlight-color: rgba(255,182,193,0.2); 
+    z-index: 20;
 }
-.accordion-header:hover {
-   color: rgb(252, 228, 180);
-   font-style: italic;
-   
 
+.accordion-body {
+    position: relative;
+    z-index: 0;
+}
+
+.image-content,
+.smart-image {
+    position: relative;
+    z-index: 0;
+}
+
+.accordion-header {
+   background: transparent;
+   border: none;
+   cursor: pointer;
+   position: relative;
+   text-align: left;
+   line-height: 1.5;
+   transition: color 0.2s ease;
+   -webkit-tap-highlight-color: rgba(255,182,193,0.2); 
+   color: inherit;
+   width: 100%;
+   padding: 0.7rem 0;
+   font: inherit;
+   overflow: hidden;
+}
+.accordion-header:focus-visible {
+  color: inherit;
+}
+
+.accordion-header.active {
+   color: inherit;
+}
+
+.accordion-header__text {
+  display: inline-block;
+  font-family: inherit;
+  font-size: clamp(1.2rem, 3.6vw, 1.7rem);
+  letter-spacing: 0.08em;
+  text-transform: none;
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.accordion-header:hover .accordion-header__text {
+  color: inherit;
+  font-family: 'Great Vibes', cursive;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.accordion-header.active .accordion-header__text::before,
+.accordion-header.active:focus-visible .accordion-header__text::before {
+  opacity: 0;
+}
+
+.accordion-header.active:focus-visible {
+  color: inherit;
+  -webkit-text-fill-color: currentColor;
+}
+
+.accordion-header:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 4px;
 }
 
 .accordion-header.touched {
-  color: rgb(252, 228, 180);
+  color: inherit;
   font-family: 'Ecto Blaster';
-}
-
-.accordion-close {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    color: antiquewhite;
 }
 
 .accordion-body {
@@ -179,15 +310,131 @@ body {
     background: transparent;
 }
 
+.accordion-body__topline {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  margin-bottom: 1rem;
+}
+
+.accordion-body__label {
+  font-size: clamp(0.95rem, 2.4vw, 1.2rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgb(254, 247, 239);
+}
+
+.accordion-close {
+  background: none;
+  color: rgb(254, 247, 239);
+  border: 1px solid rgba(254, 247, 239, 0.35);
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+.accordion-close:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
 .image-content {
   width: 100%;
-  height: auto;
   display: block;
   position: relative;
-  border-radius: 10px;
-  z-index: 0;
-  opacity: 0.9;
+  border-radius: 12px;
+  overflow: hidden;
   margin-bottom: 2vh;
+  opacity: 0.95;
+}
+
+.smart-image {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: inherit;
+  overflow: hidden;
+  min-height: clamp(160px, 38vw, 480px);
+}
+
+.smart-image > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.smart-image--loaded > img {
+  opacity: 1;
+}
+
+.smart-image--error {
+  background: rgba(255, 64, 64, 0.18);
+}
+
+.smart-image__shimmer {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(110deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.18) 45%, rgba(255, 255, 255, 0.04) 100%);
+  animation: smart-image-shimmer 1.75s linear infinite;
+  filter: blur(0.6px);
+}
+
+.smart-image__shimmer--slow {
+  animation-duration: 2.2s;
+  background: linear-gradient(110deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.22) 50%, rgba(255, 255, 255, 0.05) 100%);
+}
+
+.smart-image__hint {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(8px, 3vw, 20px);
+  transform: translateX(-50%);
+  font-size: clamp(0.68rem, 2.4vw, 0.85rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(12, 12, 12, 0.74);
+  color: rgb(254, 247, 239);
+  padding: 0.35em 0.8em;
+  border-radius: 999px;
+  pointer-events: none;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+}
+
+.smart-image__hint--error {
+  background: rgba(255, 32, 32, 0.85);
+}
+
+.smart-image--loaded .smart-image__hint,
+.smart-image--error .smart-image__shimmer {
+  display: none;
+}
+
+.smart-image--loaded .smart-image__shimmer {
+  opacity: 0;
+  animation: none;
+}
+
+@keyframes smart-image-shimmer {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
 }
 
 .accordion-table {

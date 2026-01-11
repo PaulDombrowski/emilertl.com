@@ -11,17 +11,23 @@ function App() {
 
   // Simuliere einen Ladevorgang, nur zum Testen
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setIsLoading(false);
     }, 3000); // 3 Sekunden
+
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+
   return (
     <div style={{ minHeight: "100vh", background: "rgba(255, 128, 227, 0.5)" }}>
+      <a className="skip-link" href="#main-content">
+        Zum Inhalt springen
+      </a>
       <Background /> {/* Hier wird der Background sofort geladen */}
       <AnimatePresence>
         {isLoading && (
@@ -34,31 +40,18 @@ function App() {
           ></motion.div>
         )}
       </AnimatePresence>
+      <FixedTitle />
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3, duration: 1.5 }}
+        initial={{ opacity: 0, y: 16, scale: 1.04, filter: 'blur(10px)' }}
+        animate={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
+        transition={{ duration: 1.2, delay: 0.35, ease: [0.2, 0.7, 0.1, 1] }}
       >
-        {/* Hier könnte zusätzlicher Inhalt eingefügt werden, der mit einer Verzögerung erscheinen soll */}
-      </motion.div>
-      <motion.div
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.8, duration: 1.2 }}
-      >
-        <FixedTitle />
-      </motion.div>
-      <motion.div
-        initial={{ y: 100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 1.3, duration: 1.2 }}
-      >
-        <AccordionWithContent />
+        <main id="main-content">
+          <AccordionWithContent />
+        </main>
       </motion.div>
     </div>
   );
 }
 
 export default App;
-
-

@@ -1,87 +1,110 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo, useCallback } from 'react';
 import '../App.css';
 import { motion, AnimatePresence } from 'framer-motion';
+import SmartImage from './SmartImage';
 
 function AccordionWithContent() {
     const [activeIndex, setActiveIndex] = useState(null);
-    const accordionHeaderRefs = useRef([]); 
+    const accordionHeaderRefs = useRef([]);
+    const scrollTimeoutRef = useRef(null);
 
-    const handleHeaderClick = (index, e) => {
+    const scheduleScrollToHeader = useCallback((index) => {
+        if (scrollTimeoutRef.current) {
+            clearTimeout(scrollTimeoutRef.current);
+        }
+
+        scrollTimeoutRef.current = setTimeout(() => {
+            const headerEl = accordionHeaderRefs.current[index];
+
+            if (!headerEl) {
+                return;
+            }
+
+            const headerPosition = headerEl.getBoundingClientRect().top + window.scrollY;
+            const offset = 50;
+            const scrollToPosition = headerPosition - offset;
+
+            window.scrollTo({
+                top: scrollToPosition,
+                behavior: 'smooth'
+            });
+        }, 400);
+    }, []);
+
+    const handleHeaderClick = useCallback((index) => {
         if (activeIndex === index) {
             setActiveIndex(null);
-        } else {
-            setActiveIndex(index);
-            setTimeout(() => {
-                const headerPosition = accordionHeaderRefs.current[index].getBoundingClientRect().top + window.scrollY;
-                const offset = 50;
-                const scrollToPosition = headerPosition - offset;
-                window.scrollTo({
-                    top: scrollToPosition,
-                    behavior: "smooth"
-                });
-            }, 400);
+            return;
         }
-    };
+
+        setActiveIndex(index);
+        scheduleScrollToHeader(index);
+    }, [activeIndex, scheduleScrollToHeader]);
+
+    const closePanel = useCallback((index) => {
+        setActiveIndex(null);
+        const trigger = accordionHeaderRefs.current[index];
+        if (trigger && typeof trigger.focus === 'function') {
+            trigger.focus({ preventScroll: true });
+        }
+    }, []);
 
     useEffect(() => {
-        const accordionElement = document.querySelector('.accordion'); 
-
-        if (!accordionElement) return;
-
-        const updateOverlay = () => {
-            const overlay = document.querySelector(".background-overlay");
-            if (overlay) {
-                if (activeIndex === null) {
-                    overlay.classList.remove("scrolling");
-                } else {
-                    overlay.classList.add("scrolling");
-                }
-            }
+        const handlePopState = () => {
+            setActiveIndex(null);
         };
 
-        const observer = new MutationObserver(mutations => {
-            for(let mutation of mutations) {
-                if(mutation.type === 'attributes' && mutation.attributeName === 'style') {
-                    updateOverlay();
-                }
-            }
-        });
+        window.history.replaceState({ panelOpen: false }, '', window.location.href);
+        window.addEventListener('popstate', handlePopState);
+        return () => window.removeEventListener('popstate', handlePopState);
+    }, []);
 
-        observer.observe(accordionElement, {
-            attributes: true,
-            childList: false,
-            subtree: false
-        });
+    useEffect(() => {
+        if (activeIndex === null) {
+            return;
+        }
+        window.history.pushState({ panelOpen: true }, '', window.location.href);
+    }, [activeIndex]);
+
+    useEffect(() => {
+        const overlay = document.querySelector('.background-overlay');
+
+        if (overlay) {
+            overlay.classList.toggle('scrolling', activeIndex !== null);
+        }
 
         return () => {
-            observer.disconnect(); 
+            if (overlay) {
+                overlay.classList.remove('scrolling');
+            }
         };
-
     }, [activeIndex]);
-    
-    
-    
-    
 
-    const content = [
+    useEffect(() => {
+        return () => {
+            if (scrollTimeoutRef.current) {
+                clearTimeout(scrollTimeoutRef.current);
+            }
+        };
+    }, []);
+
+    const content = useMemo(() => [
         {
             title: 'About',
             body: (
                 <>
-                <img 
-                    className='image-content' 
-                    src={process.env.PUBLIC_URL + '/DSC03621-2.jpg'} 
-                    alt="bild kann nicht angezeigt werden" 
+                <SmartImage
+                    className="image-content"
+                    src={`${process.env.PUBLIC_URL}/DSC03621-2.jpg`}
+                    alt="Portrait of Emil Maria Ertl leaning against a wall"
                 />
-                    <p className='accordion-text'>Emil Maria Ertl (they/them), *94 in Nürnberg, works as a dancer, choreographer and facilitator in the field of performance art. Both in their own work as well as when collaborating, their main curiosity lies in social relationality and its navigation. When making dance, Emil is interested in porosity, choreography as a container for feelings, holding several perspectives at once, staying with friction, moving within paradoxes, and magic-making. <p></p>
+                    <p className='accordion-text'>Emil Maria Ertl (they/them), *94 in Nürnberg, works as a dancer, choreographer and facilitator in the field of performance art. Both in their own work as well as when collaborating, their main curiosity lies in social relationality and its navigationWhen making dance, Emil is interested in porosity, choreography as a container for feelings, holding several perspectives at once, staying with friction, moving within paradoxes, and magic-making. <p></p>
 
-Emil’s work <i>Eternal Betrayal</i> &nbsp;was shown at Ballhaus Ost in the frame of Dirty Debüt, and at ada studios in the frame of <i>NAH DRAN</i>&nbsp; extended. In 2022 they published <i>Eigentlich benutze ich dieses Wort nicht</i>, an audio piece around failure and fuck ups, in collaboration with Onur Agbaba, Rahel Barra and Lotta Beckers. <br/>
-As a dancer they have worked with choreographers such as Tümay Kilincel and Cornelius Schaper, Olympia Bukkakis, Ellen Söderhult, Gry Tingskog, Ar Utke Acs, Tchivett, Florentina Holzinger and Sindri Runudde.
+Emil’s work Eternal Betrayal was shown at Ballhaus Ost in the frame of Dirty Debüt, and at ada studios in the frame of NAH DRAN extended. 
+As a dancer they work with choreographers such as Ligia Lewis, Anan Fries, Olympia Bukkakis, Anna Lublina, Gry Tingskog, Ellen Söderhult and Ar Utke Acs.
 Emil is facilitating dance workshops both in community-centers as well as in institutions. <p></p>
 
 They studied at Tanzfabrik Berlin, Hochschule für Musik und Tanz Köln and graduated from University of the Arts Stockholm in 2019 with a Bachelor in Dance Performance. In 2023, Emil received the danceWEB scholarship at Impulstanz Vienna. <p></p>
-
-Most recently, Emil is working on <i>Serpentine Serpentine</i>, a research investigating the dichotomy between crumpling and straightening with Onur Agbaba in residency at Flutgraben Berlin. Next to that, they are in rehearsal process with Gry Tingskog for <i>parasight</i>, which will be premiering in spring 2024. <p></p> 
 
 Emil is based in Berlin and active in Germany, Sweden and internationally. 
 
@@ -94,12 +117,12 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
             body: (
                 <>
 
-                <p className='cv-title'>Education</p> 
+                <p className='cv-title'>Education and Scholarships</p> 
                     <table className="accordion-table">
                         <tbody>
                         <tr>
                                 <td>2023</td>
-                                <td><span className="cv-überschrift">DanceWeb Scholarship</span>  <br /> Impulstanz Vienna</td>
+                                <td><span className="cv-überschrift">DanceWEB Scholarship</span>  <br /> Impulstanz Vienna</td>
                             </tr>
                             <tr>
                                 <td>2016- <br /> 2019</td>
@@ -120,12 +143,20 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
                     <table className="accordion-table">
                         <tbody>
                         <tr>
+                                <td>2024</td>
+                                <td> <span className="cv-überschrift">Cuts</span> <br /> essay film with Biba Oskar Nass, BUCCI Schaubühne Berlin</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td> <span className="cv-überschrift">rageroom of insubordinate care</span> <br /> collaboration with An* Neely and Iokasti Mantzog, Heizhaus Uferstudios Berlin</td>
+                            </tr>
+                        <tr>
                                 <td>2023</td>
                                 <td> <span className="cv-überschrift">Serpentine Serpentine</span> <br />work in progress with Onur Agbaba, Flutgraben e.V.</td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td> <span className="cv-überschrift">Masculinity & Jazzdance: a research</span> <br />DISTANZEN Dachverband Tanz</td>
+                                <td> <span className="cv-überschrift">masc dance: a research</span> <br />DISTANZEN Dachverband Tanz</td>
                             </tr>
                             <tr>
                                 <td>2022</td>
@@ -184,16 +215,68 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
                     <table className="accordion-table">
                         <tbody>
                         <tr>
-                                <td>2024</td>
-                                <td> <span className="cv-überschrift">parasight</span> <br />by Gry Tingskog, Atalante Gothenborg (premiere spring 24)</td>
+                                <td>2026</td>
+                                <td> <span className="cv-überschrift">LORECORE</span> <br />by Anan Fries, HAU Berlin</td>
                             </tr>
                             <tr>
-                                <td>2023</td>
-                                <td> <span className="cv-überschrift">Foyer Phobie </span> <br /> by Tümay Kilinçel and Cornelius Schaper, Fortuna Wetten Berlin</td>
+                                <td>2025</td>
+                                <td> <span className="cv-überschrift">study now steady</span> <br />by Ligia Lewis, IM NOT HERE FORRRRR… exhibition, Martin Gropius Bau Berlin</td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td> <span className="cv-überschrift">replay</span> <br /> by Olympia Bukkakis, co-choregraphy+performance, Sophiensaele Berlin</td>
+                                <td> <span className="cv-überschrift">All of those records; tell me, bee</span> <br />by Krys Huba, Künstlerhaus Bethanien Berlin</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td> <span className="cv-überschrift">Magician Pharmacy</span> <br />by Anna Lublina, ausland Berlin</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td> <span className="cv-überschrift">Bodies in Rebellion</span> <br />by Zufit Simon, eintanzhaus Mannheim</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td> <span className="cv-überschrift">parasight</span> <br />by Gry Tingskog, Atalante Gothenburg</td>
+                            </tr>
+                            <tr>
+                                <td>2024</td>
+                                <td> <span className="cv-überschrift">The Dumps</span> <br />by Simone Aughterlony and Jen Rosenblit, Callies Berlin</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td> <span className="cv-überschrift">Unlimited T</span> <br />by Olympia Bukkakis, Pop Kultur Festival Berlin</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td> <span className="cv-überschrift">Axel Schnulz</span> <br />Queerpol Academy, Hamburg</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td> <span className="cv-überschrift">JUMBLE</span> <br />by R. Mihatsch, Fuhrwerkswaage Köln</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td> <span className="cv-überschrift">How to do things with Romance: a prologue</span> <br />by Ellen Söderhult, Blekinge Sweden</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td> <span className="cv-überschrift">Axel Schnulz Drag King Performance</span> <br />Pop-Kultur Berlin</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td> <span className="cv-überschrift">The Night</span> <br />by Frida Giulia Franceschini, Radialsystem Berlin</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td> <span className="cv-überschrift">parasight</span> <br />by Gry Tingskog, Riksteatern Stockholm</td>
+                            </tr>
+                            <tr>
+                                <td>2023</td>
+                                <td> <span className="cv-überschrift">Foyer Phobie</span> <br />by Tümay Kilinçel and Cornelius Schaper, Fortuna Wetten Berlin</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td> <span className="cv-überschrift">replay</span> <br />by Olympia Bukkakis, co-choregraphy+performance, Sophiensaele Berlin</td>
                             </tr>
                             <tr>
                                 <td>2022</td>
@@ -268,9 +351,13 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
                         </tbody>
                     </table>
         
-                <p className='cv-title'>Work as (choreographic) Assistance </p> 
+                <p className='cv-title'>Work as choreographic Outside Eye / Assistance</p> 
                     <table className="accordion-table">
                         <tbody>
+                            <tr>
+                                <td>2024</td>
+                                <td><span className="cv-überschrift">Silver Butch and Baby Butch</span>  <br /> by Antonia Baehr and Bettina Blanc Penther, HAU Berlin</td>
+                            </tr>
                             <tr>
                                 <td>2022</td>
                                 <td><span className="cv-überschrift">IN THE DEPTHS</span>  <br /> by Sheena McGrandles and Claire Sobottke, Lübbenau</td>
@@ -290,10 +377,13 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
                         </tbody>
                     </table>
         
-                    <p className='cv-title'>Work as Facilitator</p> 
+                    <p className='cv-title'>Work as Pedagogue</p> 
                     <table className="accordion-table">
                         <tbody>
-
+                        <tr>
+                                <td>2024</td>
+                                <td><span className="cv-überschrift">Dragerage</span>  <br /> workshop on rage for queer youth, Heizhaus Uferstudios + House of Queers Reinickendorf Berlin</td>
+                            </tr>
                         <tr>
                                 <td>2023</td>
                                 <td><span className="cv-überschrift">Dance Workshop</span>  <br /> Queerfilmfestival Leipzig </td>
@@ -324,17 +414,18 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
             ) 
         },
         {
-            title: 'CHOREOGRAPHING',
+            title: 'Choreographing',
             body: (
                 <>
                  <p className='accordion-text'> <i>Selected Works</i></p>
                  <p className= 'selected-work-header'>
                     Serpentine Serpentine
                 </p>
-                <img 
-                    className='image-content' 
-                    src={process.env.PUBLIC_URL + '/serpentine serpentine.jpg'} 
-                    alt="bild kann nicht angezeigt werden"   />
+                <SmartImage
+                    className="image-content"
+                    src={`${process.env.PUBLIC_URL}/serpentine serpentine.jpg`}
+                    alt="Performance still from Serpentine Serpentine"
+                />
                     <p className='accordion-text'>Work in Progress <p></p>
 
 
@@ -349,10 +440,11 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
                 <p className= 'selected-work-header'>
                     Eigentümliche Verhältnisse
                 </p>
-                <img 
-                    className='image-content' 
-                    src={process.env.PUBLIC_URL + '/eigentümliche verhältnisse 2.jpg'} 
-                    alt="bild kann nicht angezeigt werden"   />
+                <SmartImage
+                    className="image-content"
+                    src={`${process.env.PUBLIC_URL}/eigentümliche verhältnisse 2.jpg`}
+                    alt="Projected still from Eigentümliche Verhältnisse"
+                />
                     <p className='accordion-text'> Essay-Film <p></p>
 
 
@@ -371,12 +463,13 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
                 <p className= 'selected-work-header'>
                     Eternal Betrayal
                 </p>
-                <img 
-                    className='image-content' 
-                    src={process.env.PUBLIC_URL + '/eternal betrayal.jpg'} 
-                    alt="bild kann nicht angezeigt werden"   />
+                <SmartImage
+                    className="image-content"
+                    src={`${process.env.PUBLIC_URL}/eternal betrayal.jpg`}
+                    alt="Two performers during Eternal Betrayal embracing"
+                />
                       <div class="video-wrapper">
-                 <iframe src="https://player.vimeo.com/video/520291775" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                 <iframe src="https://player.vimeo.com/video/520291775" title="Eternal Betrayal trailer" frameborder="0" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
                 </div>
                     <p className='accordion-text'> <p></p>
 
@@ -396,13 +489,14 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
 
                 <p className= 'selected-work-header'>
                 Outro – riding solo with u                   </p>
-                <img 
-                    className='image-content' 
-                    src={process.env.PUBLIC_URL + '/outro1.jpeg'} 
-                    alt="bild kann nicht angezeigt werden"   />
+                <SmartImage
+                    className="image-content"
+                    src={`${process.env.PUBLIC_URL}/outro1.jpeg`}
+                    alt="Emil Ertl dancing in Outro – riding solo with u"
+                />
 
                      <div class="video-wrapper">
-                 <iframe src="https://player.vimeo.com/video/679718479" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                 <iframe src="https://player.vimeo.com/video/679718479" title="Outro – riding solo with u video" frameborder="0" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
                 </div>
 
                     <p className='accordion-text'> <p></p>
@@ -430,18 +524,139 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
 
 
         {
-            title: 'PERFOMING',
+            title: 'Performing',
             body: (
                 <>
                 <p className='accordion-text'> <i>Selected Works</i></p>
                  <p className= 'selected-work-header'>
+                 <i>study now steady</i> &nbsp; by Ligia Lewis
+                </p>
+                <SmartImage
+                    className="image-content"
+                    src={`${process.env.PUBLIC_URL}/legia.jpg`}
+                    alt="Performance still from study now steady by Ligia Lewis"
+                />
+                    <p className='accordion-text'><p></p>
+
+                    Martin Gropius Bau Berlin, I’M NOT HERE FORRRRR <br />
+                    2025-2026 <br />
+                    <a href="https://www.berlinerfestspiele.de/gropius-bau/programm/2025/ausstellungen/ligia-lewis/ausstellungstexte" target="_blank" rel="noopener noreferrer" class="underline-link">Credits</a> <br />
+                    <p></p>
+
+                </p>
+
+                <p className= 'selected-work-header'>
+                 magoki attori - <i>Magician pharmacy</i> by Anna Lublina
+                </p>
+                <SmartImage
+                    className="image-content"
+                    src={`${process.env.PUBLIC_URL}/lublina.jpg`}
+                    alt="Performance still from Magician pharmacy by Anna Lublina"
+                />
+                    <p className='accordion-text'><p></p>
+
+                    ausland Berlin <br />
+                    2025 <br />
+                    <a href="https://ausland.berlin/event/all-the-rivers-dance-residency-magoki-attori-magician-pharmacy-anna-lublina-laura-stellaci-emil-ertl" target="_blank" rel="noopener noreferrer" class="underline-link">Credits</a> <br />
+                    <p></p>
+
+                </p>
+
+                <p className= 'selected-work-header'>
+                 <i>All of those records; tell me, bee</i> by Krys Huba
+                </p>
+                <SmartImage
+                    className="image-content"
+                    src={`${process.env.PUBLIC_URL}/huba.jpg`}
+                    alt="Performance still from All of those records; tell me, bee by Krys Huba"
+                />
+                    <p className='accordion-text'><p></p>
+
+                    Künstlerhaus Bethanien <br />
+                    2025 <br />
+                    <a href="https://kryshuba.com" target="_blank" rel="noopener noreferrer" class="underline-link">Credits</a> <br />
+                    <p></p>
+
+                </p>
+
+                <p className= 'selected-work-header'>
+                 <i>Bodies in Rebellion</i> by Zufit Simon
+                </p>
+                <SmartImage
+                    className="image-content"
+                    src={`${process.env.PUBLIC_URL}/simon.jpg`}
+                    alt="Performance still from Bodies in Rebellion by Zufit Simon"
+                />
+                    <p className='accordion-text'><p></p>
+
+                    Eintanzhaus Mannheim <br />
+                    2025 <br />
+                    Credits: pics Max Borchardt <br />
+                    <a href="https://eintanzhaus.de/termin/Termine/termin/1796/6171f57b7a8a464c24769e8714dfa542/" target="_blank" rel="noopener noreferrer" class="underline-link">Credits</a> <br />
+                    <p></p>
+
+                </p>
+
+                <p className= 'selected-work-header'>
+                 <i>parasight</i> by Gry Tingskog
+                </p>
+                <SmartImage
+                    className="image-content"
+                    src={`${process.env.PUBLIC_URL}/tingskog.jpg`}
+                    alt="Performance still from parasight by Gry Tingskog"
+                />
+                    <p className='accordion-text'><p></p>
+
+                    Atalante Gothenborg / Riksteatern Stockholm <br />
+                    2025 <br />
+                    <a href="https://vimeo.com/event/4143255/e1b9db922a" target="_blank" rel="noopener noreferrer" class="underline-link">Credits and work in progress video</a> <br />
+                    <p></p>
+
+                </p>
+
+                <p className= 'selected-work-header'>
+                 <i>JUMBLE</i> by Ren Mihatsch
+                </p>
+                <SmartImage
+                    className="image-content"
+                    src={`${process.env.PUBLIC_URL}/mihatsch.jpg`}
+                    alt="Performance still from JUMBLE by Ren Mihatsch"
+                />
+                    <p className='accordion-text'><p></p>
+
+                    Fuhrwerkswaage Cologne <br />
+                    2024 <br />
+                    <a href="http://renatemihatsch.com/index.php?/works/jumble-performative-installation/" target="_blank" rel="noopener noreferrer" class="underline-link">Credits</a> <br />
+                    <p></p>
+
+                </p>
+
+                <p className= 'selected-work-header'>
+                 <i>The Night</i> by Frida Giulia Franceschini
+                </p>
+                <SmartImage
+                    className="image-content"
+                    src={`${process.env.PUBLIC_URL}/franceshini.jpg`}
+                    alt="Performance still from The Night by Frida Giulia Franceschini"
+                />
+                    <p className='accordion-text'><p></p>
+
+                    Radialsystem <br />
+                    2024 <br />
+                    <a href="https://www.radialsystem.de/en/programm/residenzen/body-time-space/" target="_blank" rel="noopener noreferrer" class="underline-link">Credits</a> <br />
+                    <p></p>
+
+                </p>
+
+                 <p className= 'selected-work-header'>
                  
                  <i>replay</i> &nbsp; by Olympia Bukkakis 
                 </p>
-                <img 
-                    className='image-content' 
-                    src={process.env.PUBLIC_URL + '/Olympia Bukkakis replay-8308.jpg'} 
-                    alt="bild kann nicht angezeigt werden"   />
+                <SmartImage
+                    className="image-content"
+                    src={`${process.env.PUBLIC_URL}/Olympia Bukkakis replay-8308.jpg`}
+                    alt="Stage moment from replay by Olympia Bukkakis"
+                />
                     <p className='accordion-text'><p></p>
 
                     Co-choreography & Performance <br />
@@ -460,13 +675,14 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
                 <i>echoes</i> &nbsp; by Ar Utke Acs
 
                 </p>
-                <img 
-                    className='image-content' 
-                    src={process.env.PUBLIC_URL + '/echoes 2.jpg'} 
-                    alt="bild kann nicht angezeigt werden"   />
+                <SmartImage
+                    className="image-content"
+                    src={`${process.env.PUBLIC_URL}/echoes 2.jpg`}
+                    alt="Performance still from echoes by Ar Utke Acs"
+                />
 
                     <div class="video-wrapper">
-                    <iframe src="https://player.vimeo.com/video/629473430" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                    <iframe src="https://player.vimeo.com/video/629473430" title="echoes trailer" frameborder="0" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
                     </div>
 
                     <p className='accordion-text'>  <p></p>
@@ -484,13 +700,14 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
 
                 <p className= 'selected-work-header'>
                 <i>DUNKA DUNKA</i> &nbsp; remix by Ellen Söderhult                </p>
-                <img 
-                    className='image-content' 
-                    src={process.env.PUBLIC_URL + '/dunkadunka.00_44_36_19.Still036(1).jpeg'} 
-                    alt="bild kann nicht angezeigt werden"   />
+                <SmartImage
+                    className="image-content"
+                    src={`${process.env.PUBLIC_URL}/dunkadunka.00_44_36_19.Still036(1).jpeg`}
+                    alt="Performance still from DUNKA DUNKA"
+                />
 
                 <div class="video-wrapper">
-                <iframe src="https://player.vimeo.com/video/708406231" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                <iframe src="https://player.vimeo.com/video/708406231" title="DUNKA DUNKA trailer" frameborder="0" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
                 </div>
                     <p className='accordion-text'> <p></p>
 
@@ -509,13 +726,14 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
 
                 <p className= 'selected-work-header'>
                 How to do things with romance – a prologue by Ellen Söderhult   </p>
-                <img 
-                    className='image-content' 
-                    src={process.env.PUBLIC_URL + '/how to do things with romance 2.jpg'} 
-                    alt="bild kann nicht angezeigt werden"   />
+                <SmartImage
+                    className="image-content"
+                    src={`${process.env.PUBLIC_URL}/how to do things with romance 2.jpg`}
+                    alt="Ensemble dancing in How to do things with romance"
+                />
 
                     <div class="video-wrapper">
-                     <iframe src="https://player.vimeo.com/video/297615719" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                     <iframe src="https://player.vimeo.com/video/297615719" title="How to do things with romance trailer" frameborder="0" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
                      </div>
 
                     <p className='accordion-text'> <p></p>
@@ -537,14 +755,15 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
         },
 
         {
-            title: 'FACILITATING',
+            title: 'Facilitating',
             body: (
                 <>
 
-                <img 
-                    className='image-content' 
-                    src={process.env.PUBLIC_URL + '/teaching3.jpg'} 
-                    alt="bild kann nicht angezeigt werden"   />
+                <SmartImage
+                    className="image-content"
+                    src={`${process.env.PUBLIC_URL}/teaching3.jpg`}
+                    alt="Emil Ertl teaching a group in a dance studio"
+                />
                     <p className='accordion-text'><p></p>
 
                     Emil is facilitating dance workshops both in institutions as well as community-oriented organizations. The content of their classes varies from each occasion and are puzzled together with improvisation techniques, movement research, commercial jazz dance, instant composition practices and a good sprinkle of 90s pop music. <p></p>
@@ -563,7 +782,7 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
        
 
         {
-            title: 'GET IN TOUCH',
+            title: 'Get in touch',
             body: (
                 <>
                     <p className='accordion-text'><p></p>
@@ -591,7 +810,7 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
 
 
         {
-            title: 'IMPRINT',
+            title: 'Imprint',
             body: (
                 <>
                     <p className='accordion-text'> © Emil Maria Ertl 2023 <br /> <p></p>
@@ -634,36 +853,88 @@ Haftungsausschluss: Die Inhalte dieser Seiten sind mit größter Sorgfalt erstel
         },
         
 
-];
+], []);
 
      return (
         <div>
             <div className="akkordion-wrapper">
-                <div className="accordion">
-                {content.map((item, index) => (
-                    <div key={index} className="accordion-item">
-                        <div 
-                            className="accordion-header" 
-                            ref={el => accordionHeaderRefs.current[index] = el}
-                            onClick={(e) => handleHeaderClick(index, e)}
+                <motion.div
+                    className="accordion"
+                    initial="hidden"
+                    animate="show"
+                    variants={{
+                        hidden: {},
+                        show: {
+                            transition: { staggerChildren: 0.12, delayChildren: 0.15 }
+                        }
+                    }}
+                >
+                {content.map((item, index) => {
+                    const headerId = `accordion-header-${index}`;
+                    const panelId = `accordion-panel-${index}`;
+                    const isActive = activeIndex === index;
+
+                    return (
+                        <motion.div
+                            key={item.title}
+                            className="accordion-item"
+                            variants={{
+                                hidden: { opacity: 0, y: 10 },
+                                show: { opacity: 1, y: 0 }
+                            }}
+                            transition={{ duration: 0.6, ease: [0.2, 0.7, 0.1, 1] }}
                         >
-                            {item.title}
-                        </div>
-                        <AnimatePresence initial={false}>
-                            {activeIndex === index && (
-                                <motion.div 
-                                    initial={{ opacity: 0, height: 0 }}
-                                    animate={{ opacity: 1, height: 'auto' }}
-                                    exit={{ opacity: 0, height: 0 }}
-                                    className="accordion-body"
-                                >
-                                    {item.body}
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
-                    </div>
-                ))}
-                </div>
+                            <button
+                                type="button"
+                                className={`accordion-header${isActive ? ' active' : ''}`}
+                                ref={(el) => {
+                                    if (el) {
+                                        accordionHeaderRefs.current[index] = el;
+                                    } else {
+                                        delete accordionHeaderRefs.current[index];
+                                    }
+                                }}
+                                onClick={() => handleHeaderClick(index)}
+                                aria-expanded={isActive}
+                                aria-controls={panelId}
+                                id={headerId}
+                                style={{ zIndex: 20 }}
+                            >
+                                <span className="accordion-header__text">
+                                    {item.title}
+                                </span>
+                            </button>
+                            <AnimatePresence initial={false}>
+                                {isActive && (
+                                    <motion.div
+                                        key={panelId}
+                                        initial={{ opacity: 0, height: 0 }}
+                                        animate={{ opacity: 1, height: 'auto' }}
+                                        exit={{ opacity: 0, height: 0 }}
+                                        className="accordion-body"
+                                        id={panelId}
+                                        role="region"
+                                        aria-labelledby={headerId}
+                                        style={{ zIndex: 0 }}
+                                    >
+                                        <div className="accordion-body__topline">
+                                            <button
+                                                type="button"
+                                                className="accordion-close"
+                                                onClick={() => closePanel(index)}
+                                                aria-label={`${item.title} schließen`}
+                                            >
+                                                ×
+                                            </button>
+                                        </div>
+                                        {item.body}
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </motion.div>
+                    );
+                })}
+                </motion.div>
             </div>
         </div>
     );
