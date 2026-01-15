@@ -68,14 +68,22 @@ function AccordionWithContent() {
 
     useEffect(() => {
         const overlay = document.querySelector('.background-overlay');
+        const body = document.body;
+        const isMenuOpen = activeIndex !== null;
 
         if (overlay) {
-            overlay.classList.toggle('scrolling', activeIndex !== null);
+            overlay.classList.toggle('menu-open', isMenuOpen);
+        }
+        if (body) {
+            body.classList.toggle('menu-open', isMenuOpen);
         }
 
         return () => {
             if (overlay) {
-                overlay.classList.remove('scrolling');
+                overlay.classList.remove('menu-open');
+            }
+            if (body) {
+                body.classList.remove('menu-open');
             }
         };
     }, [activeIndex]);
@@ -414,116 +422,6 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
             ) 
         },
         {
-            title: 'Choreographing',
-            body: (
-                <>
-                 <p className='accordion-text'> <i>Selected Works</i></p>
-                 <p className= 'selected-work-header'>
-                    Serpentine Serpentine
-                </p>
-                <SmartImage
-                    className="image-content"
-                    src={`${process.env.PUBLIC_URL}/serpentine serpentine.jpg`}
-                    alt="Performance still from Serpentine Serpentine"
-                />
-                    <p className='accordion-text'>Work in Progress <p></p>
-
-
-                <i>Serpentine serpentine never a straight line serpentine.</i> 
-                Along the lines of Peaches’ song Serpentine, this research investigates the notion of creases, crumples, wrinkles and folds. Straightened things appear to function, to be correct, to be clean. Wrinkled or crumpled stuff on the other hand commonly is thought of as messy, wild or inappropriate. Serpentine Serpentine wishes to dissect this dichotomy and examine the potential of the act of crumpling. If the act of straightening stands for heteronormativity, can the act of crumpling be a queer act of resistance? How can we use choreography as a tool to research the act of straightening things out? 
-                <p></p>
-                Concept: Onur Agbaba and Emil Ertl <br />
-                Flutgraben Berlin, 2023 <br />
-                
-                </p> 
-
-                <p className= 'selected-work-header'>
-                    Eigentümliche Verhältnisse
-                </p>
-                <SmartImage
-                    className="image-content"
-                    src={`${process.env.PUBLIC_URL}/eigentümliche verhältnisse 2.jpg`}
-                    alt="Projected still from Eigentümliche Verhältnisse"
-                />
-                    <p className='accordion-text'> Essay-Film <p></p>
-
-
-                    Through performative interventions, this research in essay-film format aims to reveal invisible boundaries of property relations and investigates affects coupled to them. Using the notion of property domination as a world relationship (Sachherrschaft als Weltverhältnis), <i>Eigentümliche Verhältnisse</i> seeks to challenge the manifestation of property relations and the sacredness of private property.  
-                <p></p>
-                Concept, Camera, Choreogaphy: Onur Agbaba,Lotta Beckers, Emil Ertl <br />
-                Spoken Text: Eva von Redecker <br />
-                Song: I’m a Victim of this Song – Pipilotti Rist <br />
-                Fonds DAKU Recherche Förderung HAU Berlin, 2022 <br />
-                Video available on request <br />
-                
-
-                </p> 
-
-
-                <p className= 'selected-work-header'>
-                    Eternal Betrayal
-                </p>
-                <SmartImage
-                    className="image-content"
-                    src={`${process.env.PUBLIC_URL}/eternal betrayal.jpg`}
-                    alt="Two performers during Eternal Betrayal embracing"
-                />
-                      <div class="video-wrapper">
-                 <iframe src="https://player.vimeo.com/video/520291775" title="Eternal Betrayal trailer" frameborder="0" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
-                </div>
-                    <p className='accordion-text'> <p></p>
-
-                    <i>Eternal Betrayal</i> is a collection of various movie scenes that all portray the same thing: a revelation of a betrayal. In film plots, these scenes classically are followed by relief and reharmonization – a narration through which societal morals are revealed. Those morals often point towards heteronormative, cis-patriarchal ideas of order and loyalty. Driven by the desire to stay with brokenness instead of seeking moralist glue to fix it with, <i>Eternal Betrayal</i> invites to soak in your tears and linger within the clarity of (heart)break.
-                <p></p>
-                Concept, Choreography, Performance: Emil Ertl <br />
-                Performance: Renan Manhães <br />
-                Song: Anna von Hausswolff <br />
-                Camera: Alicja Hoppel <br />
-                Dirty Debüt, Ballhaus Ost Berlin + NAH DRAN extended, ada studios Berlin 2021    <br />   
-                Videodocumentation: Alicja Hoppel
-                
-                </p> 
-              
-
-
-
-                <p className= 'selected-work-header'>
-                Outro – riding solo with u                   </p>
-                <SmartImage
-                    className="image-content"
-                    src={`${process.env.PUBLIC_URL}/outro1.jpeg`}
-                    alt="Emil Ertl dancing in Outro – riding solo with u"
-                />
-
-                     <div class="video-wrapper">
-                 <iframe src="https://player.vimeo.com/video/679718479" title="Outro – riding solo with u video" frameborder="0" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
-                </div>
-
-                    <p className='accordion-text'> <p></p>
-
-                    <i>Outro – riding solo with u</i> is a performance made for two and danced by one. Besides dealing with relationality and long distance intimacies, this dance moves within the space between what is lost and what remains when grieving. <i>Outro – riding solo with u</i> can be thought of as a continuation of <i>Eternal Betrayal</i>.
-                    <p></p>
-                    Concept, Choreography, Performance, Sound: Emil Ertl <br />
-                Lights: Isi Oyarzún <br />
-                 Song: Describe – Perfume Genius <br />
-                Broken Knee Festival at Ackerstadtpalast Berlin  <br />
-                Videodocumentation: AsphaltKollektivBerlin e.V. / Lukas Hamm <br /> <p></p>
-        
-                <a href="https://vimeo.com/679718479" target="_blank" rel="noopener noreferrer" class="underline-link">Photos</a> <br />
-
-
-                
-                </p> 
-               
-                </>
-  
-            )
-        },
-
-
-
-
-        {
             title: 'Performing',
             body: (
                 <>
@@ -749,6 +647,116 @@ Emil is based in Berlin and active in Germany, Sweden and internationally.
                 
                 </p> 
                 
+                </>
+  
+            )
+        },
+
+
+
+
+        {
+            title: 'Choreographing',
+            body: (
+                <>
+                 <p className='accordion-text'> <i>Selected Works</i></p>
+                 <p className= 'selected-work-header'>
+                    Serpentine Serpentine
+                </p>
+                <SmartImage
+                    className="image-content"
+                    src={`${process.env.PUBLIC_URL}/serpentine serpentine.jpg`}
+                    alt="Performance still from Serpentine Serpentine"
+                />
+                    <p className='accordion-text'>Work in Progress <p></p>
+
+
+                <i>Serpentine serpentine never a straight line serpentine.</i> 
+                Along the lines of Peaches’ song Serpentine, this research investigates the notion of creases, crumples, wrinkles and folds. Straightened things appear to function, to be correct, to be clean. Wrinkled or crumpled stuff on the other hand commonly is thought of as messy, wild or inappropriate. Serpentine Serpentine wishes to dissect this dichotomy and examine the potential of the act of crumpling. If the act of straightening stands for heteronormativity, can the act of crumpling be a queer act of resistance? How can we use choreography as a tool to research the act of straightening things out? 
+                <p></p>
+                Concept: Onur Agbaba and Emil Ertl <br />
+                Flutgraben Berlin, 2023 <br />
+                
+                </p> 
+
+                <p className= 'selected-work-header'>
+                    Eigentümliche Verhältnisse
+                </p>
+                <SmartImage
+                    className="image-content"
+                    src={`${process.env.PUBLIC_URL}/eigentümliche verhältnisse 2.jpg`}
+                    alt="Projected still from Eigentümliche Verhältnisse"
+                />
+                    <p className='accordion-text'> Essay-Film <p></p>
+
+
+                    Through performative interventions, this research in essay-film format aims to reveal invisible boundaries of property relations and investigates affects coupled to them. Using the notion of property domination as a world relationship (Sachherrschaft als Weltverhältnis), <i>Eigentümliche Verhältnisse</i> seeks to challenge the manifestation of property relations and the sacredness of private property.  
+                <p></p>
+                Concept, Camera, Choreogaphy: Onur Agbaba,Lotta Beckers, Emil Ertl <br />
+                Spoken Text: Eva von Redecker <br />
+                Song: I’m a Victim of this Song – Pipilotti Rist <br />
+                Fonds DAKU Recherche Förderung HAU Berlin, 2022 <br />
+                Video available on request <br />
+                
+
+                </p> 
+
+
+                <p className= 'selected-work-header'>
+                    Eternal Betrayal
+                </p>
+                <SmartImage
+                    className="image-content"
+                    src={`${process.env.PUBLIC_URL}/eternal betrayal.jpg`}
+                    alt="Two performers during Eternal Betrayal embracing"
+                />
+                      <div class="video-wrapper">
+                 <iframe src="https://player.vimeo.com/video/520291775" title="Eternal Betrayal trailer" frameborder="0" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+                </div>
+                    <p className='accordion-text'> <p></p>
+
+                    <i>Eternal Betrayal</i> is a collection of various movie scenes that all portray the same thing: a revelation of a betrayal. In film plots, these scenes classically are followed by relief and reharmonization – a narration through which societal morals are revealed. Those morals often point towards heteronormative, cis-patriarchal ideas of order and loyalty. Driven by the desire to stay with brokenness instead of seeking moralist glue to fix it with, <i>Eternal Betrayal</i> invites to soak in your tears and linger within the clarity of (heart)break.
+                <p></p>
+                Concept, Choreography, Performance: Emil Ertl <br />
+                Performance: Renan Manhães <br />
+                Song: Anna von Hausswolff <br />
+                Camera: Alicja Hoppel <br />
+                Dirty Debüt, Ballhaus Ost Berlin + NAH DRAN extended, ada studios Berlin 2021    <br />   
+                Videodocumentation: Alicja Hoppel
+                
+                </p> 
+              
+
+
+
+                <p className= 'selected-work-header'>
+                Outro – riding solo with u                   </p>
+                <SmartImage
+                    className="image-content"
+                    src={`${process.env.PUBLIC_URL}/outro1.jpeg`}
+                    alt="Emil Ertl dancing in Outro – riding solo with u"
+                />
+
+                     <div class="video-wrapper">
+                 <iframe src="https://player.vimeo.com/video/679718479" title="Outro – riding solo with u video" frameborder="0" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+                </div>
+
+                    <p className='accordion-text'> <p></p>
+
+                    <i>Outro – riding solo with u</i> is a performance made for two and danced by one. Besides dealing with relationality and long distance intimacies, this dance moves within the space between what is lost and what remains when grieving. <i>Outro – riding solo with u</i> can be thought of as a continuation of <i>Eternal Betrayal</i>.
+                    <p></p>
+                    Concept, Choreography, Performance, Sound: Emil Ertl <br />
+                Lights: Isi Oyarzún <br />
+                 Song: Describe – Perfume Genius <br />
+                Broken Knee Festival at Ackerstadtpalast Berlin  <br />
+                Videodocumentation: AsphaltKollektivBerlin e.V. / Lukas Hamm <br /> <p></p>
+        
+                <a href="https://vimeo.com/679718479" target="_blank" rel="noopener noreferrer" class="underline-link">Photos</a> <br />
+
+
+                
+                </p> 
+               
                 </>
   
             )

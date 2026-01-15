@@ -125,6 +125,34 @@ body {
 
 }
 
+.background-overlay.menu-open {
+  background: rgba(255, 47, 168, 0.193);
+}
+
+body.menu-open {
+  background: #ff3b3b;
+  transition: background 0.6s ease;
+}
+
+body.menu-open.scrolling {
+  background: #ff0000;
+}
+
+body.menu-open #root > div {
+  background: #ff3b3b !important;
+  transition: background 0.6s ease;
+}
+
+body.menu-open.scrolling #root > div {
+  background: #ff0000 !important;
+}
+
+body.menu-open .background-image,
+body.menu-open .background-overlay {
+  opacity: 0;
+  pointer-events: none;
+}
+
 
 
 
