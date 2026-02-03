@@ -179,7 +179,7 @@ function AccordionWithContent() {
             return url;
         }
 
-        const match = url.match(/vimeo\\.com\\/(?:video\\/)?(\\d+)/);
+        const match = url.match(/vimeo\.com\/(?:video\/)?(\d+)/);
         if (match && match[1]) {
             return `https://player.vimeo.com/video/${match[1]}`;
         }
