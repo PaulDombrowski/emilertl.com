@@ -1,8 +1,6 @@
 backend:
-  name: github
-  repo: PaulDombrowski/emilertl.com
+  name: git-gateway
   branch: main
-  auth_endpoint: https://decapcms-oauth.netlify.app/.netlify/functions/auth
 media_folder: "public/uploads"
 public_folder: "/uploads"
 collections:
