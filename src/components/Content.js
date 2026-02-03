@@ -194,7 +194,7 @@ function AccordionWithContent() {
 
         const embedUrl = getVimeoEmbedUrl(work.videoUrl);
         const renderDetailLine = (detail, index) => {
-            const match = String(detail).match(/(https?:\\/\\/\\S+)/);
+            const match = String(detail).match(/(https?:\/\/\S+)/);
             if (match) {
                 const url = match[1];
                 const label = String(detail).replace(url, '').replace(/[:\\s]+$/, '').trim() || 'Link';
