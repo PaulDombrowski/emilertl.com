@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: PaulDombrowski/emilertl.com
   branch: main
+  base_url: https://YOUR-WORKER-URL.example.com
+  auth_endpoint: auth
 media_folder: "public/uploads"
 public_folder: "/uploads"
 collections:
