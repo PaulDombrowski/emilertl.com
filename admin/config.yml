@@ -1,0 +1,88 @@
+backend:
+  name: github
+  repo: PaulDombrowski/emilertl.com
+  branch: main
+  auth_endpoint: https://decap-oauth.netlify.app/auth
+media_folder: "public/uploads"
+public_folder: "/uploads"
+collections:
+  - name: "site"
+    label: "Site Content"
+    files:
+      - name: "content"
+        label: "Content"
+        file: "public/content/site.json"
+        format: "json"
+        fields:
+          - { label: "About", name: "about", widget: "object", fields: [
+              { label: "Title", name: "title", widget: "string" },
+              { label: "Image", name: "image", widget: "image" },
+              { label: "Alt Text", name: "imageAlt", widget: "string" },
+              { label: "Paragraphs", name: "paragraphs", widget: "list", field: { label: "Paragraph", name: "paragraph", widget: "text" } }
+            ] }
+          - { label: "CV", name: "cv", widget: "object", fields: [
+              { label: "Education and Scholarships", name: "education", widget: "list", fields: [
+                { label: "Year", name: "year", widget: "string" },
+                { label: "Title", name: "title", widget: "string" },
+                { label: "Venue", name: "venue", widget: "string" }
+              ] },
+              { label: "Work as Choreographer", name: "choreographer", widget: "list", fields: [
+                { label: "Year", name: "year", widget: "string" },
+                { label: "Title", name: "title", widget: "string" },
+                { label: "Venue", name: "venue", widget: "string" }
+              ] },
+              { label: "Work as Performer", name: "performer", widget: "list", fields: [
+                { label: "Year", name: "year", widget: "string" },
+                { label: "Title", name: "title", widget: "string" },
+                { label: "Venue", name: "venue", widget: "string" }
+              ] },
+              { label: "Outside Eye / Assistance", name: "outsideEye", widget: "list", fields: [
+                { label: "Year", name: "year", widget: "string" },
+                { label: "Title", name: "title", widget: "string" },
+                { label: "Venue", name: "venue", widget: "string" }
+              ] },
+              { label: "Work as Pedagogue", name: "pedagogue", widget: "list", fields: [
+                { label: "Year", name: "year", widget: "string" },
+                { label: "Title", name: "title", widget: "string" },
+                { label: "Venue", name: "venue", widget: "string" }
+              ] }
+            ] }
+          - { label: "Performing", name: "performing", widget: "object", fields: [
+              { label: "Intro", name: "intro", widget: "string" },
+              { label: "Works", name: "works", widget: "list", fields: [
+                { label: "Title", name: "title", widget: "string" },
+                { label: "Subtitle", name: "subtitle", widget: "string", required: false },
+                { label: "Image", name: "image", widget: "image", required: false },
+                { label: "Alt Text", name: "imageAlt", widget: "string", required: false },
+                { label: "Video (Vimeo URL)", name: "videoUrl", widget: "string", required: false },
+                { label: "Details", name: "details", widget: "list", field: { label: "Detail", name: "detail", widget: "string" } },
+                { label: "Links", name: "links", widget: "list", required: false, fields: [
+                  { label: "Label", name: "label", widget: "string" },
+                  { label: "URL", name: "url", widget: "string" }
+                ] }
+              ] }
+            ] }
+          - { label: "Choreographing", name: "choreographing", widget: "object", fields: [
+              { label: "Intro", name: "intro", widget: "string" },
+              { label: "Works", name: "works", widget: "list", fields: [
+                { label: "Title", name: "title", widget: "string" },
+                { label: "Image", name: "image", widget: "image", required: false },
+                { label: "Alt Text", name: "imageAlt", widget: "string", required: false },
+                { label: "Video (Vimeo URL)", name: "videoUrl", widget: "string", required: false },
+                { label: "Details", name: "details", widget: "list", field: { label: "Detail", name: "detail", widget: "text" } }
+              ] }
+            ] }
+          - { label: "Facilitating", name: "facilitating", widget: "object", fields: [
+              { label: "Image", name: "image", widget: "image" },
+              { label: "Alt Text", name: "imageAlt", widget: "string" },
+              { label: "Paragraphs", name: "paragraphs", widget: "list", field: { label: "Paragraph", name: "paragraph", widget: "text" } }
+            ] }
+          - { label: "Get in touch", name: "contact", widget: "object", fields: [
+              { label: "Links", name: "links", widget: "list", fields: [
+                { label: "Label", name: "label", widget: "string" },
+                { label: "URL", name: "url", widget: "string" }
+              ] }
+            ] }
+          - { label: "Imprint", name: "imprint", widget: "object", fields: [
+              { label: "Paragraphs", name: "paragraphs", widget: "list", field: { label: "Paragraph", name: "paragraph", widget: "text" } }
+            ] }
