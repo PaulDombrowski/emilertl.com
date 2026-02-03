@@ -2,7 +2,7 @@ backend:
   name: github
   repo: PaulDombrowski/emilertl.com
   branch: main
-  auth_endpoint: https://decap-oauth.netlify.app/auth
+  auth_endpoint: https://decapcms-oauth.netlify.app/auth
 media_folder: "public/uploads"
 public_folder: "/uploads"
 collections:
