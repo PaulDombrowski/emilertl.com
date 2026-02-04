@@ -137,7 +137,39 @@ function AccordionWithContent() {
         });
     }, []);
 
-    const lineHasEmphasis = (line) => /(\*[^*]+\*|_[^_]+_)/.test(String(line));
+    const lineHasEmphasis = useCallback(
+        (line) => /(\*[^*]+\*|_[^_]+_)/.test(String(line)),
+        []
+    );
+
+    const renderParagraphBlocks = useCallback(
+        (text, className = 'accordion-text') => {
+            if (text === null || text === undefined || text === '') {
+                return null;
+            }
+
+            const paragraphs = String(text)
+                .split(/\n\s*\n/)
+                .map((chunk) => chunk.trim())
+                .filter(Boolean);
+
+            return paragraphs.map((paragraph, index) => {
+                const lines = paragraph.split('\n');
+                return (
+                    <p className={className} key={`para-${index}`}>
+                        {lines.map((line, lineIndex) => (
+                            <span key={`line-${index}-${lineIndex}`}>
+                                {renderInlineEmphasis(line)}
+                                {lineIndex < lines.length - 1 ? <br /> : null}
+                                {lineHasEmphasis(line) ? <br /> : null}
+                            </span>
+                        ))}
+                    </p>
+                );
+            });
+        },
+        [lineHasEmphasis, renderInlineEmphasis]
+    );
 
     const renderTextLines = useCallback((text, className = 'accordion-text') => {
         if (!text) {
@@ -170,13 +202,13 @@ function AccordionWithContent() {
         ));
     }, [renderTextLines]);
 
-    const renderCvTable = useCallback((items) => {
+    const renderCvTable = useCallback((items, className = '') => {
         if (!Array.isArray(items)) {
             return null;
         }
 
         return (
-            <table className="accordion-table">
+            <table className={`accordion-table ${className}`.trim()}>
                 <tbody>
                     {items.map((item, index) => (
                         <tr key={`${item.title}-${index}`}>
@@ -238,15 +270,13 @@ function AccordionWithContent() {
 
             return (
                 <span key={`${work.title}-detail-${index}`}>
-                    {renderInlineEmphasis(detail)}
-                    <br />
-                    {lineHasEmphasis(detail) ? <br /> : null}
+                    {renderParagraphBlocks(detail, 'accordion-text detail-paragraph')}
                 </span>
             );
         };
 
         return (
-            <React.Fragment key={`${work.title}-${work.subtitle || ''}`}>
+            <div className="work-block" key={`${work.title}-${work.subtitle || ''}`}>
                 <p className="selected-work-header">
                     <i>{work.title}</i>
                     {work.subtitle ? ` ${work.subtitle}` : null}
@@ -271,9 +301,9 @@ function AccordionWithContent() {
                     </div>
                 ) : null}
                 {Array.isArray(work.details) && work.details.length > 0 ? (
-                    <p className="accordion-text">
+                    <div className="detail-blocks">
                         {work.details.map((detail, index) => renderDetailLine(detail, index))}
-                    </p>
+                    </div>
                 ) : null}
                 {Array.isArray(work.links) && work.links.length > 0 ? (
                     <p className="accordion-text">
@@ -292,9 +322,9 @@ function AccordionWithContent() {
                         ))}
                     </p>
                 ) : null}
-            </React.Fragment>
+            </div>
         );
-    }, [getVimeoEmbedUrl]);
+    }, [getVimeoEmbedUrl, renderParagraphBlocks]);
 
     const content = useMemo(() => {
         if (!siteContent) {
@@ -327,7 +357,7 @@ function AccordionWithContent() {
                 body: (
                     <>
                         <p className="cv-title">Education and Scholarships</p>
-                        {renderCvTable(siteContent.cv?.education)}
+                        {renderCvTable(siteContent.cv?.education, 'cv-education')}
 
                         <p className="cv-title">Work as Choreographer</p>
                         {renderCvTable(siteContent.cv?.choreographer)}

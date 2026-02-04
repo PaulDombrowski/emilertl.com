@@ -486,6 +486,11 @@ body.menu-open .background-overlay {
   width: 70px; /* Hier können Sie die gewünschte Breite definieren */
 }
 
+.cv-education td:first-child {
+  width: 95px;
+  padding-right: 12px;
+}
+
 
 
 .cv-überschrift {
@@ -510,6 +515,18 @@ body.menu-open .background-overlay {
 .selected-work-header {
   margin-top: 80px;
   
+}
+
+.work-block {
+  margin-bottom: 48px;
+}
+
+.detail-blocks {
+  margin-top: 12px;
+}
+
+.detail-paragraph {
+  margin: 0 0 12px 0;
 }
 
 /*responsive*/
