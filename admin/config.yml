@@ -19,7 +19,7 @@ collections:
               { label: "Title", name: "title", widget: "string" },
               { label: "Image", name: "image", widget: "image" },
               { label: "Alt Text", name: "imageAlt", widget: "string" },
-              { label: "Paragraphs", name: "paragraphs", widget: "list", field: { label: "Paragraph", name: "paragraph", widget: "text" } }
+              { label: "Paragraphs", name: "paragraphs", widget: "list", field: { label: "Paragraph", name: "paragraph", widget: "markdown" } }
             ] }
           - { label: "CV", name: "cv", widget: "object", fields: [
               { label: "Education and Scholarships", name: "education", widget: "list", fields: [
@@ -49,14 +49,14 @@ collections:
               ] }
             ] }
           - { label: "Performing", name: "performing", widget: "object", fields: [
-              { label: "Intro", name: "intro", widget: "string" },
+              { label: "Intro", name: "intro", widget: "markdown" },
               { label: "Works", name: "works", widget: "list", fields: [
                 { label: "Title", name: "title", widget: "string" },
                 { label: "Subtitle", name: "subtitle", widget: "string", required: false },
                 { label: "Image", name: "image", widget: "image", required: false },
                 { label: "Alt Text", name: "imageAlt", widget: "string", required: false },
                 { label: "Video (Vimeo URL)", name: "videoUrl", widget: "string", required: false },
-                { label: "Details", name: "details", widget: "list", field: { label: "Detail", name: "detail", widget: "string" } },
+                { label: "Details", name: "details", widget: "list", field: { label: "Detail", name: "detail", widget: "markdown" } },
                 { label: "Links", name: "links", widget: "list", required: false, fields: [
                   { label: "Label", name: "label", widget: "string" },
                   { label: "URL", name: "url", widget: "string" }
@@ -64,19 +64,19 @@ collections:
               ] }
             ] }
           - { label: "Choreographing", name: "choreographing", widget: "object", fields: [
-              { label: "Intro", name: "intro", widget: "string" },
+              { label: "Intro", name: "intro", widget: "markdown" },
               { label: "Works", name: "works", widget: "list", fields: [
                 { label: "Title", name: "title", widget: "string" },
                 { label: "Image", name: "image", widget: "image", required: false },
                 { label: "Alt Text", name: "imageAlt", widget: "string", required: false },
                 { label: "Video (Vimeo URL)", name: "videoUrl", widget: "string", required: false },
-                { label: "Details", name: "details", widget: "list", field: { label: "Detail", name: "detail", widget: "text" } }
+                { label: "Details", name: "details", widget: "list", field: { label: "Detail", name: "detail", widget: "markdown" } }
               ] }
             ] }
           - { label: "Facilitating", name: "facilitating", widget: "object", fields: [
               { label: "Image", name: "image", widget: "image" },
               { label: "Alt Text", name: "imageAlt", widget: "string" },
-              { label: "Paragraphs", name: "paragraphs", widget: "list", field: { label: "Paragraph", name: "paragraph", widget: "text" } }
+              { label: "Paragraphs", name: "paragraphs", widget: "list", field: { label: "Paragraph", name: "paragraph", widget: "markdown" } }
             ] }
           - { label: "Get in touch", name: "contact", widget: "object", fields: [
               { label: "Links", name: "links", widget: "list", fields: [
@@ -85,5 +85,5 @@ collections:
               ] }
             ] }
           - { label: "Imprint", name: "imprint", widget: "object", fields: [
-              { label: "Paragraphs", name: "paragraphs", widget: "list", field: { label: "Paragraph", name: "paragraph", widget: "text" } }
+              { label: "Paragraphs", name: "paragraphs", widget: "list", field: { label: "Paragraph", name: "paragraph", widget: "markdown" } }
             ] }
