@@ -117,6 +117,28 @@ function AccordionWithContent() {
         };
     }, []);
 
+    const renderInlineEmphasis = useCallback((input) => {
+        if (input === null || input === undefined) {
+            return null;
+        }
+
+        const text = String(input);
+        const parts = text.split(/(\*[^*]+\*|_[^_]+_)/g);
+
+        return parts.map((part, index) => {
+            const isAsterisk = part.startsWith('*') && part.endsWith('*') && part.length > 2;
+            const isUnderscore = part.startsWith('_') && part.endsWith('_') && part.length > 2;
+
+            if (isAsterisk || isUnderscore) {
+                return <em key={`em-${index}`}>{part.slice(1, -1)}</em>;
+            }
+
+            return <React.Fragment key={`txt-${index}`}>{part}</React.Fragment>;
+        });
+    }, []);
+
+    const lineHasEmphasis = (line) => /(\*[^*]+\*|_[^_]+_)/.test(String(line));
+
     const renderTextLines = useCallback((text, className = 'accordion-text') => {
         if (!text) {
             return null;
@@ -127,13 +149,14 @@ function AccordionWithContent() {
             <p className={className}>
                 {lines.map((line, index) => (
                     <span key={`${line}-${index}`}>
-                        {line}
+                        {renderInlineEmphasis(line)}
                         {index < lines.length - 1 ? <br /> : null}
+                        {lineHasEmphasis(line) ? <br /> : null}
                     </span>
                 ))}
             </p>
         );
-    }, []);
+    }, [renderInlineEmphasis]);
 
     const renderParagraphs = useCallback((paragraphs) => {
         if (!Array.isArray(paragraphs)) {
@@ -215,8 +238,9 @@ function AccordionWithContent() {
 
             return (
                 <span key={`${work.title}-detail-${index}`}>
-                    {detail}
+                    {renderInlineEmphasis(detail)}
                     <br />
+                    {lineHasEmphasis(detail) ? <br /> : null}
                 </span>
             );
         };
