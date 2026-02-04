@@ -2,7 +2,8 @@ backend:
   name: github
   repo: PaulDombrowski/emilertl.com
   branch: main
-  auth_endpoint: https://decapcms-oauth.netlify.app/.netlify/functions/auth
+  base_url: https://emilertl-cms-auth.luap-wang.workers.dev
+  auth_endpoint: auth
 media_folder: "public/uploads"
 public_folder: "/uploads"
 collections:
