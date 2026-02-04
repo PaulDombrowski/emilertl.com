@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/static/css/main.a71200cd.css",
-    "main.js": "/static/js/main.a706c063.js",
+    "main.js": "/static/js/main.ae3a7d1b.js",
     "static/js/787.673ec1c6.chunk.js": "/static/js/787.673ec1c6.chunk.js",
     "static/media/toxigenesis bd.otf": "/static/media/toxigenesis bd.0e8542309dbc0956cab2.otf",
     "index.html": "/index.html",
     "main.a71200cd.css.map": "/static/css/main.a71200cd.css.map",
-    "main.a706c063.js.map": "/static/js/main.a706c063.js.map",
+    "main.ae3a7d1b.js.map": "/static/js/main.ae3a7d1b.js.map",
     "787.673ec1c6.chunk.js.map": "/static/js/787.673ec1c6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a71200cd.css",
-    "static/js/main.a706c063.js"
+    "static/js/main.ae3a7d1b.js"
   ]
 }
