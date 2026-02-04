@@ -4,7 +4,7 @@
     "image": "/DSC03621-2.jpg",
     "imageAlt": "Portrait of Emil Maria Ertl leaning against a wall",
     "paragraphs": [
-      "Emil Maria Ertl (they/them), *94 in Nürnberg, works as a dancer, choreographer and facilitator in the field of performance art. Both in their own work as well as when collaborating, their main curiosity lies in social relationality and its navigation. When making dance, Emil is interested in porosity, choreography as a container for feelings, holding several perspectives at once, staying with friction, moving within paradoxes, and magic-making.",
+      "Emil Maria Ertl (they/them), *94 in Nürnberg, works as a dancer, choreographer and facilitator in the field of performance art. Both in their own work as well as when collaborating, their main curiosity lies in social relationality and its navigation. When making dance, Emil is interested in porosity, choreography as a container for feelings, holding several perspectives at once, staying with friction, moving within paradoxes, and magic-making..",
       "Emil’s work Eternal Betrayal was shown at Ballhaus Ost in the frame of Dirty Debüt, and at ada studios in the frame of NAH DRAN extended.",
       "As a dancer they work with choreographers such as Ligia Lewis, Anan Fries, Olympia Bukkakis, Anna Lublina, Gry Tingskog, Ellen Söderhult and Ar Utke Acs.",
       "Emil is facilitating dance workshops both in community-centers as well as in institutions.",
@@ -14,78 +14,334 @@
   },
   "cv": {
     "education": [
-      { "year": "2023", "title": "DanceWEB Scholarship", "venue": "Impulstanz Vienna" },
-      { "year": "2016-2019", "title": "BA in Dance Performance", "venue": "Stockholm University of the Arts" },
-      { "year": "2015-2016", "title": "Hochschule für Musik und Tanz", "venue": "Köln" },
-      { "year": "2013-2014", "title": "Dance Intensive", "venue": "Tanzfabrik Berlin" }
+      {
+        "year": "2023",
+        "title": "DanceWEB Scholarship",
+        "venue": "Impulstanz Vienna"
+      },
+      {
+        "year": "2016-2019",
+        "title": "BA in Dance Performance",
+        "venue": "Stockholm University of the Arts"
+      },
+      {
+        "year": "2015-2016",
+        "title": "Hochschule für Musik und Tanz",
+        "venue": "Köln"
+      },
+      {
+        "year": "2013-2014",
+        "title": "Dance Intensive",
+        "venue": "Tanzfabrik Berlin"
+      }
     ],
     "choreographer": [
-      { "year": "2024", "title": "Cuts", "venue": "essay film with Biba Oskar Nass, BUCCI Schaubühne Berlin" },
-      { "year": "2024", "title": "rageroom of insubordinate care", "venue": "collaboration with An* Neely and Iokasti Mantzog, Heizhaus Uferstudios Berlin" },
-      { "year": "2023", "title": "Serpentine Serpentine", "venue": "work in progress with Onur Agbaba, Flutgraben e.V." },
-      { "year": "2023", "title": "masc dance: a research", "venue": "DISTANZEN Dachverband Tanz" },
-      { "year": "2022", "title": "Eigentlich benutze ich dieses Wort nicht. Ein Portrait des Scheiterns in 5 Stimme", "venue": "Audio piece in collaboration with Onur Agbaba, Rahel Barra and Lotta Beckers. HTA Postgraduiertenförderung, Frankfurt am Main" },
-      { "year": "2022", "title": "Eigentümliche Verhältnisse", "venue": "essay-film in collaboration with Onur Agbaba and Lotta Beckers, Recherche Förderung Fonds DAKU, HAU Berlin" },
-      { "year": "2022", "title": "Kämpferisches Tanzen", "venue": "movement research, DISTANZEN Dachverband Deutschland" },
-      { "year": "2022", "title": "Tuning Grooving Testing", "venue": "residency, LAKE studios Berlin" },
-      { "year": "2021", "title": "Eternal Betrayal", "venue": "Dirty Debüt Ballhaus Ost Berlin + NAH DRAN extended ada studio Berlin" },
-      { "year": "2021", "title": "Mini Muscle Drag Show", "venue": "in collaboration with Rahel Barra and Nattan Dobkin, Fleetstreet Theatre Hamburg" },
-      { "year": "2021", "title": "SXLX", "venue": "video series, Ackerstadtpalast Berlin" },
-      { "year": "2021", "title": "Outro – riding solo with u", "venue": "Ackerstadt Palast Berlin" },
-      { "year": "2021", "title": "PLAYDATE", "venue": "with Iokasti Zougrafou, Hosek Contemporary Berlin" },
-      { "year": "2020", "title": "The Cosy Boi Slut Team and The Cunt Brothers", "venue": "dancing group with Sindri Runudde" },
-      { "year": "2020", "title": "The Wild and The Cute – a Call Center for Creatures of Any Kind", "venue": "with Sepideh Khodarahmi, residency at Dansenshus Stockholm" },
-      { "year": "2018", "title": "hole", "venue": "weld Stockholm" }
+      {
+        "year": "2024",
+        "title": "Cuts",
+        "venue": "essay film with Biba Oskar Nass, BUCCI Schaubühne Berlin"
+      },
+      {
+        "year": "2024",
+        "title": "rageroom of insubordinate care",
+        "venue": "collaboration with An* Neely and Iokasti Mantzog, Heizhaus Uferstudios Berlin"
+      },
+      {
+        "year": "2023",
+        "title": "Serpentine Serpentine",
+        "venue": "work in progress with Onur Agbaba, Flutgraben e.V."
+      },
+      {
+        "year": "2023",
+        "title": "masc dance: a research",
+        "venue": "DISTANZEN Dachverband Tanz"
+      },
+      {
+        "year": "2022",
+        "title": "Eigentlich benutze ich dieses Wort nicht. Ein Portrait des Scheiterns in 5 Stimme",
+        "venue": "Audio piece in collaboration with Onur Agbaba, Rahel Barra and Lotta Beckers. HTA Postgraduiertenförderung, Frankfurt am Main"
+      },
+      {
+        "year": "2022",
+        "title": "Eigentümliche Verhältnisse",
+        "venue": "essay-film in collaboration with Onur Agbaba and Lotta Beckers, Recherche Förderung Fonds DAKU, HAU Berlin"
+      },
+      {
+        "year": "2022",
+        "title": "Kämpferisches Tanzen",
+        "venue": "movement research, DISTANZEN Dachverband Deutschland"
+      },
+      {
+        "year": "2022",
+        "title": "Tuning Grooving Testing",
+        "venue": "residency, LAKE studios Berlin"
+      },
+      {
+        "year": "2021",
+        "title": "Eternal Betrayal",
+        "venue": "Dirty Debüt Ballhaus Ost Berlin + NAH DRAN extended ada studio Berlin"
+      },
+      {
+        "year": "2021",
+        "title": "Mini Muscle Drag Show",
+        "venue": "in collaboration with Rahel Barra and Nattan Dobkin, Fleetstreet Theatre Hamburg"
+      },
+      {
+        "year": "2021",
+        "title": "SXLX",
+        "venue": "video series, Ackerstadtpalast Berlin"
+      },
+      {
+        "year": "2021",
+        "title": "Outro – riding solo with u",
+        "venue": "Ackerstadt Palast Berlin"
+      },
+      {
+        "year": "2021",
+        "title": "PLAYDATE",
+        "venue": "with Iokasti Zougrafou, Hosek Contemporary Berlin"
+      },
+      {
+        "year": "2020",
+        "title": "The Cosy Boi Slut Team and The Cunt Brothers",
+        "venue": "dancing group with Sindri Runudde"
+      },
+      {
+        "year": "2020",
+        "title": "The Wild and The Cute – a Call Center for Creatures of Any Kind",
+        "venue": "with Sepideh Khodarahmi, residency at Dansenshus Stockholm"
+      },
+      {
+        "year": "2018",
+        "title": "hole",
+        "venue": "weld Stockholm"
+      }
     ],
     "performer": [
-      { "year": "2026", "title": "LORECORE", "venue": "by Anan Fries, HAU Berlin" },
-      { "year": "2025", "title": "study now steady", "venue": "by Ligia Lewis, IM NOT HERE FORRRRR… exhibition, Martin Gropius Bau Berlin" },
-      { "year": "2025", "title": "All of those records; tell me, bee", "venue": "by Krys Huba, Künstlerhaus Bethanien Berlin" },
-      { "year": "2025", "title": "Magician Pharmacy", "venue": "by Anna Lublina, ausland Berlin" },
-      { "year": "2025", "title": "Bodies in Rebellion", "venue": "by Zufit Simon, eintanzhaus Mannheim" },
-      { "year": "2025", "title": "parasight", "venue": "by Gry Tingskog, Atalante Gothenburg" },
-      { "year": "2024", "title": "The Dumps", "venue": "by Simone Aughterlony and Jen Rosenblit, Callies Berlin" },
-      { "year": "2024", "title": "Unlimited T", "venue": "by Olympia Bukkakis, Pop Kultur Festival Berlin" },
-      { "year": "2024", "title": "Axel Schnulz", "venue": "Queerpol Academy, Hamburg" },
-      { "year": "2024", "title": "JUMBLE", "venue": "by R. Mihatsch, Fuhrwerkswaage Köln" },
-      { "year": "2024", "title": "How to do things with Romance: a prologue", "venue": "by Ellen Söderhult, Blekinge Sweden" },
-      { "year": "2024", "title": "Axel Schnulz Drag King Performance", "venue": "Pop-Kultur Berlin" },
-      { "year": "2024", "title": "The Night", "venue": "by Frida Giulia Franceschini, Radialsystem Berlin" },
-      { "year": "2024", "title": "parasight", "venue": "by Gry Tingskog, Riksteatern Stockholm" },
-      { "year": "2023", "title": "Foyer Phobie", "venue": "by Tümay Kilinçel and Cornelius Schaper, Fortuna Wetten Berlin" },
-      { "year": "2023", "title": "replay", "venue": "by Olympia Bukkakis, co-choregraphy+performance, Sophiensaele Berlin" },
-      { "year": "2022", "title": "Närheten", "venue": "by Tove Sahlin, Tour with Riksteatern Sweden" },
-      { "year": "2022", "title": "The Fishing Dance and Other Cosmic Confessions", "venue": "by Sindri Runudde, Aspen Stockholm" },
-      { "year": "2021", "title": "DUNKA DUNKA", "venue": "remix by Ellen Söderhult, Heizhaus Berlin" },
-      { "year": "2021", "title": "How to do things with romance", "venue": "a prologue by Ellen Söderhult, Palladium Malmö" },
-      { "year": "2021", "title": "echoes", "venue": "by Ar Utke Acs, MDT Stockholm and Danshallerne Copenhagen" },
-      { "year": "2021", "title": "The Fishing Dance and Other Cosmic Confessions", "venue": "by Sindri Runudde, Nordwind Festival, Kampnagel Hamburg" },
-      { "year": "2021", "title": "Landscapes of desire", "venue": "by Tchivett, Künstlerhaus Lukas Aahrenshoop" },
-      { "year": "2019", "title": "echoes", "venue": "by Klara Utke Acs, MDT Stockholm and Danshallerne Copenhagen" },
-      { "year": "2019", "title": "touching landscapes", "venue": "by Tchivett, Uferstudios Berlin" },
-      { "year": "2019", "title": "Ägget, katten och dikten", "venue": "by Pontus Pettersson, Konsthall C Stockholm" },
-      { "year": "2019", "title": "KNOT KNOT", "venue": "by Lea Moro, SKH Stockholm" },
-      { "year": "2018", "title": "DESCTRUCTION LAB", "venue": "by Florentina Holzinger, My Wild Flag, MDT Stockholm" },
-      { "year": "2018", "title": "SPLENDOUR", "venue": "by Stina Nyberg, SKH Stockholm" },
-      { "year": "2018", "title": "borrowed landscape", "venue": "by Heine Avdal & Yukiko Shinozaki/fieldworks, ICA maxi Stockholm" },
-      { "year": "2018", "title": "arrivals procrastinate *echo*", "venue": "by Ar Utke Acs, Norbergfestival Sweden" },
-      { "year": "2017", "title": "OUROBORACULAR", "venue": "by Eleanor Bauer, SKH Stockholm" },
-      { "year": "2016", "title": "How to do things with romance – a prologue", "venue": "by Ellen Söderhult 2016-19: MDT Stockholm, Danshallerne Copenhagen, Black Box Theatre Oslo" }
+      {
+        "year": "2026",
+        "title": "LORECORE",
+        "venue": "by Anan Fries, HAU Berlin"
+      },
+      {
+        "year": "2025",
+        "title": "study now steady",
+        "venue": "by Ligia Lewis, IM NOT HERE FORRRRR… exhibition, Martin Gropius Bau Berlin"
+      },
+      {
+        "year": "2025",
+        "title": "All of those records; tell me, bee",
+        "venue": "by Krys Huba, Künstlerhaus Bethanien Berlin"
+      },
+      {
+        "year": "2025",
+        "title": "Magician Pharmacy",
+        "venue": "by Anna Lublina, ausland Berlin"
+      },
+      {
+        "year": "2025",
+        "title": "Bodies in Rebellion",
+        "venue": "by Zufit Simon, eintanzhaus Mannheim"
+      },
+      {
+        "year": "2025",
+        "title": "parasight",
+        "venue": "by Gry Tingskog, Atalante Gothenburg"
+      },
+      {
+        "year": "2024",
+        "title": "The Dumps",
+        "venue": "by Simone Aughterlony and Jen Rosenblit, Callies Berlin"
+      },
+      {
+        "year": "2024",
+        "title": "Unlimited T",
+        "venue": "by Olympia Bukkakis, Pop Kultur Festival Berlin"
+      },
+      {
+        "year": "2024",
+        "title": "Axel Schnulz",
+        "venue": "Queerpol Academy, Hamburg"
+      },
+      {
+        "year": "2024",
+        "title": "JUMBLE",
+        "venue": "by R. Mihatsch, Fuhrwerkswaage Köln"
+      },
+      {
+        "year": "2024",
+        "title": "How to do things with Romance: a prologue",
+        "venue": "by Ellen Söderhult, Blekinge Sweden"
+      },
+      {
+        "year": "2024",
+        "title": "Axel Schnulz Drag King Performance",
+        "venue": "Pop-Kultur Berlin"
+      },
+      {
+        "year": "2024",
+        "title": "The Night",
+        "venue": "by Frida Giulia Franceschini, Radialsystem Berlin"
+      },
+      {
+        "year": "2024",
+        "title": "parasight",
+        "venue": "by Gry Tingskog, Riksteatern Stockholm"
+      },
+      {
+        "year": "2023",
+        "title": "Foyer Phobie",
+        "venue": "by Tümay Kilinçel and Cornelius Schaper, Fortuna Wetten Berlin"
+      },
+      {
+        "year": "2023",
+        "title": "replay",
+        "venue": "by Olympia Bukkakis, co-choregraphy+performance, Sophiensaele Berlin"
+      },
+      {
+        "year": "2022",
+        "title": "Närheten",
+        "venue": "by Tove Sahlin, Tour with Riksteatern Sweden"
+      },
+      {
+        "year": "2022",
+        "title": "The Fishing Dance and Other Cosmic Confessions",
+        "venue": "by Sindri Runudde, Aspen Stockholm"
+      },
+      {
+        "year": "2021",
+        "title": "DUNKA DUNKA",
+        "venue": "remix by Ellen Söderhult, Heizhaus Berlin"
+      },
+      {
+        "year": "2021",
+        "title": "How to do things with romance",
+        "venue": "a prologue by Ellen Söderhult, Palladium Malmö"
+      },
+      {
+        "year": "2021",
+        "title": "echoes",
+        "venue": "by Ar Utke Acs, MDT Stockholm and Danshallerne Copenhagen"
+      },
+      {
+        "year": "2021",
+        "title": "The Fishing Dance and Other Cosmic Confessions",
+        "venue": "by Sindri Runudde, Nordwind Festival, Kampnagel Hamburg"
+      },
+      {
+        "year": "2021",
+        "title": "Landscapes of desire",
+        "venue": "by Tchivett, Künstlerhaus Lukas Aahrenshoop"
+      },
+      {
+        "year": "2019",
+        "title": "echoes",
+        "venue": "by Klara Utke Acs, MDT Stockholm and Danshallerne Copenhagen"
+      },
+      {
+        "year": "2019",
+        "title": "touching landscapes",
+        "venue": "by Tchivett, Uferstudios Berlin"
+      },
+      {
+        "year": "2019",
+        "title": "Ägget, katten och dikten",
+        "venue": "by Pontus Pettersson, Konsthall C Stockholm"
+      },
+      {
+        "year": "2019",
+        "title": "KNOT KNOT",
+        "venue": "by Lea Moro, SKH Stockholm"
+      },
+      {
+        "year": "2018",
+        "title": "DESCTRUCTION LAB",
+        "venue": "by Florentina Holzinger, My Wild Flag, MDT Stockholm"
+      },
+      {
+        "year": "2018",
+        "title": "SPLENDOUR",
+        "venue": "by Stina Nyberg, SKH Stockholm"
+      },
+      {
+        "year": "2018",
+        "title": "borrowed landscape",
+        "venue": "by Heine Avdal & Yukiko Shinozaki/fieldworks, ICA maxi Stockholm"
+      },
+      {
+        "year": "2018",
+        "title": "arrivals procrastinate *echo*",
+        "venue": "by Ar Utke Acs, Norbergfestival Sweden"
+      },
+      {
+        "year": "2017",
+        "title": "OUROBORACULAR",
+        "venue": "by Eleanor Bauer, SKH Stockholm"
+      },
+      {
+        "year": "2016",
+        "title": "How to do things with romance – a prologue",
+        "venue": "by Ellen Söderhult 2016-19: MDT Stockholm, Danshallerne Copenhagen, Black Box Theatre Oslo"
+      }
     ],
     "outsideEye": [
-      { "year": "2024", "title": "Silver Butch and Baby Butch", "venue": "by Antonia Baehr and Bettina Blanc Penther, HAU Berlin" },
-      { "year": "2022", "title": "IN THE DEPTHS", "venue": "by Sheena McGrandles and Claire Sobottke, Lübbenau" },
-      { "year": "2020", "title": "Die Hörposaune", "venue": "by Antonia Baehr and Jule Flierl, HAU Berlin" },
-      { "year": "2020", "title": "A Touch of the Other", "venue": "by Olympia Bukkakis, Sophiensaele Berlin" },
-      { "year": "2019", "title": "Walking Backwards", "venue": "by Renate Lorenz and Pauline Boudry, Venice Biennale" }
+      {
+        "year": "2024",
+        "title": "Silver Butch and Baby Butch",
+        "venue": "by Antonia Baehr and Bettina Blanc Penther, HAU Berlin"
+      },
+      {
+        "year": "2022",
+        "title": "IN THE DEPTHS",
+        "venue": "by Sheena McGrandles and Claire Sobottke, Lübbenau"
+      },
+      {
+        "year": "2020",
+        "title": "Die Hörposaune",
+        "venue": "by Antonia Baehr and Jule Flierl, HAU Berlin"
+      },
+      {
+        "year": "2020",
+        "title": "A Touch of the Other",
+        "venue": "by Olympia Bukkakis, Sophiensaele Berlin"
+      },
+      {
+        "year": "2019",
+        "title": "Walking Backwards",
+        "venue": "by Renate Lorenz and Pauline Boudry, Venice Biennale"
+      }
     ],
     "pedagogue": [
-      { "year": "2024", "title": "Dragerage", "venue": "workshop on rage for queer youth, Heizhaus Uferstudios + House of Queers Reinickendorf Berlin" },
-      { "year": "2023", "title": "Dance Workshop", "venue": "Queerfilmfestival Leipzig" },
-      { "year": "2023", "title": "Commercial Jazz 4 Queers", "venue": "KUTE Studio Berlin" },
-      { "year": "2022", "title": "Drag and Jazz Dance Workshop", "venue": "Universität Leipzig" },
-      { "year": "2021", "title": "Improvisation for Teens", "venue": "Zirkus CABUWAZI Berlin" },
-      { "year": "2015", "title": "Creative Dance for Kids", "venue": "Jump Bilingual Kindergarten Berlin" }
+      {
+        "year": "2024",
+        "title": "Dragerage",
+        "venue": "workshop on rage for queer youth, Heizhaus Uferstudios + House of Queers Reinickendorf Berlin"
+      },
+      {
+        "year": "2023",
+        "title": "Dance Workshop",
+        "venue": "Queerfilmfestival Leipzig"
+      },
+      {
+        "year": "2023",
+        "title": "Commercial Jazz 4 Queers",
+        "venue": "KUTE Studio Berlin"
+      },
+      {
+        "year": "2022",
+        "title": "Drag and Jazz Dance Workshop",
+        "venue": "Universität Leipzig"
+      },
+      {
+        "year": "2021",
+        "title": "Improvisation for Teens",
+        "venue": "Zirkus CABUWAZI Berlin"
+      },
+      {
+        "year": "2015",
+        "title": "Creative Dance for Kids",
+        "venue": "Jump Bilingual Kindergarten Berlin"
+      }
     ]
   },
   "performing": {
@@ -101,7 +357,10 @@
           "2025-2026"
         ],
         "links": [
-          { "label": "Credits", "url": "https://www.berlinerfestspiele.de/gropius-bau/programm/2025/ausstellungen/ligia-lewis/ausstellungstexte" }
+          {
+            "label": "Credits",
+            "url": "https://www.berlinerfestspiele.de/gropius-bau/programm/2025/ausstellungen/ligia-lewis/ausstellungstexte"
+          }
         ]
       },
       {
@@ -114,7 +373,10 @@
           "2025"
         ],
         "links": [
-          { "label": "Credits", "url": "https://ausland.berlin/event/all-the-rivers-dance-residency-magoki-attori-magician-pharmacy-anna-lublina-laura-stellaci-emil-ertl" }
+          {
+            "label": "Credits",
+            "url": "https://ausland.berlin/event/all-the-rivers-dance-residency-magoki-attori-magician-pharmacy-anna-lublina-laura-stellaci-emil-ertl"
+          }
         ]
       },
       {
@@ -127,7 +389,10 @@
           "2025"
         ],
         "links": [
-          { "label": "Credits", "url": "https://kryshuba.com" }
+          {
+            "label": "Credits",
+            "url": "https://kryshuba.com"
+          }
         ]
       },
       {
@@ -141,7 +406,10 @@
           "Credits: pics Max Borchardt"
         ],
         "links": [
-          { "label": "Credits", "url": "https://eintanzhaus.de/termin/Termine/termin/1796/6171f57b7a8a464c24769e8714dfa542/" }
+          {
+            "label": "Credits",
+            "url": "https://eintanzhaus.de/termin/Termine/termin/1796/6171f57b7a8a464c24769e8714dfa542/"
+          }
         ]
       },
       {
@@ -154,7 +422,10 @@
           "2025"
         ],
         "links": [
-          { "label": "Credits and work in progress video", "url": "https://vimeo.com/event/4143255/e1b9db922a" }
+          {
+            "label": "Credits and work in progress video",
+            "url": "https://vimeo.com/event/4143255/e1b9db922a"
+          }
         ]
       },
       {
@@ -167,7 +438,10 @@
           "2024"
         ],
         "links": [
-          { "label": "Credits", "url": "http://renatemihatsch.com/index.php?/works/jumble-performative-installation/" }
+          {
+            "label": "Credits",
+            "url": "http://renatemihatsch.com/index.php?/works/jumble-performative-installation/"
+          }
         ]
       },
       {
@@ -180,7 +454,10 @@
           "2024"
         ],
         "links": [
-          { "label": "Credits", "url": "https://www.radialsystem.de/en/programm/residenzen/body-time-space/" }
+          {
+            "label": "Credits",
+            "url": "https://www.radialsystem.de/en/programm/residenzen/body-time-space/"
+          }
         ]
       },
       {
@@ -194,7 +471,10 @@
           "2023"
         ],
         "links": [
-          { "label": "Trailer and Credits", "url": "https://www.tanzforumberlin.de/en/production/replay/" }
+          {
+            "label": "Trailer and Credits",
+            "url": "https://www.tanzforumberlin.de/en/production/replay/"
+          }
         ]
       },
       {
@@ -209,7 +489,10 @@
           "Photo: Märta Thisner"
         ],
         "links": [
-          { "label": "Trailer and Credits", "url": "https://vimeo.com/629473430" }
+          {
+            "label": "Trailer and Credits",
+            "url": "https://vimeo.com/629473430"
+          }
         ]
       },
       {
@@ -223,7 +506,10 @@
           "2021"
         ],
         "links": [
-          { "label": "Trailer and Credits", "url": "https://vimeo.com/708406231" }
+          {
+            "label": "Trailer and Credits",
+            "url": "https://vimeo.com/708406231"
+          }
         ]
       },
       {
@@ -237,7 +523,10 @@
           "2016-2021"
         ],
         "links": [
-          { "label": "Trailer and Credits", "url": "https://vimeo.com/297615719" }
+          {
+            "label": "Trailer and Credits",
+            "url": "https://vimeo.com/297615719"
+          }
         ]
       }
     ]
@@ -313,9 +602,18 @@
   },
   "contact": {
     "links": [
-      { "label": "MAIL", "url": "mailto:amertl.mails@gmail.com" },
-      { "label": "VIMEO", "url": "https://vimeo.com/emilertl" },
-      { "label": "INSTAGRAM", "url": "https://instagram.com/emxi_maux?igshid=MzRlODBiNWFlZA==" }
+      {
+        "label": "MAIL",
+        "url": "mailto:amertl.mails@gmail.com"
+      },
+      {
+        "label": "VIMEO",
+        "url": "https://vimeo.com/emilertl"
+      },
+      {
+        "label": "INSTAGRAM",
+        "url": "https://instagram.com/emxi_maux?igshid=MzRlODBiNWFlZA=="
+      }
     ]
   },
   "imprint": {
