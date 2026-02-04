@@ -188,7 +188,7 @@ function AccordionWithContent() {
                 ))}
             </p>
         );
-    }, [renderInlineEmphasis]);
+    }, [lineHasEmphasis, renderInlineEmphasis]);
 
     const renderParagraphs = useCallback((paragraphs) => {
         if (!Array.isArray(paragraphs)) {
