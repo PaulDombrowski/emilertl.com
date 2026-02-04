@@ -2,7 +2,7 @@ backend:
   name: github
   repo: PaulDombrowski/emilertl.com
   branch: main
-  base_url: https://YOUR-WORKER-URL.example.com
+  base_url: https://emilertl-cms-auth.luap-wang.workers.dev
   auth_endpoint: auth
 media_folder: "public/uploads"
 public_folder: "/uploads"
